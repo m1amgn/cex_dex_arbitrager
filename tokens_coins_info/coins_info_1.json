@@ -1,0 +1,1978 @@
+[
+  {
+    "name": "BTC",
+    "coin_id": 1,
+    "blockchains": {}
+  },
+  {
+    "name": "ETH",
+    "coin_id": 1027,
+    "blockchains": {}
+  },
+  {
+    "name": "BNB",
+    "coin_id": 1839,
+    "blockchains": {
+      "Ethereum": "0xb8c77482e45f1f44de1745f52c74426c631bdd52"
+    }
+  },
+  {
+    "name": "SOL",
+    "coin_id": 5426,
+    "blockchains": {}
+  },
+  {
+    "name": "XRP",
+    "coin_id": 52,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe",
+      "Klaytn": "0x9eaefb09fe4aabfbe6b1ca316a3c36afc83a393f"
+    }
+  },
+
+  {
+    "name": "ADA",
+    "coin_id": 2010,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47",
+      "Cardano": "lovelace"
+    }
+  },
+  {
+    "name": "AVAX",
+    "coin_id": 5805,
+    "blockchains": {
+      "Avalanche X-Chain": "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z",
+      "BNB Smart Chain (BEP20)": "0x1ce0c2827e2ef14d5c4f29a091d735a204794041",
+      "Moonbeam": "0x4792c1ecb969b036eb51330c63bd27899a13d84e",
+      "Klaytn": "0xcd8fe44a29db9159db36f96570d7a4d91986f528",
+      "zkSync Era": "0x6a5279e99ca7786fb13f827fc1fb4f61684933d6"
+    }
+  },
+  {
+    "name": "DOGE",
+    "coin_id": 74,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0xba2ae424d960c26247dd6c32edc70b295c744c43"
+    }
+  },
+  {
+    "name": "DOT",
+    "coin_id": 6636,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402",
+      "HECO": "0xa2c49cee16a5e5bdefde931107dc1fae9f7773e3",
+      "Osmosis": "ibc/3FF92D26B407FD61AE95D975712A7C319CDE28DE4D80BDC9978D935932B991D7"
+    }
+  },
+  {
+    "name": "TRX",
+    "coin_id": 1958,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0xCE7de646e7208a4Ef112cb6ed5038FA6cC6b12e3",
+      "Tron20": "0",
+      "Ethereum": "0x50327c6c5a14dcade707abad2e27eb517df87ab5"
+    }
+  },
+  {
+    "name": "MATIC",
+    "coin_id": 3890,
+    "blockchains": {
+      "Ethereum": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+      "BNB Smart Chain (BEP20)": "0xcc42724c6683b7e57334c4e856f4c9965ed682bd",
+      "Solana": "C7NNPWuZCNjZBfW5p6JvGsR8pUdsRpEdP1ZAhnoDwj7h",
+      "Polygon": "0x0000000000000000000000000000000000001010",
+      "Moonbeam": "0x3405a1bd46b85c5c029483fbecf2f3e611026e45",
+      "Polygon zkEVM": "0xa2036f0538221a77a3937f1379699f44945018d0"
+    }
+  },
+  {
+    "name": "LINK",
+    "coin_id": 1975,
+    "blockchains": {
+      "Ethereum": "0x514910771af9ca656af840dff83e8264ecf986ca",
+      "BNB Smart Chain (BEP20)": "0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd",
+      "Solana": "CWE8jPTUYhdCTZYWPTe1o5DFqfdjzWKc9WKz6rSjQUdG",
+      "HECO": "0x9e004545c59d359f6b7bfb06a26390b087717b42",
+      "Gnosis Chain": "0xE2e73A1c69ecF83F464EFCE6A5be353a37cA09b2",
+      "Fantom": "0xb3654dc3D10Ea7645f8319668E8F54d2574FBdC8",
+      "Polygon": "0x53e0bca35ec356bd5dddfebbd1fc0fd03fabad39",
+      "Avalanche C-Chain": "0x5947bb275c521040051d82396192181b413227a3",
+      "Optimism": "0x350a791bfc2c21f9ed5d10980dad2e2638ffa7f6",
+      "Sora": "0x008484148dcf23d1b48908393e7a00d5fdc3bf81029a73eeca62a15ebfb1205a",
+      "Terra Classic": "terra12dfv3f0e6m22z6cnhfn3nxk2en3z3zeqy6ctym",
+      "Hoo Smart Chain": "0x294cde734a863dcf65417992424405bccf3973e7",
+      "Near": "514910771af9ca656af840dff83e8264ecf986ca.factory.bridge.near",
+      "Arbitrum": "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4",
+      "Energi": "0x68Ca48cA2626c415A89756471D4ADe2CC9034008",
+      "Milkomeda": "0xf390830df829cf22c53c8840554b98eafc5dcbc2"
+    }
+  },
+  {
+    "name": "TON",
+    "coin_id": 11419,
+    "blockchains": {
+      "Ethereum": "0x582d872a1b094fc48f5de31d3b73f2d9be47def1",
+      "BNB Smart Chain (BEP20)": "0x76a797a59ba2c17726896976b7b3747bfd1d220f",
+      "TON": "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c"
+    }
+  },
+  {
+    "name": "ICP",
+    "coin_id": 8916,
+    "blockchains": {}
+  },
+  {
+    "name": "SHIB",
+    "coin_id": 5994,
+    "blockchains": {
+      "Ethereum": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"
+    }
+  },
+  {
+    "name": "DAI",
+    "coin_id": 4943,
+    "blockchains": {
+      "Ethereum": "0x6b175474e89094c44da98b954eedeac495271d0f",
+      "BNB Smart Chain (BEP20)": "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3",
+      "Gnosis Chain": "0x44fA8E6f47987339850636F88629646662444217",
+      "Fantom": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "Polygon": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "Avalanche C-Chain": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+      "Optimism": "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+      "Sora": "0x0200060000000000000000000000000000000000000000000000000000000000",
+      "Arbitrum": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "Harmony": "0xef977d2f931c1978db5f6747666fa1eacb0d0339",
+      "Moonriver": "0x80a16016cc4a2e6a2caca8a4a498b1699ff0f844",
+      "Boba Network": "0xf74195Bb8a5cf652411867c5C2C5b8C2a402be35",
+      "Solana": "EjmyN6qEC1Tf1JxiG1ae7UTJhUxSwk1TCWNWqxWV4J6o",
+      "Terra Classic": "terra1zmclyfepfmqvfqflu8r3lv6f75trmg05z7xq95",
+      "Moonbeam": "0x765277eebeca2e31912c9946eae1021199b39c61",
+      "Aurora": "0xe3520349f477a5f6eb06107066048508498a291b",
+      "Klaytn": "0x5c74070fdea071359b86082bd9f9b3deaafbe32b",
+      "Metis Andromeda": "0x4651b38e7ec14bb3db731369bfe5b08f2466bd0a",
+      "Cronos": "0xf2001b145b43032aaf5ee2884e456ccd805f677d",
+      "Near": "6b175474e89094c44da98b954eedeac495271d0f.factory.bridge.near",
+      "Everscale": "0:eb2ccad2020d9af9cec137d3146dde067039965c13a27d97293c931dae22b2b9",
+      "Bitgert": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
+      "Energi": "0x0ee5893f434017d8881750101ea2f7c49c0eb503",
+      "Osmosis": "ibc/0CD3A0285E1341859B5E86B6AB7682F023D03E97607CCC1DC95706411D866DF7",
+      "TON": "EQDo_ZJyQ_YqBzBwbVpMmhbhIddKtRP99HugZJ14aFscxi7B",
+      "PulseChain": "0xefd766ccb38eaf1dfd701853bfce31359239f305",
+      "Starknet": "0xda114221cb83fa859dbdb4c44beeaa0bb37c7537ad5ae66fe5e0efd20e6eb3"
+    }
+  },
+  {
+    "name": "LTC",
+    "coin_id": 2,
+    "blockchains": {
+      "HECO": "0xecb56cf772b5c9a6907fb7d32387da2fcbfb63b4",
+      "BNB Smart Chain (BEP20)": "0x4338665cbb7b2485a8855a139b75d5e34ab0db94",
+      "Hoo Smart Chain": "0x13e93721dc992b3e14333dbdb48c0e7ec55431c3"
+    }
+  },
+  {
+    "name": "BCH",
+    "coin_id": 1831,
+    "blockchains": {
+      "HECO": "0xef3cebd77e0c52cb6f60875d9306397b5caca375",
+      "BNB Smart Chain (BEP20)": "0x8fF795a6F4D97E7887C79beA79aba5cc76444aDf"
+    }
+  },
+  {
+    "name": "UNI",
+    "coin_id": 7083,
+    "blockchains": {
+      "Ethereum": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+      "BNB Smart Chain (BEP20)": "0xbf5140a22578168fd562dccf235e5d43a02ce9b1",
+      "HECO": "0x22c54ce8321a4015740ee1109d9cbc25815c46e6",
+      "Gnosis Chain": "0x4537e328bf7e4efa29d05caea260d7fe26af9d74",
+      "Polygon": "0xb33eaad8d922b1083446dc23f610c2567fb5180f",
+      "Sora": "0x009be848df92a400da2f217256c88d1a9b1a0304f9b3e90991a67418e1d3b08c",
+      "Avalanche C-Chain": "0x8eBAf22B6F053dFFeaf46f4Dd9eFA95D89ba8580",
+      "Solana": "8FU95xFJhUUkyyCLU13HSzDLs7oC4QZdXQHL6SCeab36",
+      "Terra Classic": "terra1wyxkuy5jq545fn7xfn3enpvs5zg9f9dghf6gxf",
+      "Hoo Smart Chain": "0x1fc14e78612edc54e36506c4a11a1a3be4fe48af",
+      "Arbitrum": "0xFa7F8980b0f1E64A2062791cc3b0871572f1F7f0",
+      "Near": "1f9840a85d5af5bf1d1762f925bdaddc4201f984.factory.bridge.near"
+    }
+  },
+  {
+    "name": "ATOM",
+    "coin_id": 3794,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x0eb3a705fc54725037cc9e008bdede697f62f335",
+      "Osmosis": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
+      "Ethereum": "0x8D983cb9388EaC77af0474fA441C4815500Cb7BB",
+      "Polygon": "0xac51C4c48Dc3116487eD4BC16542e27B5694Da1b",
+      "Cronos": "0xb888d8dd1733d72681b30c00ee76bde93ae7aa93",
+      "Canto": "0xecEEEfCEE421D8062EF8d6b4D814efe4dc898265"
+    }
+  },
+  {
+    "name": "NEAR",
+    "coin_id": 6535,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x1fa4a73a3f0133f0025378af00236f3abdee5d63"
+    }
+  },
+  {
+    "name": "LEO",
+    "coin_id": 3957,
+    "blockchains": {
+      "Ethereum": "0x2af5d2ad76741191d15dfe7bf6ac92d4bd912ca3"
+    }
+  },
+  {
+    "name": "OP",
+    "coin_id": 11840,
+    "blockchains": {
+      "Optimism": "0x4200000000000000000000000000000000000042"
+    }
+  },
+  {
+    "name": "XLM",
+    "coin_id": 512,
+    "blockchains": {}
+  },
+  {
+    "name": "APT",
+    "coin_id": 21794,
+    "blockchains": {
+      "Aptos": "0x1::aptos_coin::AptosCoin"
+    }
+  },
+  {
+    "name": "OKB",
+    "coin_id": 3897,
+    "blockchains": {
+      "Ethereum": "0x75231f58b43240c9718dd58b4967c5114342a86c",
+      "OKExChain": "0xdf54b6c6195ea4d948d03bfd818d365cf175cfc2"
+    }
+  },
+  {
+    "name": "INJ",
+    "coin_id": 7226,
+    "blockchains": {
+      "Injective": "inj",
+      "Osmosis": "ibc/64BA6E31FE887D66C6F8F31C7B1A80C7CA179239677B4088BB55F5EA07DBE273",
+      "BNB Smart Chain (BEP20)": "0xa2b726b1145a4773f68593cf171187d8ebe4d495",
+      "Ethereum": "0xe28b3b32b6c345a34ff64674606124dd5aceca30"
+    }
+  },
+  {
+    "name": "FIL",
+    "coin_id": 2280,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x0d8ce2a99bb6e3b7db580ed848240e4a0f9ae153",
+      "HECO": "0xae3a768f9ab104c69a7cd6041fe16ffa235d1810",
+      "Hoo Smart Chain": "0x0bf85d3b0c9ebcc282fde0591882d12e57e700b3"
+    }
+  },
+  {
+    "name": "XMR",
+    "coin_id": 328,
+    "blockchains": {
+      "Secret": "secret19ungtd2c7srftqdwgq0dspwvrw63dhu79qxv88"
+    }
+  },
+  {
+    "name": "HBAR",
+    "coin_id": 4642,
+    "blockchains": {}
+  },
+  {
+    "name": "ETC",
+    "coin_id": 1321,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x3d6545b08693dae087e957cb1180ee38b9e3c25e"
+    }
+  },
+  {
+    "name": "LDO",
+    "coin_id": 8000,
+    "blockchains": {
+      "Ethereum": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+      "BNB Smart Chain (BEP20)": "0x986854779804799C1d68867F5E03e601E781e41b",
+      "Solana": "HZRCwxP2Vq9PCpPXooayhJ2bxTpo5xfpQrwB1svh332p",
+      "Terra Classic": "terra1jxypgnfa07j6w92wazzyskhreq2ey2a5crgt6z"
+    }
+  },
+  {
+    "name": "IMX",
+    "coin_id": 10603,
+    "blockchains": {
+      "Ethereum": "0xf57e7e7c23978c3caec3c3548e3d615c346e79ff"
+    }
+  },
+  {
+    "name": "ARB",
+    "coin_id": 11841,
+    "blockchains": {
+      "Arbitrum": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "Ethereum": "0xB50721BCf8d664c30412Cfbc6cf7a15145234ad1"
+    }
+  },
+  {
+    "name": "CRO",
+    "coin_id": 3635,
+    "blockchains": {
+      "Ethereum": "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b",
+      "Solana": "DvjMYMVeXgKxaixGKpzQThLoG98nc7HSU7eanzsdCboA",
+      "Osmosis": "ibc/E6931F78057F7CC5DA0FD6CEF82FF39373A6E0452BF1FD76910B93292CF356C1"
+    }
+  },
+  {
+    "name": "TIA",
+    "coin_id": 22861,
+    "blockchains": {
+      "Osmosis": "ibc/D79E7D83AB399BFFF93433E54FAA480C191248FC556924A2A8351AE2638B3877"
+    }
+  },
+  {
+    "name": "KAS",
+    "coin_id": 20396,
+    "blockchains": {}
+  },
+  {
+    "name": "VET",
+    "coin_id": 3077,
+    "blockchains": {}
+  },
+  {
+    "name": "TUSD",
+    "coin_id": 2563,
+    "blockchains": {
+      "Ethereum": "0x0000000000085d4780B73119b644AE5ecd22b376",
+      "BNB Smart Chain (BEP20)": "0x40af3827F39D0EAcBF4A168f8D4ee67c121D11c9",
+      "BNB Beacon Chain (BEP2)": "TUSDB-888",
+      "Avalanche C-Chain": "0x1c20e891bab6b1727d14da358fae2984ed9b59eb",
+      "Tron20": "TUpMhErZL2fhh4sVNULAbNKLokS4GjC1F4",
+      "Arbitrum": "0x4D15a3A2286D883AF0AA1B3f21367843FAc63E07"
+    }
+  },
+  {
+    "name": "STX",
+    "coin_id": 4847,
+    "blockchains": {}
+  },
+  {
+    "name": "MNT",
+    "coin_id": 27075,
+    "blockchains": {
+      "Ethereum": "0x3c3a81e81dc49a522a592e7622a7e711c06bf354"
+    }
+  },
+  {
+    "name": "SEI",
+    "coin_id": 23149,
+    "blockchains": {
+      "Sei Network": "usei"
+    }
+  },
+  {
+    "name": "RUNE",
+    "coin_id": 4157,
+    "blockchains": {}
+  },
+  {
+    "name": "FDUSD",
+    "coin_id": 26081,
+    "blockchains": {
+      "Ethereum": "0xc5f0f7b66764F6ec8C8Dff7BA683102295E16409",
+      "BNB Smart Chain (BEP20)": "0xc5f0f7b66764F6ec8C8Dff7BA683102295E16409"
+    }
+  },
+  {
+    "name": "GRT",
+    "coin_id": 6719,
+    "blockchains": {
+      "Ethereum": "0xc944e90c64b2c07662a292be6244bdf05cda44a7",
+      "Sora": "0x00d1fb79bbd1005a678fbf2de9256b3afe260e8eead49bb07bd3a566f9fe8355",
+      "Avalanche C-Chain": "0x8a0cAc13c7da965a312f08ea4229c37869e85cB9",
+      "Solana": "HGsLG4PnZ28L8A4R5nPqKgZd86zUUdmfnkTRnuFJ5dAX",
+      "Arbitrum": "0x9623063377AD1B27544C965cCd7342f7EA7e88C7",
+      "Near": "c944e90c64b2c07662a292be6244bdf05cda44a7.factory.bridge.near"
+    }
+  },
+  {
+    "name": "RNDR",
+    "coin_id": 5690,
+    "blockchains": {
+      "Ethereum": "0x6de037ef9ad2725eb40118bb1702ebb27e4aeb24",
+      "Polygon": "0x61299774020dA444Af134c82fa83E3810b309991",
+      "Solana": "rndrizKT3MK1iimdxRdWabcF7Zg7AR5T4nud4EkHBof"
+    }
+  },
+  {
+    "name": "ALGO",
+    "coin_id": 4030,
+    "blockchains": {
+      "Algorand": "0"
+    }
+  },
+  {
+    "name": "BSV",
+    "coin_id": 3602,
+    "blockchains": {}
+  },
+  {
+    "name": "MKR",
+    "coin_id": 1518,
+    "blockchains": {
+      "Ethereum": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+      "BNB Smart Chain (BEP20)": "0x5f0da599bb2cccfcf6fdfd7d81743b6020864350",
+      "Avalanche C-Chain": "0x88128fd4b259552A9A1D457f435a6527AAb72d42"
+    }
+  },
+  {
+    "name": "ORDI",
+    "coin_id": 25028,
+    "blockchains": {
+      "Ordinals - BRC20": "b61b0172d95e266c18aea0c624db987e971a5d6d4ebc2aaed85da4642d635735i0"
+    }
+  },
+  {
+    "name": "EGLD",
+    "coin_id": 6892,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0xbf7c81fff98bbe61b40ed186e4afd6ddd01337fe"
+    }
+  },
+  {
+    "name": "QNT",
+    "coin_id": 3155,
+    "blockchains": {
+      "Ethereum": "0x4a220e6096b25eadb88358cb44068a3248254675"
+    }
+  },
+  {
+    "name": "AAVE",
+    "coin_id": 7278,
+    "blockchains": {
+      "Ethereum": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+      "HECO": "0x202b4936fe1a82a4965220860ae46d7d3939bb25",
+      "Gnosis Chain": "0xDF613aF6B44a31299E48131e9347F034347E2F00",
+      "Fantom": "0x6a07A792ab2965C72a5B8088d3a069A7aC3a993B",
+      "Avalanche C-Chain": "0x8ce2dee54bb9921a2ae0a63dbb2df8ed88b91dd9",
+      "Polygon": "0xd6df932a45c0f255f85145f286ea0b292b21c90b",
+      "BNB Smart Chain (BEP20)": "0xfb6115445bff7b52feb98650c87f44907e58f802",
+      "Sora": "0x0091bd8d8295b25cab5a7b8b0e44498e678cfc15d872ede3215f7d4c7635ba36",
+      "Solana": "3vAs4D1WE6Na4tCgt4BApgFfENbm8WY7q4cSPD1yM4Cg",
+      "Near": "7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9.factory.bridge.near"
+    }
+  },
+  {
+    "name": "1000SATS",
+    "coin_id": 28683,
+    "blockchains": {}
+  },
+  {
+    "name": "MINA",
+    "coin_id": 8646,
+    "blockchains": {}
+  },
+  {
+    "name": "FLOW",
+    "coin_id": 4558,
+    "blockchains": {
+      "Ethereum": "0x5c147e74D63B1D31AA3Fd78Eb229B65161983B2b"
+    }
+  },
+  {
+    "name": "FTM",
+    "coin_id": 3513,
+    "blockchains": {
+      "Ethereum": "0x4e15361fd6b4bb609fa63c81a2be19d873717870",
+      "BNB Smart Chain (BEP20)": "0xad29abb318791d579433d831ed122afeaf29dcfe",
+      "BNB Beacon Chain (BEP2)": "FTM-A64",
+      "Solana": "8gC27rQF4NEDYfyf5aS8ZmQJUum5gufowKGYRRba4ENN",
+      "Celo": "0x218c3c3d49d0e7b37aff0d8bb079de36ae61a4c0"
+    }
+  },
+  {
+    "name": "THETA",
+    "coin_id": 2416,
+    "blockchains": {}
+  },
+  {
+    "name": "SAND",
+    "coin_id": 6210,
+    "blockchains": {
+      "Ethereum": "0x3845badAde8e6dFF049820680d1F14bD3903a5d0",
+      "Solana": "49c7WuCZkQgc3M4qH8WuEUNXfgwupZf1xqWkDQ7gjRGt",
+      "Polygon": "0xbbba073c31bf03b8acf7c28ef0738decf3695683"
+    }
+  },
+  {
+    "name": "AXS",
+    "coin_id": 6783,
+    "blockchains": {
+      "Ethereum": "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b",
+      "BNB Smart Chain (BEP20)": "0x715d400f88c167884bbcc41c5fea407ed4d2f8a0",
+      "Solana": "HysWcbHiYY9888pHbaqhwLYZQeZrcQMXKQWRqS7zcPK5",
+      "Harmony": "0x14a7b318fed66ffdcc80c1517c172c13852865de",
+      "Ronin": "0x97a9107c1793bc407d6f527b77e7fff4d812bece"
+    }
+  },
+  {
+    "name": "BTT",
+    "coin_id": 16086,
+    "blockchains": {
+      "Tron20": "TAFjULxiVgT4qWk6UZwjqwZXTSaGaqnVp4",
+      "Ethereum": "0xc669928185dbce49d2230cc9b0979be6dc797957",
+      "BNB Smart Chain (BEP20)": "0x352Cb5E19b12FC216548a2677bD0fce83BaE434B"
+    }
+  },
+  {
+    "name": "SNX",
+    "coin_id": 2586,
+    "blockchains": {
+      "Ethereum": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+      "BNB Smart Chain (BEP20)": "0x9ac983826058b8a9c7aa1c9171441191232e8404",
+      "HECO": "0x777850281719d5a96c29812ab72f822e0e09f3da",
+      "Fantom": "0x56ee926bD8c72B2d5fa1aF4d9E4Cbb515a1E3Adc",
+      "Optimism": "0x8700daec35af8ff88c16bdf0418774cb3d7599b4",
+      "Polygon": "0x50b728d8d964fd00c2d0aad81718b71311fef68a",
+      "Avalanche C-Chain": "0xBeC243C995409E6520D7C41E404da5dEba4b209B",
+      "Solana": "8cTNUtcV2ueC3royJ642uRnvTxorJAWLZc58gxAo7y56",
+      "Near": "c011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f.factory.bridge.near"
+    }
+  },
+  {
+    "name": "BEAM",
+    "coin_id": 28298,
+    "blockchains": {
+      "Ethereum": "0x62D0A8458eD7719FDAF978fe5929C6D342B0bFcE",
+      "BNB Smart Chain (BEP20)": "0x62D0A8458eD7719FDAF978fe5929C6D342B0bFcE"
+    }
+  },
+  {
+    "name": "BUSD",
+    "coin_id": 4687,
+    "blockchains": {
+      "BNB Beacon Chain (BEP2)": "BUSD-BD1",
+      "Ethereum": "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
+      "BNB Smart Chain (BEP20)": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "Avalanche C-Chain": "0x9C9e5fD8bbc25984B178FdCE6117Defa39d2db39",
+      "Velas": "0xc111c29a988ae0c0087d97b33c6e6766808a3bd3",
+      "Harmony": "0xe176ebe47d621b984a73036b9da5d834411ef734",
+      "Solana": "33fsBLA8djQm82RpHmE3SuVrPGtZBWNYExsEUeKX1HXX",
+      "Polygon": "0x9C9e5fD8bbc25984B178FdCE6117Defa39d2db39",
+      "Bitgert": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
+      "Fuse": "0x6a5F6A8121592BeCd6747a38d67451B310F7f156",
+      "Tron20": "TMz2SWatiAtZVVcH2ebpsbVtYwUPT9EdjH",
+      "zkSync Era": "0x2039bb4116B4EFc145Ec4f0e2eA75012D6C0f181",
+      "Linea": "0x7d43AABC515C356145049227CeE54B608342c0ad"
+    }
+  },
+  {
+    "name": "HNT",
+    "coin_id": 5665,
+    "blockchains": {
+      "Solana": "hntyVP6YFm1Hg25TN9WGLqM12b8TQmcknKrdu1oxWux"
+    }
+  },
+  {
+    "name": "KCS",
+    "coin_id": 2087,
+    "blockchains": {
+      "Ethereum": "0xf34960d9d60be18cc1d5afc1a6f012a723a28811"
+    }
+  },
+  {
+    "name": "WEMIX",
+    "coin_id": 7548,
+    "blockchains": {}
+  },
+  {
+    "name": "XTZ",
+    "coin_id": 2011,
+    "blockchains": {
+      "Tezos": "Tez",
+      "BNB Smart Chain (BEP20)": "0x16939ef78684453bfdfb47825f8a5f714f12623a"
+    }
+  },
+  {
+    "name": "BGB",
+    "coin_id": 11092,
+    "blockchains": {
+      "Ethereum": "0x19de6b897ed14a376dda0fe53a5420d2ac828a28"
+    }
+  },
+  {
+    "name": "ASTR",
+    "coin_id": 12885,
+    "blockchains": {}
+  },
+  {
+    "name": "SUI",
+    "coin_id": 20947,
+    "blockchains": {
+      "Sui Network": "0x2::sui::SUI"
+    }
+  },
+  {
+    "name": "FTT",
+    "coin_id": 4195,
+    "blockchains": {
+      "BNB Beacon Chain (BEP2)": "FTT-F11",
+      "Ethereum": "0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9",
+      "Solana": "AGFEad2et2ZJif9jaGpdMixQqvW5i81aBdvKe7PHNfz3"
+    }
+  },
+  {
+    "name": "KAVA",
+    "coin_id": 4846,
+    "blockchains": {
+      "Ethereum": "0x0C356B7fD36a5357E5A017EF11887ba100C9AB76",
+      "BNB Beacon Chain (BEP2)": "KAVA-10C",
+      "Polygon": "0x87D32F2C0A3D6D091772890C81E321026454a125",
+      "Osmosis": "ibc/57AA1A70A4BC9769C525EBF6386F7A21536E04A79D62E1981EFCEF9428EBB205"
+    }
+  },
+  {
+    "name": "NEO",
+    "coin_id": 1376,
+    "blockchains": {}
+  },
+  {
+    "name": "ROSE",
+    "coin_id": 7653,
+    "blockchains": {
+      "Ethereum": "0x26B80FBfC01b71495f477d5237071242e0d959d7",
+      "BNB Smart Chain (BEP20)": "0x6c6D604D3f07aBE287C1A3dF0281e999A83495C0",
+      "Solana": "S3SQfD6RheMXQ3EEYn1Z5sJsbtwfXdt7tSAVXPQFtYo",
+      "Avalanche C-Chain": "0x12AF5C1a232675f62F405b5812A80e7a6F75D746"
+    }
+  },
+  {
+    "name": "MANA",
+    "coin_id": 1966,
+    "blockchains": {
+      "Ethereum": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
+      "Gnosis Chain": "0x7838796B6802B18D7Ef58fc8B757705D6c9d12b3",
+      "Solana": "7dgHoN8wBZCc5wbnQ2C47TDnBMAxG4Q5L3KjP67z8kNi",
+      "Fusion Network": "0x61be5df5459573a7c25673e74281cef4cef81e7d"
+    }
+  },
+  {
+    "name": "KLAY",
+    "coin_id": 4256,
+    "blockchains": {
+      "Klaytn": "0x0000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "name": "EOS",
+    "coin_id": 1765,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x56b6fb708fc5732dec1afc8d8556423a2edccbd6",
+      "HECO": "0xae3a94a6dc7fce46b40d63bbf355a3ab2aa2a588"
+    }
+  },
+  {
+    "name": "OSMO",
+    "coin_id": 12220,
+    "blockchains": {
+      "Ethereum": "0x93A62Ccfcf1EfCB5f60317981F71ed6Fb39F4BA2",
+      "Polygon": "0x8C7a56F2F2fD97DA0f5b4FAde180Fa8DC3fbEa8D",
+      "Cosmos": "uosmo",
+      "Osmosis": "uosmo"
+    }
+  },
+  {
+    "name": "IOTA",
+    "coin_id": 1720,
+    "blockchains": {}
+  },
+  {
+    "name": "WOO",
+    "coin_id": 7501,
+    "blockchains": {
+      "Ethereum": "0x4691937a7508860f876c9c0a2a617e7d9e945d4b",
+      "BNB Smart Chain (BEP20)": "0x4691937a7508860f876c9c0a2a617e7d9e945d4b",
+      "Solana": "E5rk3nmgLUuKUiS94gg4bpWwWwyjCMtddsAXkTFLtHEy",
+      "HECO": "0x3befb2308bce92da97264077faf37dcd6c8a75e6",
+      "Fantom": "0x6626c47c00F1D87902fc13EECfaC3ed06D5E8D8a",
+      "Polygon": "0x1B815d120B3eF02039Ee11dC2d33DE7aA4a8C603",
+      "Avalanche C-Chain": "0xabc9547b534519ff73921b1fba6e672b5f58d083",
+      "OKExChain": "0x5427a224E50A9aF4d030AeeCD2a686D41F348DFE",
+      "Arbitrum": "0xcafcd85d8ca7ad1e1c6f82f651fa15e33aefd07b",
+      "Near": "4691937a7508860f876c9c0a2a617e7d9e945d4b.factory.bridge.near"
+    }
+  },
+  {
+    "name": "CAKE",
+    "coin_id": 7186,
+    "blockchains": {
+      "Ethereum": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+      "BNB Smart Chain (BEP20)": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
+      "Arbitrum": "0x1b896893dfc86bb67Cf57767298b9073D2c1bA2c",
+      "Aptos": "0x159df6b7689437016108a019fd5bef736bac692b6d4a1f10c941f6fbb9a74ca6::oft::CakeOFT",
+      "zkSync Era": "0x3A287a06c66f9E95a56327185cA2BDF5f031cEcD",
+      "Polygon zkEVM": "0x0D1E753a25eBda689453309112904807625bEFBe",
+      "Linea": "0x0D1E753a25eBda689453309112904807625bEFBe",
+      "Base": "0x3055913c90Fcc1A6CE9a358911721eEb942013A1"
+    }
+  },
+  {
+    "name": "BONK",
+    "coin_id": 23095,
+    "blockchains": {
+      "Solana": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263"
+    }
+  },
+  {
+    "name": "GALA",
+    "coin_id": 7080,
+    "blockchains": {
+      "Ethereum": "0xd1d2Eb1B1e90B638588728b4130137D262C87cae"
+    }
+  },
+  {
+    "name": "LUNC",
+    "coin_id": 4172,
+    "blockchains": {
+      "Ethereum": "0xbd31ea8212119f94a611fa969881cba3ea06fa3d",
+      "BNB Smart Chain (BEP20)": "0x156ab3346823B651294766e23e6Cf87254d68962",
+      "Solana": "F6v4wfAdJB8D8p77bMXZgYt8TDKsYxLYxH5AFhUkYx9W",
+      "Terra Classic": "uluna",
+      "Polygon": "0x9cd6746665D9557e1B9a775819625711d0693439",
+      "Avalanche C-Chain": "0x70928E5B188def72817b7775F0BF6325968e563B",
+      "Osmosis": "ibc/0EF15DF2F02480ADE0BB6E85D9EBB5DAEA2836D3860E9F97F9AADE4F57A31AA0",
+      "Secret": "secret1ra7avvjh9fhr7dtr3djutugwj59ptctsrakyyw"
+    }
+  },
+  {
+    "name": "XDC",
+    "coin_id": 2634,
+    "blockchains": {}
+  },
+  {
+    "name": "USDD",
+    "coin_id": 19891,
+    "blockchains": {
+      "Ethereum": "0x0c10bf8fcb7bf5412187a595ab97a3609160b5c6",
+      "BNB Smart Chain (BEP20)": "0xd17479997f34dd9156deef8f95a52d81d265be9c",
+      "Tron20": "TPYmHEhy5n8TCEfYGqW2rPxsghSfzghPDn",
+      "Near": "0c10bf8fcb7bf5412187a595ab97a3609160b5c6.factory.bridge.near"
+    }
+  },
+  {
+    "name": "XEC",
+    "coin_id": 10791,
+    "blockchains": {}
+  },
+  {
+    "name": "FXS",
+    "coin_id": 6953,
+    "blockchains": {
+      "Ethereum": "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
+      "BNB Smart Chain (BEP20)": "0xe48A3d7d0Bc88d552f730B62c006bC925eadB9eE",
+      "Solana": "6LX8BhMQ4Sy2otmAWj7Y5sKd9YTVVUgfMsBzT6B9W7ct",
+      "Fantom": "0x82f8cb20c14f134fe6ebf7ac3b903b2117aafa62",
+      "Avalanche C-Chain": "0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454",
+      "Arbitrum": "0x9d2f299715d94d8a7e6f5eaa8e654e8c74a988a7"
+    }
+  },
+  {
+    "name": "CFX",
+    "coin_id": 7334,
+    "blockchains": {}
+  },
+  {
+    "name": "CHZ",
+    "coin_id": 4066,
+    "blockchains": {
+      "Ethereum": "0x3506424f91fd33084466f402d5d97f05f8e3b4af",
+      "BNB Beacon Chain (BEP2)": "CHZ-ECD",
+      "Solana": "5TtSKAamFq88grN1QGrEaZ1AjjyciqnCya1aiMhAgFvG"
+    }
+  },
+  {
+    "name": "BLUR",
+    "coin_id": 23121,
+    "blockchains": {
+      "Ethereum": "0x5283d291dbcf85356a21ba090e6db59121208b44"
+    }
+  },
+  {
+    "name": "AKT",
+    "coin_id": 7431,
+    "blockchains": {
+      "Osmosis": "ibc/1480B8FD20AD5FCAE81EA87584D269547DD4D436843C1D20F15E00EB64743EF4"
+    }
+  },
+  {
+    "name": "CSPR",
+    "coin_id": 5899,
+    "blockchains": {}
+  },
+  {
+    "name": "CRV",
+    "coin_id": 6538,
+    "blockchains": {
+      "Ethereum": "0xD533a949740bb3306d119CC777fa900bA034cd52",
+      "Gnosis Chain": "0x712b3d230f3c1c19db860d80619288b1f0bdd0bd",
+      "Fantom": "0x1E4F97b9f9F913c46F1632781732927B9019C68b",
+      "Solana": "7gjNiPun3AzEazTZoFEjZgcBMeuaXdpjHq2raZTmTrfs",
+      "Arbitrum": "0x11cDb42B0EB46D95f990BeDD4695A6e3fA034978"
+    }
+  },
+  {
+    "name": "RPL",
+    "coin_id": 2943,
+    "blockchains": {
+      "Ethereum": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f"
+    }
+  },
+  {
+    "name": "AR",
+    "coin_id": 5632,
+    "blockchains": {}
+  },
+  {
+    "name": "FET",
+    "coin_id": 3773,
+    "blockchains": {
+      "Ethereum": "0xaea46A60368A7bD060eec7DF8CBa43b7EF41Ad85",
+      "BNB Smart Chain (BEP20)": "0x031b41e504677879370e9dbcf937283a8691fa7f",
+      "Cosmos": "fetch1qxxlalvsdjd07p07y3rc5fu6ll8k4tmetpha8n",
+      "Osmosis": "ibc/5D1F516200EE8C6B2354102143B78A2DEDA25EDE771AC0F8DC3C1837C8FD4447"
+    }
+  },
+  {
+    "name": "AXL",
+    "coin_id": 17799,
+    "blockchains": {
+      "Ethereum": "0x467719aD09025FcC6cF6F8311755809d45a5E5f3",
+      "BNB Smart Chain (BEP20)": "0x8b1f4432F943c465A973FeDC6d7aa50Fc96f1f65",
+      "Polygon": "0x6e4E624106Cb12E168E6533F8ec7c82263358940",
+      "Avalanche C-Chain": "0x44c784266cf024a60e8acf2427b9857ace194c5d",
+      "Arbitrum": "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
+      "Osmosis": "ibc/903A61A498756EA560B85A85132D3AEE21B5DEDD41213725D22ABF276EA6945E",
+      "Base": "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
+      "Optimism": "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
+      "Mantle": "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
+      "Linea": "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
+      "Fantom": "0x8b1f4432F943c465A973FeDC6d7aa50Fc96f1f65"
+    }
+  },
+  {
+    "name": "APE",
+    "coin_id": 18876,
+    "blockchains": {
+      "Ethereum": "0x4d224452801aced8b2f0aebe155379bb5d594381"
+    }
+  },
+  {
+    "name": "RON",
+    "coin_id": 14101,
+    "blockchains": {
+      "Ronin": "0xe514d9deb7966c8be0ca922de8a064264ea6bcd4"
+    }
+  },
+  {
+    "name": "GMX",
+    "coin_id": 11857,
+    "blockchains": {
+      "Avalanche C-Chain": "0x62edc0692BD897D2295872a9FFCac5425011c661",
+      "Arbitrum": "0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a"
+    }
+  },
+  {
+    "name": "FLR",
+    "coin_id": 7950,
+    "blockchains": {}
+  },
+  {
+    "name": "PEPE",
+    "coin_id": 24478,
+    "blockchains": {
+      "Ethereum": "0x6982508145454ce325ddbe47a25d4ec3d2311933"
+    }
+  },
+  {
+    "name": "1INCH",
+    "coin_id": 8104,
+    "blockchains": {
+      "Ethereum": "0x111111111117dc0aa78b770fa6a738034120c302",
+      "BNB Smart Chain (BEP20)": "0x111111111117dc0aa78b770fa6a738034120c302",
+      "Solana": "AjkPkq3nsyDe1yKcbyZT7N4aK4Evv9om9tzhQD3wsRC",
+      "Gnosis Chain": "0x7f7440C5098462f833E123B44B8A03E1d9785BAb",
+      "Avalanche C-Chain": "0xd501281565bf7789224523144Fe5D98e8B28f267",
+      "Near": "111111111117dc0aa78b770fa6a738034120c302.factory.bridge.near"
+    }
+  },
+  {
+    "name": "NEXO",
+    "coin_id": 2694,
+    "blockchains": {
+      "Ethereum": "0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206",
+      "BNB Beacon Chain (BEP2)": "NEXO-A84",
+      "Polygon": "0x41b3966b4ff7b427969ddf5da3627d6aeae9a48e"
+    }
+  },
+  {
+    "name": "XAUt",
+    "coin_id": 5176,
+    "blockchains": {
+      "Ethereum": "0x68749665FF8D2d112Fa859AA293F07A622782F38"
+    }
+  },
+  {
+    "name": "ETHDYDX",
+    "coin_id": 11156,
+    "blockchains": {
+      "Ethereum": "0x92d6c1e31e14520e676a687f0a93788b716beff5",
+      "Solana": "4Hx6Bj56eGyw8EJrrheM6LBQAvVYRikYCWsALeTrwyRU"
+    }
+  },
+  {
+    "name": "GNO",
+    "coin_id": 1659,
+    "blockchains": {
+      "Ethereum": "0x6810e776880c02933d47db1b9fc05908e5386b96",
+      "Gnosis Chain": "0x9c58bacc331c9aa871afd802db6379a98e80cedb",
+      "Arbitrum": "0xa0b862f60edef4452f25b4160f177db44deb6cf1"
+    }
+  },
+  {
+    "name": "GT",
+    "coin_id": 4269,
+    "blockchains": {
+      "Ethereum": "0xe66747a101bff2dba3697199dcce5b743b454759",
+      "Solana": "ABAq2R9gSpDDGguQxBk4u13s4ZYW6zbwKVBx15mCMG8"
+    }
+  },
+  {
+    "name": "CORE",
+    "coin_id": 23254,
+    "blockchains": {}
+  },
+  {
+    "name": "TWT",
+    "coin_id": 5964,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x4b0f1812e5df2a09796481ff14017e6005508003",
+      "BNB Beacon Chain (BEP2)": "TWT-8C2",
+      "Solana": "HZNpqL7RT9gxf9eWoWsWzC5DfjzQ41XTQgEA7p3VzaaD"
+    }
+  },
+  {
+    "name": "GMT",
+    "coin_id": 18069,
+    "blockchains": {
+      "Ethereum": "0xe3c408bd53c31c085a1746af401a4042954ff740",
+      "BNB Smart Chain (BEP20)": "0x3019BF2a2eF8040C242C9a4c5c4BD4C81678b2A1",
+      "Solana": "7i5KKsX2weiTkry7jA4ZwSuXGhs5eJBEjY8vVxR4pfRx",
+      "Polygon": "0x714DB550b574b3E927af3D93E26127D15721D4C2"
+    }
+  },
+  {
+    "name": "ENJ",
+    "coin_id": 2130,
+    "blockchains": {
+      "Ethereum": "0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c",
+      "Solana": "EXExWvT6VyYxEjFzF5BrUxt5GZMPVZnd48y3iWrRefMq"
+    }
+  },
+  {
+    "name": "IOTX",
+    "coin_id": 2777,
+    "blockchains": {
+      "Ethereum": "0x6fb3e0a217407efff7ca062d46c26e5d60a14d69",
+      "BNB Smart Chain (BEP20)": "0x9678e42cebeb63f23197d726b29b1cb20d0064e5",
+      "Polygon": "0xf6372cdb9c1d3674e83842e3800f2a62ac9f3c66"
+    }
+  },
+  {
+    "name": "SKL",
+    "coin_id": 5691,
+    "blockchains": {
+      "Ethereum": "0x00c83aecc790e8a4453e5dd3b0b4b3680501a7a7"
+    }
+  },
+  {
+    "name": "LUNA",
+    "coin_id": 20314,
+    "blockchains": {
+      "Osmosis": "ibc/785AFEC6B3741100D15E7AF01374E3C4C36F24888E96479B1C33F5C71F364EF9"
+    }
+  },
+  {
+    "name": "ENS",
+    "coin_id": 13855,
+    "blockchains": {
+      "Ethereum": "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
+      "Solana": "CLQsDGoGibdNPnVCFp8BAsN2unvyvb41Jd5USYwAnzAg"
+    }
+  },
+  {
+    "name": "COMP",
+    "coin_id": 5692,
+    "blockchains": {
+      "Ethereum": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+      "Gnosis Chain": "0xDf6FF92bfDC1e8bE45177DC1f4845d391D3ad8fD",
+      "BNB Smart Chain (BEP20)": "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8",
+      "Sora": "0x00dbd45af9f2ea406746f9025110297469e9d29efc60df8d88efb9b0179d6c2c",
+      "Avalanche C-Chain": "0xc3048E19E76CB9a3Aa9d77D8C03c29Fc906e2437",
+      "Solana": "AwEauVaTMQRB71WeDnwf1DWSBxaMKjEPuxyLr1uixFom",
+      "Near": "c00e94cb662c3520282e6f5717214004a7f26888.factory.bridge.near"
+    }
+  },
+  {
+    "name": "NFT",
+    "coin_id": 9816,
+    "blockchains": {
+      "Ethereum": "0x198d14f2ad9ce69e76ea330b374de4957c3f850a",
+      "BNB Smart Chain (BEP20)": "0x20ee7b720f4e4c4ffcb00c4065cdae55271aecca",
+      "HECO": "0x1A5364F782DbED4f69043B02b5c3870a10C23Ed5",
+      "Tron20": "TFczxzPhnThNSqr5by8tvxsdCFRRz6cPNq"
+    }
+  },
+  {
+    "name": "PAXG",
+    "coin_id": 4705,
+    "blockchains": {
+      "Ethereum": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+      "BNB Smart Chain (BEP20)": "0x7950865a9140cb519342433146ed5b40c6f210f7",
+      "Solana": "C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe"
+    }
+  },
+  {
+    "name": "PYTH",
+    "coin_id": 28177,
+    "blockchains": {
+      "Solana": "HZ1JovNiVvGrGNiiYvEozEVgZ58xaU3RKwX8eACQBCt3"
+    }
+  },
+  {
+    "name": "SC",
+    "coin_id": 1042,
+    "blockchains": {}
+  },
+  {
+    "name": "METIS",
+    "coin_id": 9640,
+    "blockchains": {
+      "Ethereum": "0x9E32b13ce7f2E80A01932B42553652E053D6ed8e",
+      "Metis Andromeda": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+    }
+  },
+  {
+    "name": "HT",
+    "coin_id": 2502,
+    "blockchains": {
+      "Ethereum": "0x6f259637dcd74c767781e37bc6133cd6a68aa161",
+      "Near": "6f259637dcd74c767781e37bc6133cd6a68aa161.factory.bridge.near"
+    }
+  },
+  {
+    "name": "ZIL",
+    "coin_id": 2469,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0xb86abcb37c3a4b64f74f59301aff131a1becc787"
+    }
+  },
+  {
+    "name": "GAS",
+    "coin_id": 1785,
+    "blockchains": {
+      "Neo": "0xd2a4cff31913016155e38e474a2c06d08be276cf"
+    }
+  },
+  {
+    "name": "ZEC",
+    "coin_id": 1437,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x1ba42e5193dfa8b03d15dd1b86a3113bbbef8eeb"
+    }
+  },
+  {
+    "name": "CELO",
+    "coin_id": 5567,
+    "blockchains": {
+      "Celo": "0x471ece3750da237f93b8e339c536989b8978a438",
+      "Near": "celo.token.a11bd.near"
+    }
+  },
+  {
+    "name": "HOT",
+    "coin_id": 2682,
+    "blockchains": {
+      "Ethereum": "0x6c6ee5e31d828de241282b9606c8e98ea48526e2",
+      "Gnosis Chain": "0x346b2968508d32f0192cd7a60ef3d9c39a3cf549"
+    }
+  },
+  {
+    "name": "KSM",
+    "coin_id": 5034,
+    "blockchains": {}
+  },
+  {
+    "name": "ELF",
+    "coin_id": 2299,
+    "blockchains": {
+      "Ethereum": "0xbf2179859fc6D5BEE9Bf9158632Dc51678a4100e",
+      "BNB Smart Chain (BEP20)": "0xa3f020a5c92e15be13caf0ee5c95cf79585eecc9"
+    }
+  },
+  {
+    "name": "LRC",
+    "coin_id": 1934,
+    "blockchains": {
+      "Ethereum": "0xbbbbca6a901c926f240b89eacb641d8aec7aeafd",
+      "Solana": "HCTVFTzHL21a1dPzKxAUeWwqbE8QMUyvgChFDL4XYoi1"
+    }
+  },
+  {
+    "name": "AGIX",
+    "coin_id": 2424,
+    "blockchains": {
+      "Ethereum": "0x5B7533812759B45C2B44C19e320ba2cD2681b542",
+      "Cardano": "f43a62fdc3965df486de8a0d32fe800963589c41b38946602a0dc53541474958"
+    }
+  },
+  {
+    "name": "USDP",
+    "coin_id": 3330,
+    "blockchains": {
+      "Ethereum": "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
+      "BNB Smart Chain (BEP20)": "0xb7f8cd00c5a06c0537e2abff0b58033d02e5e094"
+    }
+  },
+  {
+    "name": "XCH",
+    "coin_id": 9258,
+    "blockchains": {}
+  },
+  {
+    "name": "BAT",
+    "coin_id": 1697,
+    "blockchains": {
+      "Ethereum": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+      "BNB Smart Chain (BEP20)": "0x101d82428437127bf1608f699cd651e6abf9766e",
+      "Solana": "EPeUFDgHRxs9xxEPVaL6kfGQvCon7jmAWKVUHuux1Tpz",
+      "Gnosis Chain": "0xC6cC63f4AA25BBD4453eB5F3a0DfE546feF9b2f3",
+      "Avalanche C-Chain": "0x98443B96EA4b0858FDF3219Cd13e98C7A4690588",
+      "Near": "0d8775f648430679a709e98d2b0cb6250d2887ef.factory.bridge.near"
+    }
+  },
+  {
+    "name": "GLMR",
+    "coin_id": 6836,
+    "blockchains": {}
+  },
+  {
+    "name": "RAY",
+    "coin_id": 8526,
+    "blockchains": {
+      "Solana": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+      "BNB Smart Chain (BEP20)": "0x13b6A55662f6591f8B8408Af1C73B017E32eEdB8"
+    }
+  },
+  {
+    "name": "CFG",
+    "coin_id": 6748,
+    "blockchains": {
+      "Moonbeam": "0xffffffff44bd9d2ffee20b25d1cf9e78edb6eae3"
+    }
+  },
+  {
+    "name": "PENDLE",
+    "coin_id": 9481,
+    "blockchains": {
+      "Ethereum": "0x808507121b80c02388fad14726482e061b8da827",
+      "Arbitrum": "0x0c880f6761f1af8d9aa9c466984b80dab9a8c9e8",
+      "BNB Smart Chain (BEP20)": "0xb3Ed0A426155B79B898849803E3B36552f7ED507"
+    }
+  },
+  {
+    "name": "DASH",
+    "coin_id": 131,
+    "blockchains": {}
+  },
+  {
+    "name": "WLD",
+    "coin_id": 13502,
+    "blockchains": {
+      "Ethereum": "0x163f8c2467924be0ae7b5347228cabf260318753",
+      "Optimism": "0xdc6ff44d5d932cbd77b52e5612ba0529dc6226f1"
+    }
+  },
+  {
+    "name": "SSV",
+    "coin_id": 12999,
+    "blockchains": {
+      "Ethereum": "0x9D65fF81a3c488d585bBfb0Bfe3c7707c7917f54"
+    }
+  },
+  {
+    "name": "ILV",
+    "coin_id": 8719,
+    "blockchains": {
+      "Ethereum": "0x767fe9edc9e0df98e07454847909b5e959d7ca0e"
+    }
+  },
+  {
+    "name": "QTUM",
+    "coin_id": 1684,
+    "blockchains": {}
+  },
+  {
+    "name": "TRB",
+    "coin_id": 4944,
+    "blockchains": {
+      "Ethereum": "0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0",
+      "Gnosis Chain": "0xaad66432d27737ecf6ed183160adc5ef36ab99f2",
+      "Polygon": "0xE3322702BEdaaEd36CdDAb233360B939775ae5f1",
+      "Optimism": "0xaf8cA653Fa2772d58f4368B0a71980e9E3cEB888",
+      "Arbitrum": "0xd58D345Fd9c82262E087d2D0607624B410D88242"
+    }
+  },
+  {
+    "name": "XEM",
+    "coin_id": 873,
+    "blockchains": {}
+  },
+  {
+    "name": "NTRN",
+    "coin_id": 26680,
+    "blockchains": {
+      "Osmosis": "ibc/126DA09104B71B164883842B769C0E9EC1486C0887D27A9999E395C2C8FB5682"
+    }
+  },
+  {
+    "name": "BTG",
+    "coin_id": 2083,
+    "blockchains": {}
+  },
+  {
+    "name": "KDA",
+    "coin_id": 5647,
+    "blockchains": {}
+  },
+  {
+    "name": "ETHW",
+    "coin_id": 21296,
+    "blockchains": {}
+  },
+  {
+    "name": "DESO",
+    "coin_id": 10442,
+    "blockchains": {}
+  },
+  {
+    "name": "TFUEL",
+    "coin_id": 3822,
+    "blockchains": {}
+  },
+  {
+    "name": "FLOKI",
+    "coin_id": 10804,
+    "blockchains": {
+      "Ethereum": "0xcf0c122c6b73ff809c693db761e7baebe62b6a2e",
+      "BNB Smart Chain (BEP20)": "0xfb5b838b6cfeedc2873ab27866079ac55363d37e"
+    }
+  },
+  {
+    "name": "SFP",
+    "coin_id": 8119,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0xd41fdb03ba84762dd66a0af1a6c8540ff1ba5dfb",
+      "Ethereum": "0x12e2b8033420270db2f3b328e32370cb5b2ca134"
+    }
+  },
+  {
+    "name": "CVX",
+    "coin_id": 9903,
+    "blockchains": {
+      "Ethereum": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
+      "Solana": "BLvmrccP4g1B6SpiVvmQrLUDya1nZ4B2D1nm9jzKF7sz"
+    }
+  },
+  {
+    "name": "SUPER",
+    "coin_id": 8290,
+    "blockchains": {
+      "Ethereum": "0xe53ec727dbdeb9e2d5456c3be40cff031ab40a55",
+      "Polygon": "0xa1428174f516f527fafdd146b883bb4428682737"
+    }
+  },
+  {
+    "name": "WAVES",
+    "coin_id": 1274,
+    "blockchains": {
+      "Waves": "WAVES"
+    }
+  },
+  {
+    "name": "MAGIC",
+    "coin_id": 14783,
+    "blockchains": {
+      "Arbitrum": "0x539bdE0d7Dbd336b79148AA742883198BBF60342",
+      "Ethereum": "0xb0c7a3ba49c7a6eaba6cd4a96c55a1391070ac9a"
+    }
+  },
+  {
+    "name": "T",
+    "coin_id": 17751,
+    "blockchains": {
+      "Ethereum": "0xCdF7028ceAB81fA0C6971208e83fa7872994beE5"
+    }
+  },
+  {
+    "name": "BAND",
+    "coin_id": 4679,
+    "blockchains": {
+      "Ethereum": "0xba11d00c5f74255f56a5e366f4f77f5a186d7f55",
+      "BNB Smart Chain (BEP20)": "0xad6caeb32cd2c308980a548bd0bc5aa4306c6c18",
+      "Gnosis Chain": "0xe154A435408211AC89757B76C4FbE4Dc9ED2Ef27",
+      "Fantom": "0x46E7628E8b4350b2716ab470eE0bA1fa9e76c6C5"
+    }
+  },
+  {
+    "name": "ZRX",
+    "coin_id": 1896,
+    "blockchains": {
+      "Ethereum": "0xe41d2489571d322189246dafa5ebde1f4699f498"
+    }
+  },
+  {
+    "name": "JASMY",
+    "coin_id": 8425,
+    "blockchains": {
+      "Ethereum": "0x7420B4b9a0110cdC71fB720908340C03F9Bc03EC"
+    }
+  },
+  {
+    "name": "MASK",
+    "coin_id": 8536,
+    "blockchains": {
+      "Ethereum": "0x69af81e73a73b40adf4f3d4223cd9b1ece623074",
+      "BNB Smart Chain (BEP20)": "0x2ed9a5c8c13b93955103b9a7c167b67ef4d568a3",
+      "Polygon": "0x2b9e7ccdf0f4e5b24757c1e1a80e311e34cb10c7"
+    }
+  },
+  {
+    "name": "POWR",
+    "coin_id": 2132,
+    "blockchains": {
+      "Ethereum": "0x595832f8fc6bf59c85c527fec3740a1b7a361269"
+    }
+  },
+  {
+    "name": "MX",
+    "coin_id": 4041,
+    "blockchains": {
+      "Ethereum": "0x11eef04c884e24d9b7b4760e7476d06ddf797f36"
+    }
+  },
+  {
+    "name": "OCEAN",
+    "coin_id": 3911,
+    "blockchains": {
+      "Ethereum": "0x967da4048cd07ab37855c090aaf366e4ce1b9f48",
+      "Sora": "0x002ca40397c794e25dba18cf807910eeb69eb8e81b3f07bb54f7c5d1d8ab76b9"
+    }
+  },
+  {
+    "name": "DCR",
+    "coin_id": 1168,
+    "blockchains": {}
+  },
+  {
+    "name": "ANKR",
+    "coin_id": 3783,
+    "blockchains": {
+      "Ethereum": "0x8290333cef9e6d528dd5618fb97a76f268f3edd4",
+      "BNB Smart Chain (BEP20)": "0xf307910a4c7bbc79691fd374889b36d8531b08e3",
+      "Solana": "Gq2norJ1kBemBp3mPfkgAUMhMMmnFmY4zEyi26tRcxFB",
+      "Fantom": "0xDF474B7109b73b7D57926d43598D5934131136b2",
+      "Polygon": "0x101a023270368c0d50bffb62780f4afd4ea79c35",
+      "Avalanche C-Chain": "0xDF474B7109b73b7D57926d43598D5934131136b2",
+      "Optimism": "0xAeAeeD23478c3a4b798e4ed40D8B7F41366Ae861",
+      "Arbitrum": "0xAeAeeD23478c3a4b798e4ed40D8B7F41366Ae861",
+      "Polygon zkEVM": "0xdf474b7109b73b7d57926d43598d5934131136b2"
+    }
+  },
+  {
+    "name": "JST",
+    "coin_id": 5488,
+    "blockchains": {
+      "Tron20": "TCFLL5dx5ZJdKnWuesXxi1VPwjLVmWZZy9"
+    }
+  },
+  {
+    "name": "RVN",
+    "coin_id": 2577,
+    "blockchains": {}
+  },
+  {
+    "name": "SUSHI",
+    "coin_id": 6758,
+    "blockchains": {
+      "Ethereum": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
+      "Solana": "AR1Mtgh7zAtxuxGd2XPovXPVjcSdY3i4rQYisNadjfKy",
+      "Gnosis Chain": "0x2995D1317DcD4f0aB89f4AE60F3f020A4F17C7CE",
+      "Fantom": "0xae75A438b2E0cB8Bb01Ec1E1e376De11D44477CC",
+      "Avalanche C-Chain": "0x39cf1bd5f15fb22ec3d9ff86b0727afc203427cc",
+      "BNB Smart Chain (BEP20)": "0x947950BcC74888a40Ffa2593C5798F11Fc9124C4",
+      "Polygon": "0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a",
+      "Harmony": "0xbec775cb42abfa4288de81f387a9b1a3c4bc552a",
+      "Terra Classic": "terra1csvuzlf92nyemu6tv25h0l79etpe8hz3h5vn4a",
+      "Celo": "0xd15ec721c2a896512ad29c671997dd68f9593226",
+      "Arbitrum": "0xd4d42f0b6def4ce0383636770ef773390d85c61a",
+      "Near": "6b3595068778dd592e39a122f4f5a5cf09c90fe2.factory.bridge.near"
+    }
+  },
+  {
+    "name": "MOBILE",
+    "coin_id": 24600,
+    "blockchains": {
+      "Solana": "mb1eu7TzEc71KxDpsmsKoucSSuuoGLv1drys1oP2jh6"
+    }
+  },
+  {
+    "name": "PYUSD",
+    "coin_id": 27772,
+    "blockchains": {
+      "Ethereum": "0x6c3ea9036406852006290770bedfcaba0e23a0e8"
+    }
+  },
+  {
+    "name": "USTC",
+    "coin_id": 7129,
+    "blockchains": {
+      "Ethereum": "0xa47c8bf37f92aBed4A126BDA807A7b7498661acD",
+      "BNB Smart Chain (BEP20)": "0x23396cf899ca06c4472205fc903bdb4de249d6fc",
+      "Solana": "9vMJfxuKxXBoEa7rM12mYLMwTacLMLDJqHozw96WQL8i",
+      "Terra Classic": "uusd",
+      "Fantom": "0x846e4d51d7e2043c1a87e0ab7490b93fb940357b",
+      "Polygon": "0x692597b009d13C4049a947CAB2239b7d6517875F",
+      "Avalanche C-Chain": "0xb599c3590F42f8F995ECfa0f85D2980B76862fc1",
+      "Harmony": "0x224e64ec1bdce3870a6a6c777edd450454068fec",
+      "Moonbeam": "0x085416975fe14c2a731a97ec38b9bf8135231f62",
+      "Osmosis": "IBC/BE1BB42D4BE3C30D50B68D7C41DB4DFCE9678E8EF8C539F6E6A9345048894FCC",
+      "Oasis Network": "0xa1E73c01E0cF7930F5e91CB291031739FE5Ad6C2",
+      "Secret": "secret129h4vu66y3gry6wzwa24rw0vtqjyn8tujuwtn9",
+      "Aurora": "0x5ce9f0b6afb36135b5ddbf11705ceb65e634a9dc"
+    }
+  },
+  {
+    "name": "ONE",
+    "coin_id": 3945,
+    "blockchains": {}
+  },
+  {
+    "name": "JOE",
+    "coin_id": 11396,
+    "blockchains": {
+      "Avalanche C-Chain": "0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd",
+      "Arbitrum": "0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07",
+      "BNB Smart Chain (BEP20)": "0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07"
+    }
+  },
+  {
+    "name": "AUDIO",
+    "coin_id": 7455,
+    "blockchains": {
+      "Ethereum": "0x18aaa7115705e8be94bffebde57af9bfc265b998",
+      "Gnosis Chain": "0x8A95ea379E1Fa4C749dd0A7A21377162028C479e",
+      "Solana": "9LzCMqDgTKYz9Drzqnpgee3SGa89up3a247ypMj2xrqM"
+    }
+  },
+  {
+    "name": "YFI",
+    "coin_id": 5864,
+    "blockchains": {
+      "Ethereum": "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+      "BNB Smart Chain (BEP20)": "0x88f1a5ae2a3bf98aeaf342d26b30a79438c9142e",
+      "HECO": "0xb4f019beac758abbee2f906033aaa2f0f6dacb35",
+      "Fantom": "0x29b0Da86e484E1C0029B56e817912d778aC0EC69",
+      "Gnosis Chain": "0xbf65bfcb5da067446CeE6A706ba3Fe2fB1a9fdFd",
+      "Avalanche C-Chain": "0x9eAaC1B23d935365bD7b542Fe22cEEe2922f52dc",
+      "Solana": "BXZX2JRJFjvKazM1ibeDFxgAngKExb74MRXzXKvgikxX",
+      "Arbitrum": "0x82e3A8F066a6989666b031d916c43672085b1582",
+      "Near": "0bc529c00c6401aef6d220be8c6ea1667f6ad93e.factory.bridge.near"
+    }
+  },
+  {
+    "name": "STORJ",
+    "coin_id": 1772,
+    "blockchains": {
+      "Ethereum": "0xb64ef51c888972c908cfacf59b47c1afbc0ab8ac"
+    }
+  },
+  {
+    "name": "ANT",
+    "coin_id": 1680,
+    "blockchains": {
+      "Ethereum": "0xa117000000f279d81a1d3cc75430faa017fa5a2e"
+    }
+  },
+  {
+    "name": "MOVR",
+    "coin_id": 9285,
+    "blockchains": {}
+  },
+  {
+    "name": "ICX",
+    "coin_id": 2099,
+    "blockchains": {}
+  },
+  {
+    "name": "PRIME",
+    "coin_id": 23711,
+    "blockchains": {
+      "Ethereum": "0xb23d80f5fefcddaa212212f028021b41ded428cf",
+      "Base": "0xfA980cEd6895AC314E7dE34Ef1bFAE90a5AdD21b"
+    }
+  },
+  {
+    "name": "GLM",
+    "coin_id": 1455,
+    "blockchains": {
+      "Ethereum": "0x7DD9c5Cba05E151C895FDe1CF355C9A1D5DA6429",
+      "Polygon": "0x0B220b82F3eA3B7F6d9A1D8ab58930C064A2b5Bf"
+    }
+  },
+  {
+    "name": "MEME",
+    "coin_id": 28301,
+    "blockchains": {
+      "Ethereum": "0xb131f4a55907b10d1f0a50d8ab8fa09ec342cd74"
+    }
+  },
+  {
+    "name": "ONT",
+    "coin_id": 2566,
+    "blockchains": {
+      "Ethereum": "0xcb46C550539ac3DB72dc7aF7c89B11c306C727c2",
+      "BNB Smart Chain (BEP20)": "0xfd7b3a77848f1c2d67e05e54d78d174a0c850335",
+      "Polygon": "0xD4814770065F634003A8d8D70B4743E0C3f334ad",
+      "ONT": "0100000000000000000000000000000000000000"
+    }
+  },
+  {
+    "name": "BAL",
+    "coin_id": 5728,
+    "blockchains": {
+      "Ethereum": "0xba100000625a3754423978a60c9317c58a424e3D",
+      "HECO": "0x045de15ca76e76426e8fc7cba8392a3138078d0f",
+      "Gnosis Chain": "0x7eF541E2a22058048904fE5744f9c7E4C57AF717",
+      "Polygon": "0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3",
+      "Optimism": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+      "Arbitrum": "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8",
+      "Near": "ba100000625a3754423978a60c9317c58a424e3d.factory.bridge.near",
+      "Base": "0x7c6b91D9Be155A6Db01f749217d76fF02A7227F2"
+    }
+  },
+  {
+    "name": "LPT",
+    "coin_id": 3640,
+    "blockchains": {
+      "Ethereum": "0x58b6a8a3302369daec383334672404ee733ab239",
+      "Harmony": "0xbd3e698b51d340cc53b0cc549b598c13e0172b7c"
+    }
+  },
+  {
+    "name": "WAXP",
+    "coin_id": 2300,
+    "blockchains": {
+      "Ethereum": "0x2a79324c19ef2b89ea98b23bc669b7e7c9f8a517"
+    }
+  },
+  {
+    "name": "SXP",
+    "coin_id": 4279,
+    "blockchains": {}
+  },
+  {
+    "name": "BICO",
+    "coin_id": 9543,
+    "blockchains": {
+      "Ethereum": "0xf17e65822b568b3903685a7c9f496cf7656cc6c2"
+    }
+  },
+  {
+    "name": "SFUND",
+    "coin_id": 8972,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x477bc8d23c634c154061869478bce96be6045d12",
+      "Arbitrum": "0x560363BdA52BC6A44CA6C8c9B4a5FadbDa32fa60",
+      "Ethereum": "0x560363BdA52BC6A44CA6C8c9B4a5FadbDa32fa60"
+    }
+  },
+  {
+    "name": "CHR",
+    "coin_id": 3978,
+    "blockchains": {
+      "Ethereum": "0x8a2279d4a90b6fe1c4b30fa660cc9f926797baa2",
+      "BNB Smart Chain (BEP20)": "0xf9CeC8d50f6c8ad3Fb6dcCEC577e05aA32B224FE"
+    }
+  },
+  {
+    "name": "PYR",
+    "coin_id": 9308,
+    "blockchains": {
+      "Ethereum": "0x430ef9263e76dae63c84292c3409d61c598e9682",
+      "Polygon": "0x430EF9263E76DAE63c84292C3409D61c598E9682"
+    }
+  },
+  {
+    "name": "OAS",
+    "coin_id": 22265,
+    "blockchains": {}
+  },
+  {
+    "name": "GAL",
+    "coin_id": 11877,
+    "blockchains": {
+      "Ethereum": "0x5fAa989Af96Af85384b8a938c2EdE4A7378D9875",
+      "BNB Smart Chain (BEP20)": "0xe4Cc45Bb5DBDA06dB6183E8bf016569f40497Aa5"
+    }
+  },
+  {
+    "name": "stETH",
+    "coin_id": 8085,
+    "blockchains": {
+      "Ethereum": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+      "Solana": "H2mf9QNdU2Niq6QR7367Ua2trBsvscLyX5bz7R3Pw5sE",
+      "Terra Classic": "terra1w7ywr6waxtjuvn5svk5wqydqpjj0q9ps7qct4d"
+    }
+  },
+  {
+    "name": "WTRX",
+    "coin_id": 18579,
+    "blockchains": {
+      "Tron20": "TNUC9Qb1rRpS5CbWLmNMxXBjyFoydXjWFR"
+    }
+  },
+  {
+    "name": "WBTC",
+    "coin_id": 3717,
+    "blockchains": {
+      "Ethereum": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "Fantom": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "Avalanche C-Chain": "0x408d4cd0adb7cebd1f1a1c33a0ba2098e1295bab",
+      "Polygon": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+      "Viction": "0x503b2ddc059b81788fd1239561596614b27faade",
+      "Optimism": "0x68f180fcce6836688e9084f035309e29bf0a2095",
+      "Arbitrum": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+      "Zilliqa": "zil1wha8mzaxhm22dpm5cav2tepuldnr8kwkvmqtjq",
+      "Cronos": "0x062E66477Faf219F25D27dCED647BF57C3107d52",
+      "Harmony": "0x3095c7557bcb296ccc6e363de01b760ba031f2d9",
+      "Solana": "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh",
+      "Terra Classic": "terra1aa7upykmmqqc63l924l5qfap8mrmx5rfdm0v55",
+      "Moonbeam": "0x922d641a426dcffaef11680e5358f34d97d112e1",
+      "Aurora": "0xf4eb217ba2454613b15dbdea6e5f22276410e89e",
+      "Telos": "0xf390830df829cf22c53c8840554b98eafc5dcbc2",
+      "Velas": "0x313dbD8e65C6499dE939e5317cA97Ccc6eD4c621",
+      "Metis Andromeda": "0xa5B55ab1dAF0F8e1EFc0eB1931a957fd89B918f4",
+      "Moonriver": "0x78f811a431d248c1edcf6d95ec8551879b2897c3",
+      "KCC": "0xfA93C12Cd345c658bc4644D1D4E1B9615952258C",
+      "IoTex": "0xC7b93720F73b037394cE00f954f849Ed484a3dEA",
+      "Milkomeda": "0x6ab6d61428fde76768d7b45d8bfeec19c6ef91a8",
+      "Near": "2260fac5e5542a773aa44fbcfedf7c193bc2c599.factory.bridge.near",
+      "Everscale": "0:2ba32b75870d572e255809b7b423f30f36dd5dea075bd5f026863fceb81f2bcf",
+      "Conflux": "0x1f545487c62e5acfea45dcadd9c627361d1616d8",
+      "Waves": "8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS",
+      "EthereumPoW": "0x4bbd68d8b1f25ae7b460e3347c637fe9e7338e0c",
+      "Stacks": "SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.token-wbtc",
+      "TON": "EQDcBkGHmC4pTf34x3Gm05XvepO5w60DNxZ-XT4I6-UGG5L5",
+      "Starknet": "0x3fe2b97c1fd336e750087d68b9b867997fd64a2661ff3ca5a7c771641e8e7ac",
+      "Osmosis": "ibc/D1542AA8762DB13087D8364F3EA6509FD6F009A34F00426AF9E4F9FA85CBBF1F"
+    }
+  },
+  {
+    "name": "WEOS",
+    "coin_id": 24913,
+    "blockchains": {
+      "EOS EVM": "0xc00592aa41d32d137dc480d9f6d0df19b860104f"
+    }
+  },
+  {
+    "name": "WHBAR",
+    "coin_id": 24399,
+    "blockchains": {
+      "Hedera Hashgraph": "0.0.1456986"
+    }
+  },
+  {
+    "name": "BXC",
+    "coin_id": 5168,
+    "blockchains": {
+      "Ethereum": "0x16467F88F41Fe323324084BEd682E10f937eF10C",
+      "BNB Smart Chain (BEP20)": "0x8eB05c38c1d92ff74FD941AB4F7a469a5CC2CA6A",
+      "Arbitrum": "0xb802D45372EA29dA4748Ba73d40ad708FC43bd45"
+    }
+  },
+  {
+    "name": "BTCB",
+    "coin_id": 4023,
+    "blockchains": {
+      "BNB Beacon Chain (BEP2)": "BTCB-1DE",
+      "BNB Smart Chain (BEP20)": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c"
+    }
+  },
+  {
+    "name": "USDE",
+    "coin_id": 3792,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0xe77fddc622ca05b7791facb9176b3cb0a9ea905d"
+    }
+  },
+  {
+    "name": "WBETH",
+    "coin_id": 24760,
+    "blockchains": {
+      "Ethereum": "0xa2E3356610840701BDf5611a53974510Ae27E2e1",
+      "BNB Smart Chain (BEP20)": "0xa2E3356610840701BDf5611a53974510Ae27E2e1"
+    }
+  },
+  {
+    "name": "TAO",
+    "coin_id": 22974,
+    "blockchains": {}
+  },
+  {
+    "name": "RETH",
+    "coin_id": 15060,
+    "blockchains": {
+      "Ethereum": "0xae78736cd615f374d3085123a210448e74fc6393",
+      "Optimism": "0x9bcef72be871e61ed4fbbc7630889bee758eb81d"
+    }
+  },
+  {
+    "name": "CHEEL",
+    "coin_id": 23054,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x1F1C90aEb2fd13EA972F0a71e35c0753848e3DB0"
+    }
+  },
+  {
+    "name": "HEX",
+    "coin_id": 5015,
+    "blockchains": {
+      "Ethereum": "0x2b591e99afe9f32eaa6214f7b7629768c40eeb39",
+      "Polygon": "0x23D29D30e35C5e8D321e1dc9A8a61BFD846D4C5C"
+    }
+  },
+  {
+    "name": "WBNB",
+    "coin_id": 7192,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "Solana": "9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa",
+      "Ethereum": "0x418D75f65a02b3D53B2418FB8E1fe493759c7605",
+      "Terra Classic": "terra1cetg5wruw2wsdjp7j46rj44xdel00z006e9yg8",
+      "Polygon": "0xecdcb5b88f8e3c15f95c720c51c71c9e2080525d",
+      "Avalanche C-Chain": "0x442F7f22b1EE2c842bEAFf52880d4573E9201158",
+      "Moonbeam": "0xc9baa8cfdde8e328787e29b4b078abf2dadc2055",
+      "Telos": "0x2c78f1b70ccf63cdee49f9233e9faa99d43aa07e",
+      "Aurora": "0x2bf9b864cdc97b08b6d79ad4663e71b8ab65c45c",
+      "Hoo Smart Chain": "0xa787254704339474A827bd1ee4772c455e3aE7F2",
+      "Elastos": "0x51B85F3889c7EA8f6d5EdEBFBadaDA0fDcE236c9",
+      "IoTex": "0x97e6c48867fdc391a8dfe9d169ecd005d1d90283",
+      "KardiaChain": "0xd7d045bfba6ea93b480f409db3dd1729337c1d13",
+      "Cronos": "0xfa9343c3897324496a05fc75abed6bac29f8a40f",
+      "Milkomeda": "0x7f27352d5f83db87a5a3e00f4b07cc2138d8ee52",
+      "RSK RBTC": "0x6D9659bdF5b1A1dA217f7BbAf7dBAF8190E2e71B",
+      "Conflux": "0x94bd7a37d2ce24cc597e158facaa8d601083ffec",
+      "zkSync Era": "0x7400793aad94c8ca801aa036357d10f5fd0ce08f",
+      "Wemix": "0xC1Be9a4D5D45BeeACAE296a7BD5fADBfc14602C4",
+      "Linea": "0xf5C6825015280CdfD0b56903F9F8B5A2233476F5",
+      "opBNB": "0x4200000000000000000000000000000000000006",
+      "Osmosis": "ibc/F4A070A6D78496D53127EA85C094A9EC87DFC1F36071B8CCDDBD020F933D213D"
+    }
+  },
+  {
+    "name": "FRAX",
+    "coin_id": 6952,
+    "blockchains": {
+      "Ethereum": "0x853d955acef822db058eb8505911ed77f175b99e",
+      "BNB Smart Chain (BEP20)": "0x90C97F71E18723b0Cf0dfa30ee176Ab653E89F40",
+      "Solana": "FR87nWEUxVgerFGhZM8Y4AggKGLnaXswr1Pd8wZ4kZcp",
+      "Fantom": "0xdc301622e621166BD8E82f2cA0A26c13Ad0BE355",
+      "Polygon": "0x45c32fA6DF82ead1e2EF74d17b76547EDdFaFF89",
+      "Avalanche C-Chain": "0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64",
+      "Optimism": "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+      "Arbitrum": "0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F",
+      "Moonriver": "0x1a93b23281cc1cde4c4741353f3064709a16197d",
+      "Near": "853d955acef822db058eb8505911ed77f175b99e.factory.bridge.near",
+      "Polygon zkEVM": "0xff8544fed5379d9ffa8d47a74ce6b91e632ac44d"
+    }
+  },
+  {
+    "name": "vBNB",
+    "coin_id": 7961,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0xA07c5b74C9B40447a954e1466938b865b6BBea36"
+    }
+  },
+  {
+    "name": "KUJI",
+    "coin_id": 15185,
+    "blockchains": {
+      "Ethereum": "0x96543ef8d2C75C26387c1a319ae69c0BEE6f3fe7",
+      "Osmosis": "ibc/BB6BCDB515050BAE97516111873CCD7BCF1FD0CCB723CC12F3C4F704D6C646CE",
+      "Arbitrum": "0x3A18dcC9745eDcD1Ef33ecB93b0b6eBA5671e7Ca"
+    }
+  },
+  {
+    "name": "CBETH",
+    "coin_id": 21535,
+    "blockchains": {
+      "Ethereum": "0xbe9895146f7af43049ca1c1ae358b0541ea49704"
+    }
+  },
+  {
+    "name": "AZERO",
+    "coin_id": 11976,
+    "blockchains": {}
+  },
+  {
+    "name": "RLB",
+    "coin_id": 15271,
+    "blockchains": {
+      "Ethereum": "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
+      "Solana": "RLBxxFkseAZ4RgJH3Sqn8jXxhmGoz9jWxDNJMh8pL7a"
+    }
+  },
+  {
+    "name": "XRD",
+    "coin_id": 11948,
+    "blockchains": {}
+  },
+  {
+    "name": "HBTC",
+    "coin_id": 6941,
+    "blockchains": {
+      "Ethereum": "0x0316EB71485b0Ab14103307bf65a021042c6d380",
+      "HECO": "0x66a79d23e58475d2738179ca52cd0b41d73f0bea",
+      "Solana": "7dVH61ChzgmN9BwG4PkzwRP8PbYwPJ7ZPNF2vamKT2H8"
+    }
+  },
+  {
+    "name": "FTN",
+    "coin_id": 22615,
+    "blockchains": {
+      "Ethereum": "0xaeDf386B755465871fF874E3E37Af5976E247064"
+    }
+  },
+  {
+    "name": "LSD",
+    "coin_id": 28047,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0xcD1B51b87a8a7137D6421bA5A976225187a26777"
+    }
+  },
+  {
+    "name": "WKAVA",
+    "coin_id": 24165,
+    "blockchains": {
+      "Kava": "0xc86c7c0efbd6a49b35e8714c5f59d99de09a225b"
+    }
+  },
+  {
+    "name": "ORBR",
+    "coin_id": 17520,
+    "blockchains": {
+      "Ethereum": "0xdA30f261a962d5AAe94C9ecd170544600d193766"
+    }
+  },
+  {
+    "name": "LYX",
+    "coin_id": 27622,
+    "blockchains": {}
+  },
+  {
+    "name": "TRAC",
+    "coin_id": 2467,
+    "blockchains": {
+      "Ethereum": "0xaa7a9ca87d3694b5755f213b5d04094b8d0f0a6f",
+      "Gnosis Chain": "0xeddd81e0792e764501aae206eb432399a0268db5"
+    }
+  },
+  {
+    "name": "STRD",
+    "coin_id": 21781,
+    "blockchains": {
+      "Osmosis": "ibc/A8CA5EE328FA10C9519DF6057DA1F69682D28F7D0F5CCC7ECB72E3DCA2D157A4"
+    }
+  },
+  {
+    "name": "POKT",
+    "coin_id": 11823,
+    "blockchains": {}
+  },
+  {
+    "name": "BDX",
+    "coin_id": 3987,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x90bbdDbF3223363898065b9C736e2B86C655762b"
+    }
+  },
+  {
+    "name": "TNC",
+    "coin_id": 5524,
+    "blockchains": {
+      "BNB Smart Chain (BEP20)": "0x02CAa44EB838Fc0E49b73213d9d22e5F23798fDa"
+    }
+  },
+  {
+    "name": "VBIT",
+    "coin_id": 6947,
+    "blockchains": {
+      "Ethereum": "0xb8366948b4a3f07bcbf14eb1739daa42a26b07c4"
+    }
+  },
+  {
+    "name": "FNSA",
+    "coin_id": 4512,
+    "blockchains": {}
+  },
+  {
+    "name": "CTC",
+    "coin_id": 5198,
+    "blockchains": {
+      "Ethereum": "0xa3ee21c306a700e682abcdfe9baa6a08f3820419"
+    }
+  },
+  {
+    "name": "WE",
+    "coin_id": 20456,
+    "blockchains": {
+      "Klaytn": "0xfaea8f7839f343a52c11a2d5395406eb2a87c55b"
+    }
+  },
+  {
+    "name": "EDGT",
+    "coin_id": 9466,
+    "blockchains": {
+      "Stellar": "GB7XD6DHWS45C3H7PQ25PSRFQB2QFPLMW4JZH4L7CU4O5NFE42MNNUSE"
+    }
+  },
+  {
+    "name": "ALEX",
+    "coin_id": 22074,
+    "blockchains": {
+      "Stacks": "SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.age000-governance-token"
+    }
+  },
+  {
+    "name": "FLUX",
+    "coin_id": 3029,
+    "blockchains": {
+      "Ethereum": "0x720cd16b011b987da3518fbf38c3071d4f0d1495",
+      "BNB Smart Chain (BEP20)": "0xaff9084f2374585879e8b434c399e29e80cce635",
+      "Solana": "FLUX1wa2GmbtSB6ZGi2pTNbVCw3zEeKnaPCkPtFXxqXe",
+      "Avalanche C-Chain": "0xc4B06F17ECcB2215a5DBf042C672101Fc20daF55",
+      "Tron20": "TWr6yzukRwZ53HDe3bzcC8RCTbiKa4Zzb6",
+      "Kadena Chain": "runonflux.flux"
+    }
+  }
+]

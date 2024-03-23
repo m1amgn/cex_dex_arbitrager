@@ -1,0 +1,105 @@
+Exchange with minimum 'min_asks_price': bingx, Price: 0.9783, Pair: MATIC-USDC
+Aggregator with maximum price: Dexscreener
+Aggregator price: 35344.5276
+Ask amount: 149.6799
+Network: Ethereum, dex: shibaswap
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 2}, 'h24': {'buys': 2, 'sells': 2}}, 'volumes': {'h24': 1992.9, 'h6': 1038.87, 'h1': 0, 'm5': 0}}
+Difference: 3612751.6406010427%
+
+All data: [{'aggregator': 'Dexscreener', 'network': 'Ethereum', 'price': 35344.5276, 'dex': 'shibaswap', 'data': {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 2}, 'h24': {'buys': 2, 'sells': 2}}, 'volumes': {'h24': 1992.9, 'h6': 1038.87, 'h1': 0, 'm5': 0}}}, {'aggregator': 'Paraswap', 'network': 'Ethereum', 'price': 0.97491989, 'dex': 'UniswapV3', 'data': {'fees': '9.874885'}}, {'aggregator': 'Kyberswap', 'network': 'Ethereum', 'price': 0.0097491989, 'dex': 'uniswapv3', 'data': {'fees': {'blockNumber': 0}, 'gas': 11.411351331152405}}, {'aggregator': 'OpenOcean', 'network': 'Ethereum', 'price': 0.97491989, 'dex': 'OpenOcean', 'data': {'estimated gas': '173460', 'gas': 18.2}}, {'aggregator': 'OpenOcean', 'network': 'Polygon', 'price': 0.97702908, 'dex': 'OpenOcean', 'data': {'estimated gas': '210675', 'gas': 41.7}}, {'aggregator': '1inch', 'network': 'Ethereum', 'price': 0.97491989, 'dex': '1inch', 'data': ''}]
+
+Exchange with maximum 'max_bids_price': binance, Price: 0.9783, Pair: MATICUSDC
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 5.0819, Pair: TON-USDT
+Asks amount: 905.58085887
+Exchange with maximum 'max_bids_price': poloniex, Price: 5.395, Pair: TON_USDT
+Bibs amount: 2083.9023724999997
+Difference: 6.161081485271239%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': zigzag, Price: 2.7e-05, Pair: shib-usdt
+Aggregator with maximum price: OpenOcean
+Aggregator price: 7.426999999999999e-05
+Ask amount: 790.811330975091
+Network: Ethereum, dex: OpenOcean
+Data: {'estimated gas': '298295', 'gas': 16.4}
+Difference: 175.07407407407408%
+
+All data: [{'aggregator': 'Paraswap', 'network': 'Ethereum', 'price': 2.7070000000000003e-05, 'dex': 'ShibaSwap', 'data': {'fees': '6.322236'}}, {'aggregator': 'Kyberswap', 'network': 'Ethereum', 'price': 2.707e-07, 'dex': 'shibaswap', 'data': {'fees': {'fee': 3, 'feePrecision': 1000, 'blockNumber': 19496145}, 'gas': 10.806348335067074}}, {'aggregator': 'OpenOcean', 'network': 'Ethereum', 'price': 7.426999999999999e-05, 'dex': 'OpenOcean', 'data': {'estimated gas': '298295', 'gas': 16.4}}, {'aggregator': '1inch', 'network': 'Ethereum', 'price': 2.667e-05, 'dex': '1inch', 'data': ''}]
+
+Exchange with maximum 'max_bids_price': bitmex, Price: 2.7206e-05, Pair: SHIBUSDT
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': zigzag, Price: 2.7e-05, Pair: shib-usdc
+Aggregator with maximum price: OpenOcean
+Aggregator price: 8.248999999999999e-05
+Ask amount: 790.811330975091
+Network: Ethereum, dex: OpenOcean
+Data: {'estimated gas': '292054', 'gas': 17.5}
+Difference: 205.51851851851848%
+
+All data: [{'aggregator': 'Paraswap', 'network': 'Ethereum', 'price': 2.7139999999999998e-05, 'dex': 'ShibaSwap', 'data': {'fees': '5.976152'}}, {'aggregator': 'Kyberswap', 'network': 'Ethereum', 'price': 2.7139999999999996e-07, 'dex': 'shibaswap', 'data': {'fees': {'fee': 3, 'feePrecision': 1000, 'blockNumber': 19496325}, 'gas': 12.153046678652728}}, {'aggregator': 'OpenOcean', 'network': 'Ethereum', 'price': 8.248999999999999e-05, 'dex': 'OpenOcean', 'data': {'estimated gas': '292054', 'gas': 17.5}}, {'aggregator': '1inch', 'network': 'Ethereum', 'price': 2.356e-05, 'dex': '1inch', 'data': ''}]
+
+Exchange with maximum 'max_bids_price': okx, Price: 2.7206e-05, Pair: SHIB-USDC
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 11.444, Pair: ATOM-USDT
+Aggregator with maximum price: Dexscreener
+Aggregator price: 21.01482
+Ask amount: 965.9880400000001
+Network: Polygon, dex: uniswap
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 0}, 'h24': {'buys': 3, 'sells': 1}}, 'volumes': {'h24': 11.15, 'h6': 0, 'h1': 0, 'm5': 0}}
+Difference: 83.63177210765465%
+
+All data: [{'aggregator': 'Dexscreener', 'network': 'Polygon', 'price': 21.01482, 'dex': 'uniswap', 'data': {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 0}, 'h24': {'buys': 3, 'sells': 1}}, 'volumes': {'h24': 11.15, 'h6': 0, 'h1': 0, 'm5': 0}}}, {'aggregator': 'OpenOcean', 'network': 'Ethereum', 'price': 0.0, 'dex': 'OpenOcean', 'data': {'estimated gas': '139504', 'gas': 18.9}}, {'aggregator': 'OpenOcean', 'network': 'Polygon', 'price': 16.33515851, 'dex': 'OpenOcean', 'data': {'estimated gas': '849235', 'gas': 41.4}}, {'aggregator': '1inch', 'network': 'Ethereum', 'price': 14.34319958, 'dex': '1inch', 'data': ''}]%
+
+Exchange with maximum 'max_bids_price': bybit, Price: 11.45, Pair: ATOMUSDT
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 11.455, Pair: ATOM-USDC
+Aggregator with maximum price: Dexscreener
+Aggregator price: 21.01482
+Ask amount: 500.01762299999996
+Network: Polygon, dex: uniswap
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 0}, 'h24': {'buys': 3, 'sells': 1}}, 'volumes': {'h24': 11.15, 'h6': 0, 'h1': 0, 'm5': 0}}
+Difference: 83.45543430816238%
+
+All data: [{'aggregator': 'Dexscreener', 'network': 'Polygon', 'price': 21.01482, 'dex': 'uniswap', 'data': {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 0}, 'h24': {'buys': 3, 'sells': 1}}, 'volumes': {'h24': 11.15, 'h6': 0, 'h1': 0, 'm5': 0}}}, {'aggregator': 'OpenOcean', 'network': 'Ethereum', 'price': 0.0, 'dex': 'OpenOcean', 'data': {'estimated gas': '139691', 'gas': 22.1}}, {'aggregator': 'OpenOcean', 'network': 'Polygon', 'price': 16.33595425, 'dex': 'OpenOcean', 'data': {'estimated gas': '839305', 'gas': 39.3}}, {'aggregator': '1inch', 'network': 'Ethereum', 'price': 14.33248461, 'dex': '1inch', 'data': ''}]%
+
+Exchange with maximum 'max_bids_price': okx, Price: 11.446, Pair: ATOM-USDC
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 3.364, Pair: OP-USDT
+Aggregator with maximum price: Dexscreener
+Aggregator price: 32.9869
+Ask amount: 1624.5987224
+Network: Optimism, dex: velodrome
+Data: {'deals': {'m5': {'buys': 0, 'sells': 2}, 'h1': {'buys': 29, 'sells': 8}, 'h6': {'buys': 98, 'sells': 21}, 'h24': {'buys': 365, 'sells': 146}}, 'volumes': {'h24': 526830.16, 'h6': 150542.34, 'h1': 60213.97, 'm5': 4701.32}}
+Difference: 880.5856123662307%
+
+All data: [{'aggregator': 'Dexscreener', 'network': 'Optimism', 'price': 32.9869, 'dex': 'velodrome', 'data': {'deals': {'m5': {'buys': 0, 'sells': 2}, 'h1': {'buys': 29, 'sells': 8}, 'h6': {'buys': 98, 'sells': 21}, 'h24': {'buys': 365, 'sells': 146}}, 'volumes': {'h24': 526830.16, 'h6': 150542.34, 'h1': 60213.97, 'm5': 4701.32}}}, {'aggregator': 'Paraswap', 'network': 'Optimism', 'price': 3.3655390499999998, 'dex': 'UniswapV3', 'data': {'fees': '0.042409630671987726'}}, {'aggregator': 'OpenOcean', 'network': 'Optimism', 'price': 3.36108144, 'dex': 'OpenOcean', 'data': {'estimated gas': '244029', 'gas': 0.0}}, {'aggregator': '1inch', 'network': 'Optimism', 'price': 3.3672973600000002, 'dex': '1inch', 'data': ''}]%
+
+Exchange with maximum 'max_bids_price': bybit, Price: 3.3825, Pair: OPUSDT
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 3.3635, Pair: OP-USDC
+Aggregator with maximum price: Dexscreener
+Aggregator price: 32.9869
+Ask amount: 189.196875
+Network: Optimism, dex: velodrome
+Data: {'deals': {'m5': {'buys': 0, 'sells': 2}, 'h1': {'buys': 29, 'sells': 8}, 'h6': {'buys': 98, 'sells': 21}, 'h24': {'buys': 365, 'sells': 146}}, 'volumes': {'h24': 526830.16, 'h6': 150542.34, 'h1': 60213.97, 'm5': 4701.32}}
+Difference: 880.7313810019323%
+
+All data: [{'aggregator': 'Dexscreener', 'network': 'Optimism', 'price': 32.9869, 'dex': 'velodrome', 'data': {'deals': {'m5': {'buys': 0, 'sells': 2}, 'h1': {'buys': 29, 'sells': 8}, 'h6': {'buys': 98, 'sells': 21}, 'h24': {'buys': 365, 'sells': 146}}, 'volumes': {'h24': 526830.16, 'h6': 150542.34, 'h1': 60213.97, 'm5': 4701.32}}}, {'aggregator': 'Paraswap', 'network': 'Optimism', 'price': 3.3654815, 'dex': 'UniswapV3', 'data': {'fees': '0.045028408485459574'}}, {'aggregator': 'OpenOcean', 'network': 'Optimism', 'price': 3.36130134, 'dex': 'OpenOcean', 'data': {'estimated gas': '243796', 'gas': 0.0}}, {'aggregator': '1inch', 'network': 'Optimism', 'price': 3.36540355, 'dex': '1inch', 'data': ''}]%
+
+Exchange with maximum 'max_bids_price': binance, Price: 3.363, Pair: OPUSDC
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 2.9904, Pair: STX_USDT
+Asks amount: 110.0198064
+Exchange with maximum 'max_bids_price': okx, Price: 3.5091, Pair: STX-USDT
+Bibs amount: 201.473292132
+Difference: 17.345505617977523%
+-------------------------------------------------
+

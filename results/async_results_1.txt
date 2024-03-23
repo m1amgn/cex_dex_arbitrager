@@ -1,0 +1,749 @@
+Exchange with minimum 'min_asks_price': cryptocom, Price: 64333.97, Pair: BTC_USDT
+Asks amount: 1961.5427453
+Exchange with maximum 'max_bids_price': phemex, Price: 64399.0, Pair: BTCUSD
+Bibs amount: 141246.32669999998
+Difference: 0.10108190121020755%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kraken, Price: 64325.24, Pair: XBTUSDC
+Asks amount: 64.32524
+Exchange with maximum 'max_bids_price': okx, Price: 64382.1, Pair: BTC-USDC
+Bibs amount: 10318.097464245
+Difference: 0.08839453999705427%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': coinw, Price: 3339.38, Pair: ETH_USDT
+Asks amount: 3152.7086580000005
+Exchange with maximum 'max_bids_price': bitmex, Price: 3345.07, Pair: ETHUSDT
+Bibs amount: 0.8429576400000001
+Difference: 0.17039091088764735%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 3339.88, Pair: ETH-USDC
+Asks amount: 964.2233560000001
+Exchange with maximum 'max_bids_price': bingx, Price: 3342.84, Pair: ETH-USDC
+Bibs amount: 18088.21755372
+Difference: 0.08862593865647739%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 552.197, Pair: BNB-USDT
+Aggregator with maximum price: 1inch
+Aggregator price: 570.31403249
+Ask amount: 1021.5644500000001
+Network: Ethereum, dex: 1inch
+Data: 
+Difference: 3.2809002022828935%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 552.197, Pair: BNB-USDT
+Asks amount: 1021.5644500000001
+Exchange with maximum 'max_bids_price': bitmex, Price: 553.35, Pair: BNBUSDT
+Bibs amount: 4.4268
+Difference: 0.2088022933844229%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 551.9, Pair: BNB-USDC
+Aggregator with maximum price: 1inch
+Aggregator price: 569.99880478
+Ask amount: 586.2110710999999
+Network: Ethereum, dex: 1inch
+Data: 
+Difference: 3.2793630693966236%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 551.9, Pair: BNB-USDC
+Asks amount: 586.2110710999999
+Exchange with maximum 'max_bids_price': binance, Price: 551.9, Pair: BNBUSDC
+Bibs amount: 1041.4352999999999
+Difference: 0.0%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': huobi, Price: 174.706, Pair: solusdt
+Asks amount: 2152.37792
+Exchange with maximum 'max_bids_price': bitmex, Price: 175.07, Pair: SOLUSDT
+Bibs amount: 0.00035014
+Difference: 0.20835002804710712%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 174.78, Pair: SOLUSDC
+Asks amount: 613.4778
+Exchange with maximum 'max_bids_price': kucoin, Price: 174.85, Pair: SOL-USDC
+Bibs amount: 537.66375
+Difference: 0.04005034901017268%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 0.6169, Pair: XRPUSDT
+Asks amount: 81420.3127
+Exchange with maximum 'max_bids_price': bitmex, Price: 0.6175, Pair: XRPUSDT
+Bibs amount: 0.061750000000000006
+Difference: 0.09726049602853948%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 0.6175, Pair: XRPUSDC
+Asks amount: 199.45250000000001
+Exchange with maximum 'max_bids_price': kucoin, Price: 0.61765, Pair: XRP-USDC
+Bibs amount: 231.61875
+Difference: 0.024291497975710286%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': huobi, Price: 0.62633, Pair: adausdt
+Asks amount: 81.42290000000001
+Exchange with maximum 'max_bids_price': bitmex, Price: 0.6277, Pair: ADAUSDT
+Bibs amount: 0.00031385
+Difference: 0.21873453291397027%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 0.6265, Pair: ADAUSDC
+Asks amount: 2500.2362
+Exchange with maximum 'max_bids_price': mexc, Price: 0.627186, Pair: ADAUSDC
+Bibs amount: 0.35122416000000006
+Difference: 0.10949720670392082%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 54.575, Pair: AVAX_USDT
+Asks amount: 583.0793
+Exchange with maximum 'max_bids_price': bybit, Price: 54.685, Pair: AVAXUSDT
+Bibs amount: 5000762.7895
+Difference: 0.20155748969308718%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 54.58, Pair: AVAXUSDC
+Asks amount: 2488.848
+Exchange with maximum 'max_bids_price': okx, Price: 54.626, Pair: AVAX-USDC
+Bibs amount: 190.508175
+Difference: 0.08427995602784222%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 0.16177, Pair: DOGE-USDT
+Asks amount: 898.11387666469
+Exchange with maximum 'max_bids_price': bitmex, Price: 0.16211, Pair: DOGEUSDT
+Bibs amount: 0.0567385
+Difference: 0.2101749397292565%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 0.16164, Pair: DOGE-USDC
+Asks amount: 900.4705776000001
+Exchange with maximum 'max_bids_price': bingx, Price: 0.16189, Pair: DOGE-USDC
+Bibs amount: 80.13555000000001
+Difference: 0.1546646869586823%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': gemini, Price: 9.0228, Pair: dotusd
+Asks amount: 425.41022260799997
+Exchange with maximum 'max_bids_price': bitmex, Price: 9.039, Pair: DOTUSDT
+Bibs amount: 0.01057563
+Difference: 0.17954515228089463%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 9.031, Pair: DOT-USDC
+Asks amount: 193.2634
+Exchange with maximum 'max_bids_price': bingx, Price: 9.038, Pair: DOT-USDC
+Bibs amount: 400.02188
+Difference: 0.07751079614659773%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': mexc, Price: 0.11742, Pair: TRXUSDT
+Asks amount: 9295.6059648
+Exchange with maximum 'max_bids_price': bybit, Price: 0.11781, Pair: TRXUSDT
+Bibs amount: 12.48786
+Difference: 0.3321410321921263%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 0.11756, Pair: TRX-USDC
+Asks amount: 505.11241060000003
+Exchange with maximum 'max_bids_price': bingx, Price: 0.11767, Pair: TRX-USDC
+Bibs amount: 2796.356948
+Difference: 0.09356924123851229%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': coinw, Price: 0.97742, Pair: MATIC_USDT
+Aggregator with maximum price: Dexscreener
+Aggregator price: 35344.5276
+Ask amount: 49.69887474
+Network: Ethereum, dex: shibaswap
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 2}, 'h24': {'buys': 2, 'sells': 2}}, 'volumes': {'h24': 1992.9, 'h6': 1038.87, 'h1': 0, 'm5': 0}}
+Difference: 3616004.3972908272%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': coinw, Price: 0.97742, Pair: MATIC_USDT
+Asks amount: 49.69887474
+Exchange with maximum 'max_bids_price': bitmex, Price: 0.9792, Pair: MATICUSDT
+Bibs amount: 0.0005875199999999999
+Difference: 0.18211209101512793%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': bingx, Price: 0.9783, Pair: MATIC-USDC
+Aggregator with maximum price: Dexscreener
+Aggregator price: 35344.5276
+Ask amount: 149.6799
+Network: Ethereum, dex: shibaswap
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 2}, 'h24': {'buys': 2, 'sells': 2}}, 'volumes': {'h24': 1992.9, 'h6': 1038.87, 'h1': 0, 'm5': 0}}
+Difference: 3612751.6406010427%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': bingx, Price: 0.9783, Pair: MATIC-USDC
+Asks amount: 149.6799
+Exchange with maximum 'max_bids_price': binance, Price: 0.9783, Pair: MATICUSDC
+Bibs amount: 131.67917999999997
+Difference: 0.0%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 18.291, Pair: LINKUSDT
+Aggregator with maximum price: Dexscreener
+Aggregator price: 18.3653
+Ask amount: 4516.59663
+Network: Arbitrum, dex: sushiswap
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 2, 'sells': 0}, 'h24': {'buys': 7, 'sells': 6}}, 'volumes': {'h24': 6.84, 'h6': 0.69, 'h1': 0, 'm5': 0}}
+Difference: 0.4062107047181769%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 18.291, Pair: LINKUSDT
+Asks amount: 4516.59663
+Exchange with maximum 'max_bids_price': bitmex, Price: 18.333, Pair: LINKUSDT
+Bibs amount: 0.0036666
+Difference: 0.22962112514350963%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 18.2963, Pair: LINK-USDC
+Aggregator with maximum price: 1inch
+Aggregator price: 18.29608102
+Ask amount: 429.72519809999994
+Network: Polygon, dex: 1inch
+Data: 
+Difference: -0.0011968540087394786%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 18.2963, Pair: LINK-USDC
+Asks amount: 429.72519809999994
+Exchange with maximum 'max_bids_price': binance, Price: 18.285, Pair: LINKUSDC
+Bibs amount: 464.8047
+Difference: -0.06176112110097165%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 5.0819, Pair: TON-USDT
+Asks amount: 905.58085887
+Exchange with maximum 'max_bids_price': poloniex, Price: 5.395, Pair: TON_USDT
+Bibs amount: 2083.9023724999997
+Difference: 6.161081485271239%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 5.092, Pair: TON-USDC
+Asks amount: 310.1603396
+Exchange with maximum 'max_bids_price': okx, Price: 5.086, Pair: TON-USDC
+Bibs amount: 544.202
+Difference: -0.11783189316572873%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 13.355, Pair: ICP-USDT
+Asks amount: 1396.609809
+Exchange with maximum 'max_bids_price': cryptocom, Price: 13.3728, Pair: ICP_USDT
+Bibs amount: 125.30313599999998
+Difference: 0.13328341445151182%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 13.371, Pair: ICP-USDC
+Asks amount: 600.5611392
+Exchange with maximum 'max_bids_price': okx, Price: 13.338, Pair: ICP-USDC
+Bibs amount: 409.9994496
+Difference: -0.24680278214046325%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': zigzag, Price: 2.7e-05, Pair: shib-usdt
+Aggregator with maximum price: OpenOcean
+Aggregator price: 7.426999999999999e-05
+Ask amount: 790.811330975091
+Network: Ethereum, dex: OpenOcean
+Data: {'estimated gas': '298295', 'gas': 16.4}
+Difference: 175.07407407407408%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': zigzag, Price: 2.7e-05, Pair: shib-usdt
+Asks amount: 790.811330975091
+Exchange with maximum 'max_bids_price': bitmex, Price: 2.7206e-05, Pair: SHIBUSDT
+Bibs amount: 0.00049977422
+Difference: 0.7629629629629591%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': zigzag, Price: 2.7e-05, Pair: shib-usdc
+Aggregator with maximum price: OpenOcean
+Aggregator price: 8.248999999999999e-05
+Ask amount: 790.811330975091
+Network: Ethereum, dex: OpenOcean
+Data: {'estimated gas': '292054', 'gas': 17.5}
+Difference: 205.51851851851848%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': zigzag, Price: 2.7e-05, Pair: shib-usdc
+Asks amount: 790.811330975091
+Exchange with maximum 'max_bids_price': okx, Price: 2.7206e-05, Pair: SHIB-USDC
+Bibs amount: 193.84275
+Difference: 0.7629629629629591%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 0.99597, Pair: DAI_USDT
+Aggregator with maximum price: Dexscreener
+Aggregator price: 1.2366
+Ask amount: 1.391868075
+Network: Polygon, dex: balancer
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 2}, 'h24': {'buys': 4, 'sells': 7}}, 'volumes': {'h24': 747.3, 'h6': 162.86, 'h1': 0, 'm5': 0}}
+Difference: 24.16036627609263%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 0.99597, Pair: DAI_USDT
+Asks amount: 1.391868075
+Exchange with maximum 'max_bids_price': zigzag, Price: 1.01933, Pair: dai-usdt
+Bibs amount: 47530.55970634965
+Difference: 2.3454521722541983%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': zigzag, Price: 1.00051, Pair: dai-usdc
+Aggregator with maximum price: Paraswap
+Aggregator price: 1.00122774
+Ask amount: 4736.232179265682
+Network: Polygon, dex: KyberDmm
+Data: {'fees': '0.015776'}
+Difference: 0.07173741391891042%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': zigzag, Price: 1.00051, Pair: dai-usdc
+Asks amount: 4736.232179265682
+Exchange with maximum 'max_bids_price': bitget, Price: 0.9998, Pair: dai_usdc
+Bibs amount: 13.9972
+Difference: -0.07096380845767669%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 84.31, Pair: LTCUSDT
+Asks amount: 931.0353299999999
+Exchange with maximum 'max_bids_price': bybit, Price: 84.39, Pair: LTCUSDT
+Bibs amount: 796675.356
+Difference: 0.094887913652002%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 84.35, Pair: LTC-USDC
+Asks amount: 852.1809645999999
+Exchange with maximum 'max_bids_price': okx, Price: 84.33, Pair: LTC-USDC
+Bibs amount: 366.83549999999997
+Difference: -0.023710729104919892%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': bybit, Price: 435.5, Pair: BCHUSDT
+Asks amount: 957433.6849999999
+Exchange with maximum 'max_bids_price': bitmex, Price: 435.8, Pair: BCHUSDT
+Bibs amount: 0.4358
+Difference: 0.06888633754304863%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 436.51, Pair: BCH-USDC
+Asks amount: 458.02994299999995
+Exchange with maximum 'max_bids_price': okx, Price: 436.0, Pair: BCH-USDC
+Bibs amount: 4401.9432
+Difference: -0.11683581132160725%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 11.6794, Pair: UNI_USDT
+Aggregator with maximum price: Dexscreener
+Aggregator price: 11.7718
+Ask amount: 86.1238956
+Network: Arbitrum, dex: uniswap
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 0}, 'h24': {'buys': 1, 'sells': 2}}, 'volumes': {'h24': 5.76, 'h6': 0, 'h1': 0, 'm5': 0}}
+Difference: 0.7911365309861935%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 11.6794, Pair: UNI_USDT
+Asks amount: 86.1238956
+Exchange with maximum 'max_bids_price': gemini, Price: 11.7208, Pair: uniusd
+Bibs amount: 2.6996284224
+Difference: 0.35447026388342806%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 11.707, Pair: UNIUSDC
+Asks amount: 199.83849
+Exchange with maximum 'max_bids_price': bingx, Price: 11.744, Pair: UNI-USDC
+Bibs amount: 8.92544
+Difference: 0.31605022636030355%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 11.444, Pair: ATOM-USDT
+Aggregator with maximum price: Dexscreener
+Aggregator price: 21.01482
+Ask amount: 965.9880400000001
+Network: Polygon, dex: uniswap
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 0}, 'h24': {'buys': 3, 'sells': 1}}, 'volumes': {'h24': 11.15, 'h6': 0, 'h1': 0, 'm5': 0}}
+Difference: 83.63177210765465%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 11.444, Pair: ATOM-USDT
+Asks amount: 965.9880400000001
+Exchange with maximum 'max_bids_price': bybit, Price: 11.45, Pair: ATOMUSDT
+Bibs amount: 331866.8
+Difference: 0.05242922055224142%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 11.455, Pair: ATOM-USDC
+Aggregator with maximum price: Dexscreener
+Aggregator price: 21.01482
+Ask amount: 500.01762299999996
+Network: Polygon, dex: uniswap
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 0}, 'h24': {'buys': 3, 'sells': 1}}, 'volumes': {'h24': 11.15, 'h6': 0, 'h1': 0, 'm5': 0}}
+Difference: 83.45543430816238%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 11.455, Pair: ATOM-USDC
+Asks amount: 500.01762299999996
+Exchange with maximum 'max_bids_price': okx, Price: 11.446, Pair: ATOM-USDC
+Bibs amount: 499.99218419999994
+Difference: -0.07856831078132132%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 6.504, Pair: NEAR_USDT
+Asks amount: 2.5198447199999996
+Exchange with maximum 'max_bids_price': okx, Price: 6.663, Pair: NEAR-USDT
+Bibs amount: 866.19
+Difference: 2.4446494464944806%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 6.661, Pair: NEAR-USDC
+Asks amount: 192.33637499999998
+Exchange with maximum 'max_bids_price': binance, Price: 6.66, Pair: NEARUSDC
+Bibs amount: 360.97200000000004
+Difference: -0.015012760846715878%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': mexc, Price: 0.002344, Pair: LEOUSDT
+Asks amount: 7.415830000000001
+Exchange with maximum 'max_bids_price': bitfinex, Price: 6.0498, Pair: LEOUSD
+Bibs amount: 119.42633540795401
+Difference: 257997.26962457338%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 3.364, Pair: OP-USDT
+Aggregator with maximum price: Dexscreener
+Aggregator price: 32.9869
+Ask amount: 1624.5987224
+Network: Optimism, dex: velodrome
+Data: {'deals': {'m5': {'buys': 0, 'sells': 2}, 'h1': {'buys': 29, 'sells': 8}, 'h6': {'buys': 98, 'sells': 21}, 'h24': {'buys': 365, 'sells': 146}}, 'volumes': {'h24': 526830.16, 'h6': 150542.34, 'h1': 60213.97, 'm5': 4701.32}}
+Difference: 880.5856123662307%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 3.364, Pair: OP-USDT
+Asks amount: 1624.5987224
+Exchange with maximum 'max_bids_price': bybit, Price: 3.3825, Pair: OPUSDT
+Bibs amount: 10.48575
+Difference: 0.5499405469678891%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 3.3635, Pair: OP-USDC
+Aggregator with maximum price: Dexscreener
+Aggregator price: 32.9869
+Ask amount: 189.196875
+Network: Optimism, dex: velodrome
+Data: {'deals': {'m5': {'buys': 0, 'sells': 2}, 'h1': {'buys': 29, 'sells': 8}, 'h6': {'buys': 98, 'sells': 21}, 'h24': {'buys': 365, 'sells': 146}}, 'volumes': {'h24': 526830.16, 'h6': 150542.34, 'h1': 60213.97, 'm5': 4701.32}}
+Difference: 880.7313810019323%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 3.3635, Pair: OP-USDC
+Asks amount: 189.196875
+Exchange with maximum 'max_bids_price': binance, Price: 3.363, Pair: OPUSDC
+Bibs amount: 2499.65064
+Difference: -0.014865467518959008%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': bitget, Price: 0.12989, Pair: xlm_usdt
+Asks amount: 1168.4956356000002
+Exchange with maximum 'max_bids_price': bybit, Price: 0.13009, Pair: XLMUSDT
+Bibs amount: 35629.69965
+Difference: 0.15397644160444202%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 0.13, Pair: XLM-USDC
+Asks amount: 4348.099509000001
+Exchange with maximum 'max_bids_price': okx, Price: 0.1298, Pair: XLM-USDC
+Bibs amount: 189.8325
+Difference: -0.1538461538461604%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': mexc, Price: 15.7128, Pair: APTUSDT
+Asks amount: 24528.152184
+Exchange with maximum 'max_bids_price': huobi, Price: 15.726, Pair: aptusdt
+Bibs amount: 342.1883244
+Difference: 0.08400794256913002%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 15.7335, Pair: APT-USDC
+Asks amount: 197.99508405
+Exchange with maximum 'max_bids_price': okx, Price: 15.7114, Pair: APT-USDC
+Bibs amount: 185.6694695
+Difference: -0.14046461372231533%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 42.21, Pair: OKB_USDT
+Asks amount: 4.63778154
+Exchange with maximum 'max_bids_price': bitmex, Price: 58.37, Pair: OKBUSDT
+Bibs amount: 0.93392
+Difference: 38.2847666429756%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 58.42, Pair: OKB-USDC
+Asks amount: 910.902166
+Exchange with maximum 'max_bids_price': okx, Price: 58.26, Pair: OKB-USDC
+Bibs amount: 179.289324
+Difference: -0.27387880862718816%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 35.378, Pair: INJ-USDT
+Aggregator with maximum price: Paraswap
+Aggregator price: 35.43023719
+Ask amount: 406.847
+Network: Ethereum, dex: UniswapV3
+Data: {'fees': '17.877775'}
+Difference: 0.1476544462660314%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 35.378, Pair: INJ-USDT
+Asks amount: 406.847
+Exchange with maximum 'max_bids_price': gemini, Price: 35.4127, Pair: injusd
+Bibs amount: 18.207085578
+Difference: 0.09808355475153974%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 35.4, Pair: INJUSDC
+Aggregator with maximum price: Paraswap
+Aggregator price: 35.42984152
+Ask amount: 1681.5
+Network: Ethereum, dex: UniswapV3
+Data: {'fees': '23.029399'}
+Difference: 0.08429807909604392%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 35.4, Pair: INJUSDC
+Asks amount: 1681.5
+Exchange with maximum 'max_bids_price': binance, Price: 35.39, Pair: INJUSDC
+Bibs amount: 498.999
+Difference: -0.02824858757061577%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': huobi, Price: 8.691, Pair: filusdt
+Asks amount: 460.10327820000003
+Exchange with maximum 'max_bids_price': dydx, Price: 8.7, Pair: FIL-USD
+Bibs amount: 3653.9999999999995
+Difference: 0.10355540214013104%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 8.691, Pair: FIL-USDC
+Asks amount: 89.6259375
+Exchange with maximum 'max_bids_price': okx, Price: 8.689, Pair: FIL-USDC
+Bibs amount: 89.6053125
+Difference: -0.023012311586711576%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 129.47, Pair: XMR_USDT
+Asks amount: 3.3433038099999997
+Exchange with maximum 'max_bids_price': huobi, Price: 137.6, Pair: xmrusdt
+Bibs amount: 199.91904
+Difference: 6.279446976133471%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 137.99, Pair: XMR_USDC
+Asks amount: 94.06516119
+Exchange with maximum 'max_bids_price': poloniex, Price: 122.8, Pair: XMR_USDC
+Bibs amount: 48.999901599999994
+Difference: -11.008044061163858%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': huobi, Price: 0.10688, Pair: hbarusdt
+Asks amount: 56.6464
+Exchange with maximum 'max_bids_price': bybit, Price: 0.10705, Pair: HBARUSDT
+Bibs amount: 87716.5559
+Difference: 0.1590568862275461%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 0.10706, Pair: HBAR-USDC
+Asks amount: 750.055004978
+Exchange with maximum 'max_bids_price': okx, Price: 0.10688, Pair: HBAR-USDC
+Bibs amount: 21.135776512
+Difference: -0.16813002054922777%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': bitget, Price: 29.7168, Pair: etc_usdt
+Asks amount: 292.5470376
+Exchange with maximum 'max_bids_price': huobi, Price: 29.752, Pair: etcusdt
+Bibs amount: 113.0576
+Difference: 0.11845151564098444%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 29.75, Pair: ETC-USDC
+Asks amount: 183.3314
+Exchange with maximum 'max_bids_price': okx, Price: 29.72, Pair: ETC-USDC
+Bibs amount: 297.2
+Difference: -0.10084033613445342%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 2.788, Pair: LDOUSDT
+Asks amount: 1744.0333999999998
+Exchange with maximum 'max_bids_price': poloniex, Price: 2.812, Pair: LDO_USDT
+Bibs amount: 381.57718012
+Difference: 0.8608321377331407%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': zigzag, Price: 2.78154, Pair: ldo-usdc
+Aggregator with maximum price: 1inch
+Aggregator price: 2.79370685
+Ask amount: 2442.317923556486
+Network: Ethereum, dex: 1inch
+Data: 
+Difference: 0.4374141662532196%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': zigzag, Price: 2.78154, Pair: ldo-usdc
+Asks amount: 2442.317923556486
+Exchange with maximum 'max_bids_price': kucoin, Price: 2.7865, Pair: LDO-USDC
+Bibs amount: 1999.9997863000003
+Difference: 0.17831848544331308%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 2.814, Pair: IMX_USDT
+Asks amount: 343.96253640000003
+Exchange with maximum 'max_bids_price': gemini, Price: 2.8491, Pair: imxusd
+Bibs amount: 12.292430553600001
+Difference: 1.2473347547974356%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 1.6035, Pair: ARBUSDT
+Asks amount: 5916.113249999999
+Exchange with maximum 'max_bids_price': poloniex, Price: 1.6124, Pair: ARB_USDT
+Bibs amount: 1307.93760256
+Difference: 0.5550358590583215%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 1.6056, Pair: ARBUSDC
+Aggregator with maximum price: Paraswap
+Aggregator price: 1.60425932
+Ask amount: 192.672
+Network: Arbitrum, dex: UniswapV3
+Data: {'fees': '0.443565'}
+Difference: -0.08350024912805054%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 1.6056, Pair: ARBUSDC
+Asks amount: 192.672
+Exchange with maximum 'max_bids_price': binance, Price: 1.604, Pair: ARBUSDC
+Bibs amount: 1773.5428000000002
+Difference: -0.09965122072745203%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': coinbase, Price: 0.1358, Pair: CRO-USDT
+Asks amount: 36.503040000000006
+Exchange with maximum 'max_bids_price': cryptocom, Price: 0.13604, Pair: CRO_USDT
+Bibs amount: 267.3186
+Difference: 0.1767304860088359%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 0.136, Pair: CRO-USDC
+Asks amount: 198.69600000000003
+Exchange with maximum 'max_bids_price': okx, Price: 0.13582, Pair: CRO-USDC
+Bibs amount: 56.62179607
+Difference: -0.1323529411764781%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 13.551, Pair: TIA-USDT
+Asks amount: 1006.8731775
+Exchange with maximum 'max_bids_price': bybit, Price: 13.563, Pair: TIAUSDT
+Bibs amount: 36351.5526
+Difference: 0.08855435023245661%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 13.56, Pair: TIAUSDC
+Asks amount: 1216.332
+Exchange with maximum 'max_bids_price': binance, Price: 13.54, Pair: TIAUSDC
+Bibs amount: 4510.174
+Difference: -0.14749262536874141%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': kucoin, Price: 0.13998, Pair: KAS-USDT
+Asks amount: 1285.8808744859998
+Exchange with maximum 'max_bids_price': poloniex, Price: 0.14111, Pair: KAS_USDT
+Bibs amount: 9.999901260000001
+Difference: 0.8072581797399607%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 0.04074, Pair: VETUSDT
+Asks amount: 302.4945
+Exchange with maximum 'max_bids_price': bybit, Price: 0.04077, Pair: VETUSDT
+Bibs amount: 151473.84102
+Difference: 0.07363770250367452%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 1.00169, Pair: TUSD_USDT
+Aggregator with maximum price: Dexscreener
+Aggregator price: 17.632
+Ask amount: 12.264992867
+Network: Ethereum, dex: pulsex
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 0}, 'h24': {'buys': 4, 'sells': 6}}, 'volumes': {'h24': 31.2, 'h6': 0, 'h1': 0, 'm5': 0}}
+Difference: 1660.2252193792492%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 1.00169, Pair: TUSD_USDT
+Asks amount: 12.264992867
+Exchange with maximum 'max_bids_price': binance, Price: 1.0082, Pair: TUSDUSDT
+Bibs amount: 5077.2952
+Difference: 0.6499016661841495%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 1.00277, Pair: TUSD_USDC
+Aggregator with maximum price: Dexscreener
+Aggregator price: 17.5177
+Ask amount: 2.932400311
+Network: Ethereum, dex: pulsex
+Data: {'deals': {'m5': {'buys': 0, 'sells': 0}, 'h1': {'buys': 0, 'sells': 0}, 'h6': {'buys': 0, 'sells': 4}, 'h24': {'buys': 13, 'sells': 20}}, 'volumes': {'h24': 267.96, 'h6': 13.47, 'h1': 0, 'm5': 0}}
+Difference: 1646.931001126879%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 1.00277, Pair: TUSD_USDC
+Asks amount: 2.932400311
+Exchange with maximum 'max_bids_price': poloniex, Price: 1.00032, Pair: TUSD_USDC
+Bibs amount: 3.0965905920000005
+Difference: -0.244323224667653%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': poloniex, Price: 2.9904, Pair: STX_USDT
+Asks amount: 110.0198064
+Exchange with maximum 'max_bids_price': okx, Price: 3.5091, Pair: STX-USDT
+Bibs amount: 201.473292132
+Difference: 17.345505617977523%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': okx, Price: 3.5077, Pair: STX-USDC
+Asks amount: 500.00930573999995
+Exchange with maximum 'max_bids_price': okx, Price: 3.5041, Pair: STX-USDC
+Bibs amount: 499.99722572
+Difference: -0.102631353878607%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': huobi, Price: 0.813, Pair: mntusdt
+Asks amount: 2.5733075999999997
+Exchange with maximum 'max_bids_price': mexc, Price: 0.816, Pair: MNTUSDT
+Bibs amount: 1.52592
+Difference: 0.36900369003689093%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': bybit, Price: 0.8031, Pair: SEIUSDT
+Asks amount: 46360.553700000004
+Exchange with maximum 'max_bids_price': gateio, Price: 0.8054, Pair: sei_usdt
+Bibs amount: 400.81536400000005
+Difference: 0.2863902378284138%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 0.8055, Pair: SEIUSDC
+Asks amount: 97.1433
+Exchange with maximum 'max_bids_price': binance, Price: 0.805, Pair: SEIUSDC
+Bibs amount: 312.98400000000004
+Difference: -0.062073246430784934%
+-------------------------------------------------
+
+Exchange with minimum 'min_asks_price': binance, Price: 8.333, Pair: RUNEUSDT
+Asks amount: 22099.116
+Exchange with maximum 'max_bids_price': dydx, Price: 8.344, Pair: RUNE-USD
+Bibs amount: 1335.04
+Difference: 0.13200528021120306%
+-------------------------------------------------
+
