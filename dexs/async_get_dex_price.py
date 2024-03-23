@@ -8,6 +8,9 @@ import aiohttp
 
 from pathlib import Path
 from web3 import Web3
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class DexPrice:
@@ -444,7 +447,7 @@ class OneInchAggregatorApi(DexPrice):
         decimals_dest_token = await self._get_decimals(self.dest_token, session)
         url = f"https://api.1inch.dev/swap/v5.2/{self.network.chain_id}/quote"
         headers = {
-            "Authorization": "Bearer SASygDtEIJ1FVb0Dny6HItRe7C4uYpqs"
+            "Authorization": os.getenv('ONE_INCH_BEARER_TOKEN')
         }
         params = {
             "src": self.src_token,
