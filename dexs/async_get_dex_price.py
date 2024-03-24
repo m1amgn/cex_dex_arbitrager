@@ -348,11 +348,13 @@ class KyberswapAggregatorApi(DexPrice):
         decimals_src_token = await self._get_decimals(self.src_token, session)
         decimals_dest_token = await self._get_decimals(self.dest_token, session)
         if self.network.name == "BNB Smart Chain (BEP20)":
-            self.network.name = "bsc"
-        if self.network.name == "Avalanche C-Chain":
-            self.network.name = "avalanche"
+            network = "bsc"
+        elif self.network.name == "Avalanche C-Chain":
+            network = "avalanche"
+        else:
+            network = self.network.name
 
-        url = f"https://aggregator-api.kyberswap.com/{self.network.name.lower()}/route/encode?tokenIn={self.src_token}&tokenOut={self.dest_token}&amountIn={self.amount*10**decimals_src_token}&to=0x0000000000000000000000000000000000000000&saveGas=0&gasInclude=1&slippageTolerance=50"
+        url = f"https://aggregator-api.kyberswap.com/{network.lower()}/route/encode?tokenIn={self.src_token}&tokenOut={self.dest_token}&amountIn={self.amount*10**decimals_src_token}&to=0x0000000000000000000000000000000000000000&saveGas=0&gasInclude=1&slippageTolerance=50"
         try:
             response = await session.get(url)
             kyberswap_info = await response.json()
