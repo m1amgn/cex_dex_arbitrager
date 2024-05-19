@@ -66,8 +66,8 @@ class BitstampGarantexHuobi(CexExchanges):
         return pairs
 
 
-class CoinwCryptocomPoloniex(CexExchanges):
-    '''Coinw, Cryptocom, Poloniex'''
+class CoinwCryptocomPoloniexBackpack(CexExchanges):
+    '''Coinw, Cryptocom, Poloniex, Backpack'''
 
     def prepare_pair(self) -> str:
         pairs = (self.src_token+"_"+self.dest_token).upper()
@@ -219,7 +219,7 @@ Coinbase_exchange = BingxBittrexCoinbaseKucoinOkx(
 )
 
 
-Coinw_exchange = CoinwCryptocomPoloniex(
+Coinw_exchange = CoinwCryptocomPoloniexBackpack(
     name="coinw",
     url="https://api.coinw.com/api/v1/public",
     params={
@@ -232,7 +232,7 @@ Coinw_exchange = CoinwCryptocomPoloniex(
 )
 
 
-Cryptocom_exchange = CoinwCryptocomPoloniex(
+Cryptocom_exchange = CoinwCryptocomPoloniexBackpack(
     name="cryptocom",
     url="https://api.crypto.com/v2/public/get-book",
     params={
@@ -375,7 +375,7 @@ Phemex_exchange = BitfinexKinePhemex(
 )
 
 
-Poloniex_exchange = CoinwCryptocomPoloniex(
+Poloniex_exchange = CoinwCryptocomPoloniexBackpack(
     name="poloniex",
     url="https://api.poloniex.com/markets/symbol/orderBook",
     params="",
@@ -411,6 +411,17 @@ Coinex_exchange = CexExchanges(
         "market": "",
         "limit": 50,
         "interval": 0
+    },
+    src_token="",
+    dest_token="",
+)
+
+
+Backpack_exchange = CoinwCryptocomPoloniexBackpack(
+    name="backpack",
+    url="https://api.backpack.exchange/api/v1/depth",
+    params={
+        "symbol": ""
     },
     src_token="",
     dest_token="",

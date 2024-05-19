@@ -1,6 +1,7 @@
 import asyncio
 import aiohttp
 
+
 class CexPrice:
     def __init__(self, exchange):
         self.exchange = exchange
@@ -26,12 +27,14 @@ class CexPrice:
                     params.update({key: value})
             response = await session.get(url, params=params)
             data = await response.json()
-            print(f"ENTER Print from CexPrice get_exchange data\nreponse.status - {response.status}\n{data}\n{self.exchange.name}")
+            print(
+                f"ENTER Print from CexPrice get_exchange data\nreponse.status - {response.status}\n{data}\n{self.exchange.name}")
 
         if response.status == 200:
             return data
         else:
-            print(f"Something went wrong with fetch data: {data}\nWith exchange: {self.exchange.name}")
+            print(
+                f"Something went wrong with fetch data: {data}\nWith exchange: {self.exchange.name}")
             return None
 
     async def get_price(self, session) -> dict:
@@ -89,8 +92,8 @@ class BybitPrice(CexPrice):
                 return None
         except Exception as e:
             print(e)
-            
-            
+
+
 class BingxPrice(CexPrice):
     async def get_price(self, session) -> dict:
         try:
@@ -193,10 +196,10 @@ class BitmexPrice(CexPrice):
                 asks = data[0]
 
                 assets_url = "https://www.bitmex.com/api/v1/wallet/assets"
-                
+
                 response = await session.get(assets_url)
                 assets_data = await response.json()
-                    
+
                 if response.status == 200:
                     for currency in assets_data:
                         if bids["side"] == "Buy":
@@ -220,7 +223,8 @@ class BitmexPrice(CexPrice):
 
                     return crypto_data
                 else:
-                    print(f"Something went wrong with fetch data: {response.text}")
+                    print(
+                        f"Something went wrong with fetch data: {response.text}")
                     return None
             else:
                 print("No data.")
@@ -577,6 +581,35 @@ class CoinexPrice(CexPrice):
 
                 max_bids_price = float(bids[0][0])
                 bids_volumes = float(bids[0][1])
+                min_asks_price = float(asks[0][0])
+                asks_volumes = float(asks[0][1])
+
+                crypto_data = {
+                    "pair": self.pair,
+                    "max_bids_price": max_bids_price,
+                    "bids_volumes": bids_volumes,
+                    "min_asks_price": min_asks_price,
+                    "asks_volumes": asks_volumes
+                }
+
+                return crypto_data
+            else:
+                print("No data.")
+                return None
+        except Exception as e:
+            print(e)
+
+
+class BackpackPrice(CexPrice):
+    async def get_price(self, session) -> dict:
+        try:
+            data = await self.get_exchange_data(session)
+            if data:
+                bids = data["bids"]
+                asks = data["asks"]
+
+                max_bids_price = float(bids[-1][0])
+                bids_volumes = float(bids[-1][1])
                 min_asks_price = float(asks[0][0])
                 asks_volumes = float(asks[0][1])
 
