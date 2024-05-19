@@ -30,7 +30,7 @@ class Network:
 
 Ethereum = Network(
     name="Ethereum",
-    rpc="https://eth.drpc.org/",
+    rpc="https://eth-pokt.nodies.app",
     chain_id=1,
     eip1559_tx=True,
     coin_symbol="ETH",

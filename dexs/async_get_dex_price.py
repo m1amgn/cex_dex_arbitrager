@@ -145,10 +145,13 @@ class DexPrice:
                 else:
                     print(
                         f"Response code in _get_decimals not 200: {get_token_abi}")
+                    token_abi = DexPrice._tokens_info["default_token_abi"]
+                if token_abi == "Invalid Address format" or token_abi == "Contract source code not verified" or token_abi == "" or not token_abi:
+                    token_abi = DexPrice._tokens_info["default_token_abi"]
             except Exception as e:
                 print(f"Error in _get_decimals in request of token_abi: {e}")
-            if token_abi == "Invalid Address format" or token_abi == "Contract source code not verified" or token_abi == "":
                 token_abi = DexPrice._tokens_info["default_token_abi"]
+
             try:
                 token_contract = self.w3.eth.contract(
                     address=token_address,

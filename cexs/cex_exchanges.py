@@ -402,3 +402,16 @@ Zigzag_exchange = Zigzag(
     src_token="",
     dest_token="",
 )
+
+
+Coinex_exchange = CexExchanges(
+    name="coinex",
+    url="https://api.coinex.com/v2/spot/depth",
+    params={
+        "market": "",
+        "limit": 50,
+        "interval": 0
+    },
+    src_token="",
+    dest_token="",
+)

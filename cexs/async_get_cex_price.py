@@ -31,7 +31,7 @@ class CexPrice:
         if response.status == 200:
             return data
         else:
-            print(f"Something went wrong with fetch data: {data}")
+            print(f"Something went wrong with fetch data: {data}\nWith exchange: {self.exchange.name}")
             return None
 
     async def get_price(self, session) -> dict:
@@ -545,6 +545,35 @@ class YoubitPrice(CexPrice):
             if data:
                 bids = data[self.pair]["bids"]
                 asks = data[self.pair]["asks"]
+
+                max_bids_price = float(bids[0][0])
+                bids_volumes = float(bids[0][1])
+                min_asks_price = float(asks[0][0])
+                asks_volumes = float(asks[0][1])
+
+                crypto_data = {
+                    "pair": self.pair,
+                    "max_bids_price": max_bids_price,
+                    "bids_volumes": bids_volumes,
+                    "min_asks_price": min_asks_price,
+                    "asks_volumes": asks_volumes
+                }
+
+                return crypto_data
+            else:
+                print("No data.")
+                return None
+        except Exception as e:
+            print(e)
+
+
+class CoinexPrice(CexPrice):
+    async def get_price(self, session) -> dict:
+        try:
+            data = await self.get_exchange_data(session)
+            if data:
+                bids = data["data"]["depth"]["bids"]
+                asks = data["data"]["depth"]["asks"]
 
                 max_bids_price = float(bids[0][0])
                 bids_volumes = float(bids[0][1])

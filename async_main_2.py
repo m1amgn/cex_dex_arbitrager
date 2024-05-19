@@ -4,8 +4,8 @@ import json
 import pandas as pd
 
 from web3 import Web3
-from cexs.cex_exchanges import Bybit_exchange, Binance_exchange, Bingx_exchange, Bitfinex_exchange, Bitget_exchange, Bitmex_exchange, Bitstamp_exchange, Coinbase_exchange, Coinw_exchange, Cryptocom_exchange, Deribit_exchange, Dydx_exchange, Garantex_exchange, Gateio_exchange, Gemini_exchange, Huobi_exchange, Kraken_exchange, Kucoin_exchange, Mexc_exchange, Okx_exchange, Phemex_exchange, Poloniex_exchange, Youbit_exchange, Zigzag_exchange
-from cexs.async_get_cex_price import BybitPrice, BingxPrice, BitfinexGeminiPrice, BitgetCoinwKucoinPrice, BitmexPrice, CexPrice, CryptocomPrice, DeribitPrice, DydxPrice, GarantexPrice, HuobiPrice, KrakenPrice, OkxPrice, PhemexPrice, PoloniexPrice, YoubitPrice
+from cexs.cex_exchanges import Bybit_exchange, Binance_exchange, Bingx_exchange, Bitfinex_exchange, Bitget_exchange, Bitmex_exchange, Bitstamp_exchange, Coinbase_exchange, Coinw_exchange, Cryptocom_exchange, Deribit_exchange, Dydx_exchange, Garantex_exchange, Gateio_exchange, Gemini_exchange, Huobi_exchange, Kraken_exchange, Kucoin_exchange, Mexc_exchange, Okx_exchange, Phemex_exchange, Poloniex_exchange, Youbit_exchange, Zigzag_exchange, Coinex_exchange
+from cexs.async_get_cex_price import BybitPrice, BingxPrice, BitfinexGeminiPrice, BitgetCoinwKucoinPrice, BitmexPrice, CexPrice, CryptocomPrice, DeribitPrice, DydxPrice, GarantexPrice, HuobiPrice, KrakenPrice, OkxPrice, PhemexPrice, PoloniexPrice, YoubitPrice, CoinexPrice
 from dexs.async_get_dex_price import DexscreenerAggregatorApi, ParaswapAggregatorApi, KyberswapAggregatorApi, OpenoceanAggregatorApi, OneInchAggregatorApi
 from dexs.networks import Ethereum, BinanceSmartChain, Arbitrum, Optimism, Polygon, Avalanche
 
@@ -106,7 +106,7 @@ def find_spread(exchanges, aggregators):
                 min_dex_buy_price['src_buy_address'],
                 min_dex_buy_price['dest_buy_address']
             )
-            
+
     if min_asks_exist and max_bids_exist and dex_price_sell_exist and dex_price_buy_exist:
         if price_sell > max_bid_value and price_buy < min_ask_value:
             percents_spread = (float(price_sell) /
@@ -360,8 +360,10 @@ async def cex_prices(src_token, dest_token):
             Phemex_exchange: PhemexPrice,
             Poloniex_exchange: PoloniexPrice,
             Youbit_exchange: YoubitPrice,
-            Zigzag_exchange: CexPrice
+            Zigzag_exchange: CexPrice,
+            Coinex_exchange: CoinexPrice
             }
+
     cexs_price_list = []
     cex_price_info = {}
     if src_token not in ["USDT", "USDC"]:
@@ -382,15 +384,15 @@ async def cex_prices(src_token, dest_token):
 
 async def dex_prices(src_token, dest_token):
     aggregators = [ParaswapAggregatorApi,
-                   KyberswapAggregatorApi, 
-                   OpenoceanAggregatorApi, 
-                   OneInchAggregatorApi, 
+                   KyberswapAggregatorApi,
+                   OpenoceanAggregatorApi,
+                   OneInchAggregatorApi,
                    DexscreenerAggregatorApi]
-    networks = [Ethereum, 
+    networks = [Ethereum,
                 BinanceSmartChain,
-                Arbitrum, 
-                Optimism, 
-                Polygon, 
+                Arbitrum,
+                Optimism,
+                Polygon,
                 Avalanche]
     if dest_token == "USDT":
         dest_token = json.load(open("tokens_coins_info/usdt_adresses.json"))
