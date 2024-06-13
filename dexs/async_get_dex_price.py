@@ -396,8 +396,15 @@ class OpenoceanAggregatorApi(DexPrice):
     async def get_price(self, session):
         print(f"START {self.name}")
         url_gas = f"https://open-api.openocean.finance/v3/{self.network.chain_id}/gasPrice"
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Connection': 'keep-alive',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+        }
         try:
-            response = await session.get(url_gas)
+            response = await session.get(url_gas, headers=headers)
             gas = await response.json()
             if response.status == 200:
                 if self.network.chain_id == 1:
@@ -419,8 +426,10 @@ class OpenoceanAggregatorApi(DexPrice):
         else:
             url = f"https://open-api.openocean.finance/v3/{self.network.chain_id}/quote?inTokenAddress={self.src_token}&outTokenAddress={self.dest_token}&amount={self.amount}&slippage=1&gasPrice=35"
         try:
-            response = await session.get(url)
+            response = await session.get(url, headers=headers)
+            print(f'OpenOcean response - {response}')
             open_ocean_data = await response.json()
+            print(f'OpenOcean data - {open_ocean_data}')
             print(f"ENTER Print from {self.name}\nreponse.status - {response.status}\n{open_ocean_data}")
             if response.status == 200:
                 out_amount = open_ocean_data["data"]["outAmount"]

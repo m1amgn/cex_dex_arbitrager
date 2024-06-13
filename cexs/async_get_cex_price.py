@@ -6,6 +6,13 @@ class CexPrice:
     def __init__(self, exchange):
         self.exchange = exchange
         self.pair = self.exchange.prepare_pair()
+        self.headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Connection': 'keep-alive',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+        }
 
     async def get_exchange_data(self, session) -> dict:
         print(f"START {self.exchange.name}")
@@ -14,23 +21,26 @@ class CexPrice:
             symbol_url = self.pair
             url = url.replace("symbol", symbol_url)
             if self.exchange.params != "":
-                response = await session.get(url, params=self.exchange.params)
-                data = await response.json()
+                response = await session.get(url, headers=self.headers, params=self.exchange.params)
             else:
-                response = await session.get(url)
-                data = await response.json()
+                response = await session.get(url, headers=self.headers)
         else:
             params = self.exchange.params
             for key, value in params.items():
                 if key == "symbol" or key == "instrument_name" or key == "market" or key == "pair" or key == "instId":
                     value = self.pair
                     params.update({key: value})
-            response = await session.get(url, params=params)
+            response = await session.get(url, headers=self.headers, params=params)
+        print(f"response {self.exchange.name} - {response}")
+        data = await response.json()
+        print(f"data {self.exchange.name} - {data}")
+        print(
+            f"ENTER Print from CexPrice get_exchange data\nreponse.status - {response.status}\n{data}\n{self.exchange.name}")
+
+        if response.status == 200:
             data = await response.json()
             print(
                 f"ENTER Print from CexPrice get_exchange data\nreponse.status - {response.status}\n{data}\n{self.exchange.name}")
-
-        if response.status == 200:
             return data
         else:
             print(
