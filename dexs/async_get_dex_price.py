@@ -302,7 +302,7 @@ class DexscreenerAggregatorApi(DexPrice):
                             "data": {
                                 "deals": highest_price_pair["txns"],
                                 "volumes": highest_price_pair['volume']
-                    }
+                            }
                     }
             else:
                 print(
