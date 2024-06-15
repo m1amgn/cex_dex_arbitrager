@@ -295,7 +295,8 @@ class DexscreenerAggregatorApi(DexPrice):
                     if float(pair["priceNative"]) > float(highest_price) and pair["baseToken"]["address"] == self.src_token:
                         highest_price = pair["priceNative"]
                         highest_price_pair = pair
-                if highest_price_pair:
+                money_volumes_1h = int(highest_price_pair["priceNative"] * highest_price_pair['volume']['h1'])
+                if highest_price_pair and money_volumes_1h > 100:
                     return {"dex": highest_price_pair["dexId"],
                             "price": highest_price_pair["priceNative"],
                             "data": {
