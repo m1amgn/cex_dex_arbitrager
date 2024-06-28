@@ -1,6 +1,6 @@
 import asyncio
 import aiohttp
-import json
+import ujson as json
 import pandas as pd
 
 from web3 import Web3

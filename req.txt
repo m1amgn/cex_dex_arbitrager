@@ -39,6 +39,7 @@ six==1.16.0
 toolz==0.12.1
 typing_extensions==4.10.0
 tzdata==2024.1
+ujson==5.10.0
 urllib3==2.2.1
 web3==6.15.1
 websockets==12.0

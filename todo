@@ -1,22 +1,14 @@
-- Faster than json:
-
-pip install ujson
-
-import ujson as json
-
-data = {"name": "Anna", "age": 25, "city": "Novosibirsk"}
-json_str = json.dumps(data)
-print(json_str)
-
-json_str = '{"name":"Anna","age":25,"city":"Novosibirsk"}'
-data = json.loads(json_str)
-print(data)
-
--------------------------------------------
-
 - Check cexs.
 
+? ZigZag
+OKX
+
 -------------------------------------------
+
+Change print on logging in dex
+
+-------------------------------------------
+
 
 - Module which find spreads by pairs from input or json.
 
@@ -25,3 +17,5 @@ print(data)
 - Add Base, Solana, Cosmos, TON(?).
 
 -------------------------------------------
+
+- https://github.com/ksh-b/raven ?

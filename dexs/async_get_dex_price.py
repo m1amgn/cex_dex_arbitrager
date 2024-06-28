@@ -1,16 +1,18 @@
 import requests
-import json
+import ujson as json
 import os
 import sys
 import web3
 import asyncio
 import aiohttp
+import logging
 
 from pathlib import Path
 from web3 import Web3
 from dotenv import load_dotenv
 
 load_dotenv()
+logging.basicConfig(level=logging.INFO)
 
 
 class DexPrice:
@@ -40,7 +42,7 @@ class DexPrice:
             self.w3 = Web3(Web3.HTTPProvider(self.network.rpc))
             assert self.w3.is_connected(), "w3 is not connected"
         except Exception as e:
-            print(f"Error connecting to network: {e}")
+            logging.error(f"Error connecting to network: {e}")
             return
 
     def _get_contract_address_and_abi(self, contract_type: str):
@@ -57,7 +59,7 @@ class DexPrice:
             else:
                 return router.functions.factory().call()
         except Exception as e:
-            print(f"Error in _get_factory_address: {e}")
+            logging.error(f"Error in _get_factory_address: {e}")
 
     def _get_factory_abi(self, factory_address):
         factory_address = Web3.to_checksum_address(factory_address)
@@ -69,10 +71,10 @@ class DexPrice:
                     return get_factory_abi["result"] if get_factory_abi["result"] != "Invalid Address format" else \
                         json.load(open(DexPrice._DEFAULT_FACTORY_PATH))
                 else:
-                    print(
+                    logging.info(
                         f"Response code in _get_factory_abi not 200: {get_factory_abi.text}")
             except Exception as e:
-                print(
+                logging.error(
                     f"Error in _get_factory_abi in request of factory abi: {e}")
         else:
             return None
@@ -94,7 +96,7 @@ class DexPrice:
             try:
                 return self.w3.eth.contract(address=pool_address, abi=pool_abi)
             except Exception as e:
-                print(f"Error in _get_pool_contract: {e}")
+                logging.error(f"Error in _get_pool_contract: {e}")
         else:
             factory = self._get_factory_contract()
             if factory:
@@ -107,13 +109,13 @@ class DexPrice:
                     try:
                         return self.w3.eth.contract(address=pool_address, abi=pool_abi)
                     except Exception as e:
-                        print(f"Error in _get_pool_contract: {e}")
+                        logging.error(f"Error in _get_pool_contract: {e}")
                 else:
-                    print(
-                        f"Pool ABI not available for {self.name} - {pool_address}")
+                    logging.info(
+                        f"Pool ABI is not available for {self.name} - {pool_address}")
                     return None
             else:
-                print("Factory doesn't exist.")
+                logging.info("Factory doesn't exist.")
                 return None
 
     def _get_pool_address(self, factory):
@@ -127,7 +129,7 @@ class DexPrice:
             else:
                 return factory.functions.getPair(Web3.to_checksum_address(self.src_token), Web3.to_checksum_address(self.dest_token)).call()
         except Exception as e:
-            print(f"Error in _get_pool_address: {e}")
+            logging.error(f"Error in _get_pool_address: {e}")
 
     async def _get_decimals(self, token_address: str, session):
         token_address = Web3.to_checksum_address(token_address)
@@ -143,13 +145,13 @@ class DexPrice:
                 if response.status == 200:
                     token_abi = get_token_abi["result"]
                 else:
-                    print(
+                    logging.info(
                         f"Response code in _get_decimals not 200: {get_token_abi}")
                     token_abi = DexPrice._tokens_info["default_token_abi"]
                 if token_abi == "Invalid Address format" or token_abi == "Contract source code not verified" or token_abi == "" or not token_abi:
                     token_abi = DexPrice._tokens_info["default_token_abi"]
             except Exception as e:
-                print(f"Error in _get_decimals in request of token_abi: {e}")
+                logging.error(f"Error in _get_decimals in request of token_abi: {e}")
                 token_abi = DexPrice._tokens_info["default_token_abi"]
 
             try:
@@ -186,10 +188,10 @@ class DexPrice:
             else:
                 reserves = pool.functions.getReserves().call()
         except Exception as e:
-            print(f"Error in _get_v2_price in request of getReserves: {e}")
+            logging.error(f"Error in _get_v2_price in request of getReserves: {e}")
 
         if reserves[0] == 0 or reserves[0] == "" or reserves[1] == 0 or reserves[1] == "":
-            print(
+            logging.info(
                 "Something wrong with pool, maybe contract hasn't verified or pool is empty.")
             return None
         else:
@@ -213,7 +215,7 @@ class DexPrice:
                             (reserves[0] / 10 ** decimals_token0)
                 return price
             except Exception as e:
-                print(f"Error in _get_v2_price in request of price: {e}")
+                logging.error(f"Error in _get_v2_price in request of price: {e}")
 
     def _get_v3_price(self, pool) -> float:
         try:
@@ -229,7 +231,7 @@ class DexPrice:
             else:
                 return 1 / price_of_token0
         except Exception as e:
-            print(f"Error in _get_v3_price: {e}")
+            logging.error(f"Error in _get_v3_price: {e}")
 
     def _get_aggregator_price(self) -> float:
         try:
@@ -252,13 +254,13 @@ class DexPrice:
                 price = aggregator_price / 10 ** decimals_dest_tokens
             return price
         except Exception as e:
-            print(f"Error in _get_aggregator_price: {e}")
+            logging.error(f"Error in _get_aggregator_price: {e}")
 
     def get_price(self):
         if self.name.split("_")[1] == "aggregator":
             price = self._get_aggregator_price()
             src_token_symbol, dest_token_symbol = self._get_tokens_symbol()
-            print(
+            logging.info(
                 f"In {self.name} - {self.network.name}: price of {src_token_symbol} in {dest_token_symbol} {price}")
             print("----------------------------------------------")
         else:
@@ -269,10 +271,10 @@ class DexPrice:
                 else:
                     price = self._get_v2_price(pool=pool)
                 src_token_symbol, dest_token_symbol = self._get_tokens_symbol()
-                print(f"Price of {dest_token_symbol} {1 / price}")
-                print(f"Price of {src_token_symbol}  {price}")
+                logging.info(f"Price of {dest_token_symbol} {1 / price}")
+                logging.info(f"Price of {src_token_symbol}  {price}")
             else:
-                print("Pool doesn't exist.")
+                logging.info("Pool doesn't exist.")
 
 
 class DexscreenerAggregatorApi(DexPrice):
@@ -281,12 +283,12 @@ class DexscreenerAggregatorApi(DexPrice):
         self.name = "Dexscreener"
 
     async def get_price(self, session):
-        print(f"START {self.name}")
+        logging.info(f"\nSTART {self.name}\n")
         url = f"https://api.dexscreener.com/latest/dex/tokens/{self.src_token},{self.dest_token}"
         try:
             response = await session.get(url)
             dexcreener_info = await response.json()
-            print(f"ENTER Print from {self.name}\nreponse.status - {response.status}\n{dexcreener_info}")
+            logging.info(f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n{dexcreener_info}\n")
             if response.status == 200:
                 dexcreener_info = dexcreener_info["pairs"]
                 highest_price_pair = None
@@ -305,10 +307,10 @@ class DexscreenerAggregatorApi(DexPrice):
                             }
                     }
             else:
-                print(
+                logging.info(
                     f"Response status code in DexscreenerAggregatorApi not 200: {response.text}")
         except Exception as e:
-            print(
+            logging.error(
                 f"Error in DexscreenerAggregatorApi - get_price, in request of data: {e}")
 
 
@@ -318,14 +320,14 @@ class ParaswapAggregatorApi(DexPrice):
         self.name = "Paraswap"
 
     async def get_price(self, session):
-        print(f"START {self.name}")
+        logging.info(f"\nSTART {self.name}\n")
         decimals_src_token = await self._get_decimals(self.src_token, session)
         decimals_dest_token = await self._get_decimals(self.dest_token, session)
         url = f"https://apiv5.paraswap.io/prices/?srcToken={self.src_token}&destToken={self.dest_token}&amount={self.amount*10**decimals_src_token}&srcDecimals={decimals_src_token}&destDecimals={decimals_dest_token}&side=SELL&network={self.network.chain_id}"
         try:
             response = await session.get(url)
             paraswap_info = await response.json()
-            print(f"ENTER Print from {self.name}\nreponse.status - {response.status}\n{paraswap_info}")
+            logging.info(f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n{paraswap_info}\n")
             if response.status == 200:
                 paraswap_info = paraswap_info["priceRoute"]
                 return {"dex": paraswap_info["bestRoute"][0]["swaps"][0]["swapExchanges"][0]["exchange"],
@@ -335,10 +337,10 @@ class ParaswapAggregatorApi(DexPrice):
                 }
                 }
             else:
-                print(
+                logging.info(
                     f"Response status code in ParaswapAggregatorApi get_price not 200: {response.text}")
         except Exception as e:
-            print(
+            logging.error(
                 f"Error in ParaswapAggregatorApi - get_price, in request of data: {e}")
 
 
@@ -348,7 +350,7 @@ class KyberswapAggregatorApi(DexPrice):
         self.name = "Kyberswap"
 
     async def get_price(self, session):
-        print(f"START {self.name}")
+        logging.info(f"\nSTART {self.name}\n")
         decimals_src_token = await self._get_decimals(self.src_token, session)
         decimals_dest_token = await self._get_decimals(self.dest_token, session)
         if self.network.name == "BNB Smart Chain (BEP20)":
@@ -362,7 +364,7 @@ class KyberswapAggregatorApi(DexPrice):
         try:
             response = await session.get(url)
             kyberswap_info = await response.json()
-            print(f"ENTER Print from {self.name}\nreponse.status - {response.status}\n{kyberswap_info}")
+            logging.info(f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n{kyberswap_info}\n")
             if response.status == 200:
                 kyberswap_data_list = []
                 for swaps in kyberswap_info["swaps"]:
@@ -382,10 +384,10 @@ class KyberswapAggregatorApi(DexPrice):
                         highest_price_dex.update(dex)
                 return highest_price_dex
             else:
-                print(
+                logging.info(
                     f"Response status code in KyberswapAggregatorApi not 200: {response.text}")
         except Exception as e:
-            print(
+            logging.error(
                 f"Error in KyberswapAggregatorApi - get_price, in request of data: {e}")
 
 
@@ -395,7 +397,7 @@ class OpenoceanAggregatorApi(DexPrice):
         self.name = "OpenOcean"
 
     async def get_price(self, session):
-        print(f"START {self.name}")
+        logging.info(f"\nSTART {self.name}\n")
         url_gas = f"https://open-api.openocean.finance/v3/{self.network.chain_id}/gasPrice"
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
@@ -415,11 +417,11 @@ class OpenoceanAggregatorApi(DexPrice):
                     gas = round(
                         float(gas["without_decimals"]["standard"]), 1)
             else:
-                print(
+                logging.info(
                     f"Response status code in OpenoceanAggregatorApi get_gas not 200: {response.text}")
                 gas = 35
         except Exception as e:
-            print(
+            logging.error(
                 f"Error in OpenoceanAggregatorApi - get_price, in request of gas value: {e}")
             gas = 35
         if gas:
@@ -428,10 +430,10 @@ class OpenoceanAggregatorApi(DexPrice):
             url = f"https://open-api.openocean.finance/v3/{self.network.chain_id}/quote?inTokenAddress={self.src_token}&outTokenAddress={self.dest_token}&amount={self.amount}&slippage=1&gasPrice=35"
         try:
             response = await session.get(url, headers=headers)
-            print(f'OpenOcean response - {response}')
+            # print(f'OpenOcean response - {response}')
             open_ocean_data = await response.json()
-            print(f'OpenOcean data - {open_ocean_data}')
-            print(f"ENTER Print from {self.name}\nreponse.status - {response.status}\n{open_ocean_data}")
+            # print(f'OpenOcean data - {open_ocean_data}')
+            logging.info(f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n{open_ocean_data}\n")
             if response.status == 200:
                 out_amount = open_ocean_data["data"]["outAmount"]
                 decimals = open_ocean_data["data"]["outToken"]["decimals"]
@@ -444,10 +446,10 @@ class OpenoceanAggregatorApi(DexPrice):
                         }
                         }
             else:
-                print(
+                logging.info(
                     f"Response status code in OpenoceanAggregatorApi get data not 200: {response.text}")
         except Exception as e:
-            print(
+            logging.error(
                 f"Error in OpenoceanAggregatorApi - get_price, in request of data: {e}")
 
 
@@ -457,7 +459,7 @@ class OneInchAggregatorApi(DexPrice):
         self.name = "1inch"
 
     async def get_price(self, session):
-        print(f"START {self.name}")
+        logging.info(f"\nSTART {self.name}\n")
         decimals_src_token = await self._get_decimals(self.src_token, session)
         decimals_dest_token = await self._get_decimals(self.dest_token, session)
         url = f"https://api.1inch.dev/swap/v5.2/{self.network.chain_id}/quote"
@@ -472,13 +474,13 @@ class OneInchAggregatorApi(DexPrice):
         try:
             response = await session.get(url, headers=headers, params=params)
             one_inch_data = await response.json()
-            print(f"ENTER Print from {self.name}\nreponse.status - {response.status}\n{one_inch_data}")
+            logging.info(f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n{one_inch_data}\n")
             if response.status == 200:
                 return {"dex": self.name,
                         "price": int(one_inch_data["toAmount"]) / 10 ** decimals_dest_token / self.amount}
             else:
-                print(
+                logging.info(
                     f"Response status code in OneInchAggregatorApi get_price not 200: {response.text}")
         except Exception as e:
-            print(
+            logging.error(
                 f"Error in OneInchAggregatorApi - get_price, in request of data: {e}")

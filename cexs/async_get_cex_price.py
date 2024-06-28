@@ -1,6 +1,9 @@
 import asyncio
 import aiohttp
+import logging
 
+
+logging.basicConfig(level=logging.INFO)
 
 class CexPrice:
     def __init__(self, exchange):
@@ -15,36 +18,39 @@ class CexPrice:
         }
 
     async def get_exchange_data(self, session) -> dict:
-        print(f"START {self.exchange.name}")
+        logging.info(f"START {self.exchange.name}")
         url = self.exchange.url
-        if "symbol" in url:
-            symbol_url = self.pair
-            url = url.replace("symbol", symbol_url)
-            if self.exchange.params != "":
-                response = await session.get(url, headers=self.headers, params=self.exchange.params)
+        try:
+            if "symbol" in url:
+                symbol_url = self.pair
+                url = url.replace("symbol", symbol_url)
+                if self.exchange.params != "":
+                    response = await session.get(url, headers=self.headers, params=self.exchange.params)
+                else:
+                    response = await session.get(url, headers=self.headers)
             else:
-                response = await session.get(url, headers=self.headers)
-        else:
-            params = self.exchange.params
-            for key, value in params.items():
-                if key == "symbol" or key == "instrument_name" or key == "market" or key == "pair" or key == "instId":
-                    value = self.pair
-                    params.update({key: value})
-            response = await session.get(url, headers=self.headers, params=params)
-        print(f"response {self.exchange.name} - {response}")
-        data = await response.json()
-        print(f"data {self.exchange.name} - {data}")
-        print(
-            f"ENTER Print from CexPrice get_exchange data\nreponse.status - {response.status}\n{data}\n{self.exchange.name}")
-
-        if response.status == 200:
+                params = self.exchange.params
+                for key, value in params.items():
+                    if key == "symbol" or key == "instrument_name" or key == "market" or key == "pair" or key == "instId":
+                        value = self.pair
+                        params.update({key: value})
+                response = await session.get(url, headers=self.headers, params=params)
+            logging.info(f"\nresponse {self.exchange.name} - {response}\n")
             data = await response.json()
-            print(
-                f"ENTER Print from CexPrice get_exchange data\nreponse.status - {response.status}\n{data}\n{self.exchange.name}")
-            return data
-        else:
-            print(
-                f"Something went wrong with fetch data: {data}\nWith exchange: {self.exchange.name}")
+            logging.info(f"\ndata {self.exchange.name} - {data}\n")
+            # print(
+            #     f"ENTER Print from CexPrice get_exchange data\nreponse.status - {response.status}\n{data}\n{self.exchange.name}")
+
+            if response.status == 200:
+                # print(
+                #     f"ENTER Print from CexPrice get_exchange data\nreponse.status - {response.status}\n{data}\n{self.exchange.name}")
+                return data
+            else:
+                logging.info(
+                    f"Something went wrong with fetch data: {data}\nWith exchange: {self.exchange.name}")
+                return None
+        except Exception as e:
+            logging.error(f"Error fetching data from {self.exchange.name}: {e}")
             return None
 
     async def get_price(self, session) -> dict:
@@ -69,10 +75,11 @@ class CexPrice:
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class BybitPrice(CexPrice):
@@ -98,10 +105,11 @@ class BybitPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            print(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class BingxPrice(CexPrice):
@@ -127,10 +135,11 @@ class BingxPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class BitfinexGeminiPrice(CexPrice):
@@ -159,10 +168,11 @@ class BitfinexGeminiPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class BitgetCoinwKucoinPrice(CexPrice):
@@ -191,10 +201,11 @@ class BitgetCoinwKucoinPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class BitmexPrice(CexPrice):
@@ -233,14 +244,15 @@ class BitmexPrice(CexPrice):
 
                     return crypto_data
                 else:
-                    print(
+                    logging.info(
                         f"Something went wrong with fetch data: {response.text}")
                     return None
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class BittrexPrice(CexPrice):
@@ -266,10 +278,11 @@ class BittrexPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class CryptocomPrice(CexPrice):
@@ -295,10 +308,11 @@ class CryptocomPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class DeribitPrice(CexPrice):
@@ -324,10 +338,11 @@ class DeribitPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class DydxPrice(CexPrice):
@@ -353,10 +368,11 @@ class DydxPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class GarantexPrice(CexPrice):
@@ -382,10 +398,11 @@ class GarantexPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class HuobiPrice(CexPrice):
@@ -411,10 +428,11 @@ class HuobiPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class KinePrice(CexPrice):
@@ -431,9 +449,10 @@ class KinePrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class KrakenPrice(CexPrice):
@@ -459,10 +478,11 @@ class KrakenPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class OkxPrice(CexPrice):
@@ -488,10 +508,11 @@ class OkxPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class PhemexPrice(CexPrice):
@@ -517,10 +538,11 @@ class PhemexPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class PoloniexPrice(CexPrice):
@@ -546,10 +568,11 @@ class PoloniexPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class YoubitPrice(CexPrice):
@@ -575,10 +598,11 @@ class YoubitPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class CoinexPrice(CexPrice):
@@ -604,10 +628,11 @@ class CoinexPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
 
 
 class BackpackPrice(CexPrice):
@@ -633,7 +658,8 @@ class BackpackPrice(CexPrice):
 
                 return crypto_data
             else:
-                print("No data.")
+                logging.info(f"No data in {self.exchange.name}")
                 return None
         except Exception as e:
-            print(e)
+            logging.error(f"Error fetching prices from {self.exchange.name}: {e}")
+            return None
