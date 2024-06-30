@@ -1,14 +1,6 @@
-- Check cexs.
-
-? ZigZag
-OKX
+Check dexs
 
 -------------------------------------------
-
-Change print on logging in dex
-
--------------------------------------------
-
 
 - Module which find spreads by pairs from input or json.
 

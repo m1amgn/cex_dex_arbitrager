@@ -354,7 +354,7 @@ Mexc_exchange = CexExchanges(
 
 Okx_exchange = BingxBittrexCoinbaseKucoinOkx(
     name="okx",
-    url="https://www.okex.com/api/v5/market/books",
+    url="https://www.okx.com/api/v5/market/books",
     params={
         "instId": "",
         "sz": 5

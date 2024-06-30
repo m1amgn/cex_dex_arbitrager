@@ -1,9 +1,10 @@
 import asyncio
 import aiohttp
 import logging
-
+import ujson as json
 
 logging.basicConfig(level=logging.INFO)
+
 
 class CexPrice:
     def __init__(self, exchange):
@@ -14,7 +15,7 @@ class CexPrice:
             'Accept-Language': 'en-US,en;q=0.5',
             'Accept-Encoding': 'gzip, deflate, br',
             'Connection': 'keep-alive',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+            'Accept': 'application/json'
         }
 
     async def get_exchange_data(self, session) -> dict:
@@ -36,18 +37,17 @@ class CexPrice:
                         params.update({key: value})
                 response = await session.get(url, headers=self.headers, params=params)
             logging.info(f"\nresponse {self.exchange.name} - {response}\n")
-            data = await response.json()
-            logging.info(f"\ndata {self.exchange.name} - {data}\n")
-            # print(
-            #     f"ENTER Print from CexPrice get_exchange data\nreponse.status - {response.status}\n{data}\n{self.exchange.name}")
-
             if response.status == 200:
-                # print(
-                #     f"ENTER Print from CexPrice get_exchange data\nreponse.status - {response.status}\n{data}\n{self.exchange.name}")
+                if response.headers.get('Content-Type') == 'text/plain' or response.headers.get('Content-Type') == 'text/html; charset=UTF-8':
+                    text = await response.text()
+                    data = json.loads(text)
+                else:
+                    data = await response.json()
+                logging.info(f"\ndata {self.exchange.name} - {data}\n")
                 return data
             else:
                 logging.info(
-                    f"Something went wrong with fetch data: {data}\nWith exchange: {self.exchange.name}")
+                    f"\nSomething went wrong with response:\nresponse: {response}\ndata: {data}\nstatus: {response.status}\nWith exchange: {self.exchange.name}\n")
                 return None
         except Exception as e:
             logging.error(f"Error fetching data from {self.exchange.name}: {e}")
@@ -66,6 +66,7 @@ class CexPrice:
                 asks_volumes = float(asks[0][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -96,6 +97,7 @@ class BybitPrice(CexPrice):
                 asks_volumes = float(asks[0][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -126,6 +128,7 @@ class BingxPrice(CexPrice):
                 asks_volumes = float(asks[-1][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -159,6 +162,7 @@ class BitfinexGeminiPrice(CexPrice):
                 asks_volumes = float(asks[0]["amount"])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -192,6 +196,7 @@ class BitgetCoinwKucoinPrice(CexPrice):
                 asks_volumes = float(asks[0][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -235,6 +240,7 @@ class BitmexPrice(CexPrice):
                                     asks["size"] / 10 ** currency["scale"])
 
                     crypto_data = {
+                        "exchange": self.exchange.name,
                         "pair": self.pair,
                         "max_bids_price": max_bids_price,
                         "bids_volumes": bids_volumes,
@@ -269,6 +275,7 @@ class BittrexPrice(CexPrice):
                 asks_volumes = float(asks[0]["quantity"])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -299,6 +306,7 @@ class CryptocomPrice(CexPrice):
                 asks_volumes = float(asks[0][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -329,6 +337,7 @@ class DeribitPrice(CexPrice):
                 asks_volumes = float(asks[0][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -359,6 +368,7 @@ class DydxPrice(CexPrice):
                 asks_volumes = float(asks[0]["size"])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -389,6 +399,7 @@ class GarantexPrice(CexPrice):
                 asks_volumes = float(asks[0]["volume"])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -419,6 +430,7 @@ class HuobiPrice(CexPrice):
                 asks_volumes = float(asks[0][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -443,6 +455,7 @@ class KinePrice(CexPrice):
                 price = float(data["data"]["price"])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "price": price,
                 }
@@ -469,6 +482,7 @@ class KrakenPrice(CexPrice):
                 asks_volumes = float(asks[0][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -499,6 +513,7 @@ class OkxPrice(CexPrice):
                 asks_volumes = float(asks[0][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -529,6 +544,7 @@ class PhemexPrice(CexPrice):
                 asks_volumes = float(asks[0][1] / 10000)
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -559,6 +575,7 @@ class PoloniexPrice(CexPrice):
                 asks_volumes = float(asks[1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -589,6 +606,7 @@ class YoubitPrice(CexPrice):
                 asks_volumes = float(asks[0][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -619,6 +637,7 @@ class CoinexPrice(CexPrice):
                 asks_volumes = float(asks[0][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,
@@ -649,6 +668,7 @@ class BackpackPrice(CexPrice):
                 asks_volumes = float(asks[0][1])
 
                 crypto_data = {
+                    "exchange": self.exchange.name,
                     "pair": self.pair,
                     "max_bids_price": max_bids_price,
                     "bids_volumes": bids_volumes,

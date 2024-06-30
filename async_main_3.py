@@ -2,12 +2,15 @@ import asyncio
 import aiohttp
 import ujson as json
 import pandas as pd
+import logging
 
 from web3 import Web3
 from cexs.cex_exchanges import Bybit_exchange, Binance_exchange, Bingx_exchange, Bitfinex_exchange, Bitget_exchange, Bitmex_exchange, Bitstamp_exchange, Coinbase_exchange, Coinw_exchange, Cryptocom_exchange, Deribit_exchange, Dydx_exchange, Garantex_exchange, Gateio_exchange, Gemini_exchange, Huobi_exchange, Kraken_exchange, Kucoin_exchange, Mexc_exchange, Okx_exchange, Phemex_exchange, Poloniex_exchange, Youbit_exchange, Zigzag_exchange, Coinex_exchange, Backpack_exchange
 from cexs.async_get_cex_price import BybitPrice, BingxPrice, BitfinexGeminiPrice, BitgetCoinwKucoinPrice, BitmexPrice, CexPrice, CryptocomPrice, DeribitPrice, DydxPrice, GarantexPrice, HuobiPrice, KrakenPrice, OkxPrice, PhemexPrice, PoloniexPrice, YoubitPrice, CoinexPrice, BackpackPrice
 from dexs.async_get_dex_price import DexscreenerAggregatorApi, ParaswapAggregatorApi, KyberswapAggregatorApi, OpenoceanAggregatorApi, OneInchAggregatorApi
 from dexs.networks import Ethereum, BinanceSmartChain, Arbitrum, Optimism, Polygon, Avalanche
+
+logging.basicConfig(level=logging.INFO)
 
 
 def find_spread(exchanges, aggregators):
@@ -364,7 +367,7 @@ async def cex_prices(src_token, dest_token):
             Coinex_exchange: CoinexPrice,
             Backpack_exchange: BackpackPrice
             }
-    
+
     cexs_price_list = []
     cex_price_info = {}
     if src_token not in ["USDT", "USDC"]:
@@ -377,23 +380,23 @@ async def cex_prices(src_token, dest_token):
                 if price_info:
                     cex_price_info = {"exchange": cex.name, "data": price_info}
                     cexs_price_list.append(cex_price_info)
-                    print(
-                        f"EXIT Print from cex_prices\nreponse.status\n{cex_price_info}")
+                    logging.info(
+                        f"\nEXIT Print from cex_prices\ncex_price_info: {cex_price_info}\n")
 
     return cexs_price_list
 
 
 async def dex_prices(src_token, dest_token):
     aggregators = [ParaswapAggregatorApi,
-                   KyberswapAggregatorApi, 
-                   OpenoceanAggregatorApi, 
-                   OneInchAggregatorApi, 
+                   KyberswapAggregatorApi,
+                   OpenoceanAggregatorApi,
+                   OneInchAggregatorApi,
                    DexscreenerAggregatorApi]
-    networks = [Ethereum, 
+    networks = [Ethereum,
                 BinanceSmartChain,
-                Arbitrum, 
-                Optimism, 
-                Polygon, 
+                Arbitrum,
+                Optimism,
+                Polygon,
                 Avalanche]
     if dest_token == "USDT":
         dest_token = json.load(open("tokens_coins_info/usdt_adresses.json"))
@@ -464,8 +467,8 @@ async def dex_prices(src_token, dest_token):
                                                                   "price_buy": (1 / float(aggregator_data_buy["price"])),
                                                                   "dex_buy": aggregator_data_buy["dex"],
                                                                   "data_buy": ""})
-                                print(
-                                    f"EXIT Print from dex_prices\nreponse.status\n{aggregator_price_info}")
+                                logging.info(
+                                    f"\nEXIT Print from dex_prices\ndex_price_info: {aggregator_price_info}\n")
             aggregator_price_list.append(aggregator_price_info)
     return aggregator_price_list
 

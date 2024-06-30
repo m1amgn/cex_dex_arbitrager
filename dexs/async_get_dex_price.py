@@ -299,7 +299,11 @@ class DexscreenerAggregatorApi(DexPrice):
                         highest_price_pair = pair
                 money_volumes_1h = int(highest_price_pair["priceNative"] * highest_price_pair['volume']['h1'])
                 if highest_price_pair and money_volumes_1h > 100:
-                    return {"dex": highest_price_pair["dexId"],
+                    return {"aggregator": self.name,
+                            "network": self.network.name,
+                            "src_address": self.src_token,
+                            "dest_address": self.dest_token,
+                            "dex": highest_price_pair["dexId"],
                             "price": highest_price_pair["priceNative"],
                             "data": {
                                 "deals": highest_price_pair["txns"],
@@ -330,7 +334,11 @@ class ParaswapAggregatorApi(DexPrice):
             logging.info(f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n{paraswap_info}\n")
             if response.status == 200:
                 paraswap_info = paraswap_info["priceRoute"]
-                return {"dex": paraswap_info["bestRoute"][0]["swaps"][0]["swapExchanges"][0]["exchange"],
+                return {"aggregator": self.name,
+                        "network": self.network.name,
+                        "src_address": self.src_token,
+                        "dest_address": self.dest_token,
+                        "dex": paraswap_info["bestRoute"][0]["swaps"][0]["swapExchanges"][0]["exchange"],
                         "price": float(paraswap_info["destAmount"])/10**float(paraswap_info["destDecimals"]) / self.amount,
                         "data": {
                             "fees": paraswap_info["gasCostUSD"]
@@ -370,7 +378,11 @@ class KyberswapAggregatorApi(DexPrice):
                 for swaps in kyberswap_info["swaps"]:
                     for swap in swaps:
                         if Web3.to_checksum_address(swap["tokenIn"]) == Web3.to_checksum_address(self.src_token) and Web3.to_checksum_address(swap["tokenOut"]) == Web3.to_checksum_address(self.dest_token):
-                            kyberswap_data_list.append({"dex": swap["exchange"],
+                            kyberswap_data_list.append({"aggregator": self.name,
+                                                        "network": self.network.name,
+                                                        "src_address": self.src_token,
+                                                        "dest_address": self.dest_token,
+                                                        "dex": swap["exchange"],
                                                         "price": (float(swap["amountOut"])/10**decimals_dest_token) / (float(swap["swapAmount"])/10**decimals_src_token) / self.amount,
                                                         "data": {
                                                             "fees": swap["poolExtra"],
@@ -438,7 +450,11 @@ class OpenoceanAggregatorApi(DexPrice):
                 out_amount = open_ocean_data["data"]["outAmount"]
                 decimals = open_ocean_data["data"]["outToken"]["decimals"]
                 price = float(out_amount) / self.amount / 10 ** decimals
-                return {"dex": self.name,
+                return {"aggregator": self.name,
+                        "network": self.network.name,
+                        "src_address": self.src_token,
+                        "dest_address": self.dest_token,
+                        "dex": self.name,
                         "price": price,
                         "data": {
                             "estimated gas": open_ocean_data['data']['estimatedGas'],
@@ -476,7 +492,11 @@ class OneInchAggregatorApi(DexPrice):
             one_inch_data = await response.json()
             logging.info(f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n{one_inch_data}\n")
             if response.status == 200:
-                return {"dex": self.name,
+                return {"aggregator": self.name,
+                        "network": self.network.name,
+                        "src_address": self.src_token,
+                        "dest_address": self.dest_token,
+                        "dex": self.name,
                         "price": int(one_inch_data["toAmount"]) / 10 ** decimals_dest_token / self.amount}
             else:
                 logging.info(
