@@ -511,7 +511,7 @@ async def find_spread(part_of_files: str) -> None:
         print(f"!!!!!!!!!!!!!!!!!!!!!!!CEX{exchanges}")
         aggregators = await dex_prices(src_token, dest_token="USDT")
         print(f"!!!!!!!!!!!!!!!!!!!!!!!DEX{aggregators}")
-        find_spread(exchanges, aggregators)
+        calculate_spread(exchanges, aggregators, part_of_files)
         print("***************************")
         print(f"USDC - {src_token}")
         exchanges = await cex_prices(src_token, dest_token="USDC")
