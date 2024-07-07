@@ -1,8 +1,4 @@
-- Module which find spreads by pairs from input or json.
-
--------------------------------------------
-
-- Add Base, Solana, Cosmos, TON(?).
+- Add Solana, Cosmos, TON, Base
 
 -------------------------------------------
 
