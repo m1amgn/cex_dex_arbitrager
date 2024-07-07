@@ -505,3 +505,14 @@ class OneInchAggregatorApi(DexPrice):
         except Exception as e:
             logging.error(
                 f"Error in OneInchAggregatorApi - get_price, in request of data: {e}")
+            
+            
+# class JupyterApi(DexPrice):
+#     def __init__(self, src_token: str, dest_token: str, name: str, network, slippage: int | None = 500, amount: int | None = 100):
+#         super().__init__(src_token, dest_token, name, network, slippage, amount)
+#         self.name = "Jupyter"
+        
+#     async def get_price(self, session):
+#         logging.info(f"\nSTART {self.name}\n")
+
+# https://station.jup.ag/docs/apis/price-api
