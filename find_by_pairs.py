@@ -1,9 +1,10 @@
 import asyncio
 import ujson as json
-from async_main import cex_prices, dex_prices, find_spread
+from find_spread import calculate_spread, cex_prices, dex_prices
 
-SRC_TOKEN = "XAI"
-DEST_TOKEN = "USDT"
+SRC_TOKEN = "JUP"
+DEST_TOKEN = "USDC"
+PART_OF_FILES = "by_pairs"
 
 
 def get_token_from_list(token: str) -> dict:
@@ -15,11 +16,12 @@ def get_token_from_list(token: str) -> dict:
             print(f"No {token} in the list.")
 
 
-async def main(src_token: str, dest_token: str) -> None:
+async def main(src_token: str, dest_token: str, part_of_files) -> None:
     src_token = get_token_from_list(src_token)
     exchanges = await cex_prices(src_token, dest_token)
     aggregators = await dex_prices(src_token, dest_token)
-    find_spread(exchanges, aggregators)
+    print(f"\n\n\nCEXES - {exchanges}\n\n\nDEXES - {aggregators}\n\n\n")
+    calculate_spread(exchanges, aggregators, part_of_files)
 
 if __name__ == "__main__":
-    asyncio.run(main(SRC_TOKEN, DEST_TOKEN))
+    asyncio.run(main(SRC_TOKEN, DEST_TOKEN, PART_OF_FILES))

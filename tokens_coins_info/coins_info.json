@@ -34,7 +34,9 @@
     {
       "name": "SOL",
       "coin_id": 5426,
-      "blockchains": {}
+      "blockchains": {
+        "Solana": "So11111111111111111111111111111111111111112"
+      }
     },
     {
       "name": "XRP",
