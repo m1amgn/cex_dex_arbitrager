@@ -297,7 +297,8 @@ class DexscreenerAggregatorApi(DexPrice):
                     if float(pair["priceNative"]) > float(highest_price) and pair["baseToken"]["address"] == self.src_token:
                         highest_price = pair["priceNative"]
                         highest_price_pair = pair
-                money_volumes_1h = int(highest_price_pair["priceNative"] * highest_price_pair['volume']['h1'])
+                money_volumes_1h = float(highest_price_pair["priceNative"]) * float(highest_price_pair['volumes']['h1'])
+                logging.info(f"********\n********\DEXSCREENER MONEY VOLUMES {money_volumes_1h}\n********")
                 if highest_price_pair and money_volumes_1h > 100:
                     return {"aggregator": self.name,
                             "network": self.network.name,
