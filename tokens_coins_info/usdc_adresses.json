@@ -66,5 +66,6 @@
     "Base": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "Core": "0xa4151B2B3e269645181dCcF2D426cE75fcbDeca9",
     "Mantle": "0x09bc4e0d864854c6afb6eb9a9cdf58ac190d0df9",
-    "Celo": "0x37f750b7cc259a2f741af45294f6a16572cf5cad"
+    "Celo": "0x37f750b7cc259a2f741af45294f6a16572cf5cad",
+    "TON": "EQB-MPwrd1G6WKNkLz_VnV6WqBDd142KMQv-g1O-8QUA3728"
 }

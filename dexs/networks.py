@@ -146,3 +146,27 @@ ZkSync = Network(
     explorer_api_abi='',
     api_key=''
 )
+
+
+Osmosis = Network(
+    name='Osmosis',
+    rpc='',
+    chain_id='',
+    eip1559_tx=False,
+    coin_symbol='OSMO',
+    explorer='https://www.mintscan.io/osmosis/',
+    explorer_api_abi='',
+    api_key=''
+)
+
+
+TON = Network(
+    name='TON',
+    rpc='',
+    chain_id='',
+    eip1559_tx=False,
+    coin_symbol='TON',
+    explorer='https://tonviewer.com/',
+    explorer_api_abi='',
+    api_key=''
+)

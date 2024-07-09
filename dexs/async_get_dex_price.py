@@ -30,7 +30,7 @@ class DexPrice:
     _dex_contracts = json.load(open(_DEX_CONTRACTS_PATH))
     _tokens_info = json.load(open(_TOKEN_INFO_PATH))
 
-    def __init__(self, src_token: str, dest_token: str, name: str, network, slippage: int | None = 500, amount: int | None = 100):
+    def __init__(self, src_token: str, dest_token: str, name: str, network, slippage: int | None = 500, amount: int | None = 1):
         self.src_token = src_token
         self.dest_token = dest_token
         self.name = name
@@ -38,7 +38,7 @@ class DexPrice:
         self.slippage = slippage
         self.amount = amount
 
-        if network.name != 'Solana':
+        if network.name not in ['Solana', 'Osmosis', 'TON']:
             self.src_token = Web3.to_checksum_address(self.src_token)
             self.dest_token = Web3.to_checksum_address(self.dest_token)
             try:
@@ -284,10 +284,6 @@ class DexPrice:
 
 
 class DexscreenerAggregatorApi(DexPrice):
-    def __init__(self, src_token: str, dest_token: str, name: str, network, slippage: int | None = 500, amount: int | None = 100):
-        super().__init__(src_token, dest_token, name, network, slippage, amount)
-        self.name = "Dexscreener"
-
     async def get_price(self, session):
         logging.info(f"\nSTART {self.name}\n")
         url = f"https://api.dexscreener.com/latest/dex/tokens/{self.src_token},{self.dest_token}"
@@ -302,17 +298,18 @@ class DexscreenerAggregatorApi(DexPrice):
                 highest_price_pair = None
                 highest_price = float('-inf')
                 for pair in dexcreener_info:
-                    if float(pair["priceNative"]) > float(highest_price) and pair["baseToken"]["address"] == self.src_token:
-                        highest_price = float(pair["priceNative"])
+                    if float(pair["priceUsd"]) > float(highest_price) and pair["baseToken"]["address"] == self.src_token and pair["quoteToken"]["address"] == self.dest_token:
+                        highest_price = float(pair["priceUsd"])
                         highest_price_pair = pair
-                money_volumes_1h = highest_price * float(highest_price_pair['volume']['h1'])
+                money_volumes_1h = highest_price * \
+                    float(highest_price_pair['volume']['h1'])
                 if highest_price_pair and money_volumes_1h > 100:
                     data = {"aggregator": self.name,
                             "network": self.network.name,
                             "src_address": self.src_token,
                             "dest_address": self.dest_token,
-                            "dex": highest_price_pair["dexId"],
-                            "price": highest_price_pair["priceNative"],
+                            "dex": highest_price_pair["dexId"]+highest_price_pair["labels"],
+                            "price": highest_price,
                             "data": {
                                 "deals": highest_price_pair["txns"],
                                 "volumes": highest_price_pair['volume']
@@ -329,102 +326,117 @@ class DexscreenerAggregatorApi(DexPrice):
 
 
 class ParaswapAggregatorApi(DexPrice):
-    def __init__(self, src_token: str, dest_token: str, name: str, network, slippage: int | None = 500, amount: int | None = 100):
-        super().__init__(src_token, dest_token, name, network, slippage, amount)
-        self.name = "Paraswap"
-
     async def get_price(self, session):
-        try:
-            logging.info(f"\nSTART {self.name}\n")
-            decimals_src_token = await self._get_decimals(self.src_token, session)
-            decimals_dest_token = await self._get_decimals(self.dest_token, session)
-            url = f"https://apiv5.paraswap.io/prices/?srcToken={self.src_token}&destToken={self.dest_token}&amount={self.amount*10**decimals_src_token}&srcDecimals={decimals_src_token}&destDecimals={decimals_dest_token}&side=SELL&network={self.network.chain_id}"
-            response = await session.get(url)
-            logging.info(
-                f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n")
-            if response.status == 200:
-                paraswap_info = await response.json()
-                logging.info(f"\n{self.name} - {paraswap_info}")
-                paraswap_info = paraswap_info["priceRoute"]
-                data = {"aggregator": self.name,
-                        "network": self.network.name,
-                        "src_address": self.src_token,
-                        "dest_address": self.dest_token,
-                        "dex": paraswap_info["bestRoute"][0]["swaps"][0]["swapExchanges"][0]["exchange"],
-                        "price": float(paraswap_info["destAmount"])/10**float(paraswap_info["destDecimals"]) / self.amount,
-                        "data": {
-                            "fees": paraswap_info["gasCostUSD"]
-                        }
-                        }
-                logging.info(f"RETURN DATA - {self.name} - {data}")
-                return data
-            else:
+        supported_chain_id = [1, 10, 56, 137, 250, 1101, 8453, 42161, 43114]
+        if self.network.chain_id in supported_chain_id:
+            try:
+                logging.info(f"\nSTART {self.name}\n")
+                decimals_src_token = await self._get_decimals(self.src_token, session)
+                decimals_dest_token = await self._get_decimals(self.dest_token, session)
+                url = f"https://api.paraswap.io/prices/?srcToken={self.src_token}&destToken={self.dest_token}&amount={self.amount*10**decimals_src_token}&srcDecimals={decimals_src_token}&destDecimals={decimals_dest_token}&side=SELL&network={self.network.chain_id}"
+                response = await session.get(url)
                 logging.info(
-                    f"Response status code in ParaswapAggregatorApi get_price not 200: {response.text}")
-        except Exception as e:
-            logging.error(
-                f"Error in ParaswapAggregatorApi - get_price, in request of data: {e}")
+                    f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n")
+                if response.status == 200:
+                    paraswap_info = await response.json()
+                    logging.info(f"\n{self.name} - {paraswap_info}")
+                    paraswap_info = paraswap_info["priceRoute"]
+                    data = {"aggregator": self.name,
+                            "network": self.network.name,
+                            "src_address": self.src_token,
+                            "dest_address": self.dest_token,
+                            "dex": paraswap_info["bestRoute"][0]["swaps"][0]["swapExchanges"][0]["exchange"],
+                            "price": float(paraswap_info["destAmount"])/10**float(paraswap_info["destDecimals"]) / self.amount,
+                            "data": {
+                                "fees": paraswap_info["gasCostUSD"]
+                            }
+                            }
+                    logging.info(f"RETURN DATA - {self.name} - {data}")
+                    return data
+                else:
+                    logging.info(
+                        f"Response status code in ParaswapAggregatorApi get_price not 200: {response.text}")
+            except Exception as e:
+                logging.error(
+                    f"Error in ParaswapAggregatorApi - get_price, in request of data: {e}")
+        else:
+            logging.info(
+                f"Aggregator {self.name}: network {self.network.name} not supported.")
 
 
 class KyberswapAggregatorApi(DexPrice):
-    def __init__(self, src_token: str, dest_token: str, name: str, network, slippage: int | None = 500, amount: int | None = 100):
-        super().__init__(src_token, dest_token, name, network, slippage, amount)
-        self.name = "Kyberswap"
-
     async def get_price(self, session):
-        try:
-            logging.info(f"\nSTART {self.name}\n")
-            decimals_src_token = await self._get_decimals(self.src_token, session)
-            decimals_dest_token = await self._get_decimals(self.dest_token, session)
-            if self.network.name == "BNB Smart Chain (BEP20)":
-                network = "bsc"
-            elif self.network.name == "Avalanche C-Chain":
-                network = "avalanche"
-            else:
-                network = self.network.name
-            url = f"https://aggregator-api.kyberswap.com/{network.lower()}/route/encode?tokenIn={self.src_token}&tokenOut={self.dest_token}&amountIn={self.amount*10**decimals_src_token}&to=0x0000000000000000000000000000000000000000&saveGas=0&gasInclude=1&slippageTolerance=50"
-            response = await session.get(url)
+        supported_network = ['ethereum',
+                             'bsc',
+                             'arbitrum',
+                             'polygon',
+                             'optimism',
+                             'avalanche',
+                             'base',
+                             'cronos',
+                             'zksync',
+                             'fantom',
+                             'linea',
+                             'polygon-zkevm',
+                             'aurora',
+                             'bittorent',
+                             'scroll']
+
+        if self.network.name == "BNB Smart Chain (BEP20)":
+            network = "bsc"
+        elif self.network.name == "Avalanche C-Chain":
+            network = "avalanche"
+        else:
+            network = self.network.name
+
+        if network.lower() in supported_network:
+            try:
+                logging.info(f"\nSTART {self.name}\n")
+                decimals_src_token = await self._get_decimals(self.src_token, session)
+                decimals_dest_token = await self._get_decimals(self.dest_token, session)
+
+                url = f"https://aggregator-api.kyberswap.com/{network.lower()}/route/encode?tokenIn={self.src_token}&tokenOut={self.dest_token}&amountIn={self.amount*10**decimals_src_token}&to=0x0000000000000000000000000000000000000000&saveGas=0&gasInclude=1&slippageTolerance=50"
+                response = await session.get(url)
+                logging.info(
+                    f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n")
+                if response.status == 200:
+                    kyberswap_info = await response.json()
+                    logging.info(f"\n{self.name} - {kyberswap_info}")
+                    kyberswap_data_list = []
+                    for swaps in kyberswap_info["swaps"]:
+                        for swap in swaps:
+                            if Web3.to_checksum_address(swap["tokenIn"]) == Web3.to_checksum_address(self.src_token) and Web3.to_checksum_address(swap["tokenOut"]) == Web3.to_checksum_address(self.dest_token):
+                                kyberswap_data_list.append({"aggregator": self.name,
+                                                            "network": self.network.name,
+                                                            "src_address": self.src_token,
+                                                            "dest_address": self.dest_token,
+                                                            "dex": swap["exchange"],
+                                                            "price": (float(swap["amountOut"])/10**decimals_dest_token) / (float(swap["swapAmount"])/10**decimals_src_token) / self.amount,
+                                                            "data": {
+                                                                "fees": swap["poolExtra"],
+                                                                "gas": kyberswap_info["gasUsd"]}
+                                                            })
+                    highest_price_dex = {}
+                    highest_price = float("-inf")
+                    for dex in kyberswap_data_list:
+                        if dex["price"] > highest_price:
+                            highest_price = dex["price"]
+                            highest_price_dex.update(dex)
+                    logging.info(
+                        f"RETURN DATA - {self.name} - {highest_price_dex}")
+                    return highest_price_dex
+                else:
+                    logging.info(
+                        f"Response status code in KyberswapAggregatorApi not 200: {response.text}")
+            except Exception as e:
+                logging.error(
+                    f"Error in KyberswapAggregatorApi - get_price, in request of data: {e}")
+        else:
             logging.info(
-                f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n")
-            if response.status == 200:
-                kyberswap_info = await response.json()
-                logging.info(f"\n{self.name} - {kyberswap_info}")
-                kyberswap_data_list = []
-                for swaps in kyberswap_info["swaps"]:
-                    for swap in swaps:
-                        if Web3.to_checksum_address(swap["tokenIn"]) == Web3.to_checksum_address(self.src_token) and Web3.to_checksum_address(swap["tokenOut"]) == Web3.to_checksum_address(self.dest_token):
-                            kyberswap_data_list.append({"aggregator": self.name,
-                                                        "network": self.network.name,
-                                                        "src_address": self.src_token,
-                                                        "dest_address": self.dest_token,
-                                                        "dex": swap["exchange"],
-                                                        "price": (float(swap["amountOut"])/10**decimals_dest_token) / (float(swap["swapAmount"])/10**decimals_src_token) / self.amount,
-                                                        "data": {
-                                                            "fees": swap["poolExtra"],
-                                                            "gas": kyberswap_info["gasUsd"]}
-                                                        })
-                highest_price_dex = {}
-                highest_price = float("-inf")
-                for dex in kyberswap_data_list:
-                    if dex["price"] > highest_price:
-                        highest_price = dex["price"]
-                        highest_price_dex.update(dex)
-                logging.info(
-                    f"RETURN DATA - {self.name} - {highest_price_dex}")
-                return highest_price_dex
-            else:
-                logging.info(
-                    f"Response status code in KyberswapAggregatorApi not 200: {response.text}")
-        except Exception as e:
-            logging.error(
-                f"Error in KyberswapAggregatorApi - get_price, in request of data: {e}")
+                f"Aggregator {self.name}: network {self.network.name} not supported.")
 
 
 class OpenoceanAggregatorApi(DexPrice):
-    def __init__(self, src_token: str, dest_token: str, name: str, network, slippage: int | None = 500, amount: int | None = 100):
-        super().__init__(src_token, dest_token, name, network, slippage, amount)
-        self.name = "OpenOcean"
-
     async def get_price(self, session):
         logging.info(f"\nSTART {self.name}\n")
         url_gas = f"https://open-api.openocean.finance/v3/{self.network.chain_id}/gasPrice"
@@ -489,10 +501,6 @@ class OpenoceanAggregatorApi(DexPrice):
 
 
 class OneInchAggregatorApi(DexPrice):
-    def __init__(self, src_token: str, dest_token: str, name: str, network, slippage: int | None = 500, amount: int | None = 100):
-        super().__init__(src_token, dest_token, name, network, slippage, amount)
-        self.name = "1inch"
-
     async def get_price(self, session):
         try:
             logging.info(f"\nSTART {self.name}\n")
@@ -531,39 +539,121 @@ class OneInchAggregatorApi(DexPrice):
 
 
 class JupyterApi(DexPrice):
-    def __init__(self, src_token: str, dest_token: str, name: str, network, slippage: int | None = 500, amount: int | None = 100):
-        super().__init__(src_token, dest_token, name, network, slippage, amount)
-        self.name = "Jupyter"
-
     async def get_price(self, session):
-        logging.info(f"\nSTART {self.name}\n")
-        url = f"https://price.jup.ag/v6/price?ids={self.src_token}&vsToken={self.dest_token}"
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
-            'Accept-Language': 'en-US,en;q=0.5',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Connection': 'keep-alive',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
-        }
-        try:
-            response = await session.get(url, headers=headers)
-            logging.info(
-                f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n")
-            if response.status == 200:
-                jupyter_data = await response.json()
-                logging.info(f"\n{self.name} - {jupyter_data}")
-                data = {"aggregator": self.name,
-                        "network": self.network.name,
-                        "src_address": self.src_token,
-                        "dest_address": self.dest_token,
-                        "dex": self.name,
-                        "price": jupyter_data['data'][self.src_token]['price']
-                        }
-                logging.info(f"RETURN DATA - {self.name} - {data}")
-                return data
-            else:
+        supported_network = ['Solana']
+        if self.network.name in supported_network:
+            logging.info(f"\nSTART {self.name}\n")
+            url = f"https://price.jup.ag/v6/price?ids={self.src_token}&vsToken={self.dest_token}"
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+                'Accept-Language': 'en-US,en;q=0.5',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+            }
+            try:
+                response = await session.get(url, headers=headers)
                 logging.info(
-                    f"Response status code in JupyterApi get_price not 200: {response.text}")
-        except Exception as e:
-            logging.error(
-                f"Error in JupyterApi - get_price, in request of data: {e}")
+                    f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n")
+                if response.status == 200:
+                    jupyter_data = await response.json()
+                    logging.info(f"\n{self.name} - {jupyter_data}")
+                    data = {"aggregator": self.name,
+                            "network": self.network.name,
+                            "src_address": self.src_token,
+                            "dest_address": self.dest_token,
+                            "dex": self.name,
+                            "price": float(jupyter_data['data'][self.src_token]['price'])
+                            }
+                    logging.info(f"RETURN DATA - {self.name} - {data}")
+                    return data
+                else:
+                    logging.info(
+                        f"Response status code in JupyterApi get_price not 200: {response.text}")
+            except Exception as e:
+                logging.error(
+                    f"Error in JupyterApi - get_price, in request of data: {e}")
+        else:
+            logging.info(
+                f"Aggregator {self.name}: network {self.network.name} not supported.")
+
+
+class OsmosisApi(DexPrice):
+    async def get_price(self, session):
+        supported_network = ['Osmosis']
+        if self.network.name in supported_network:
+            logging.info(f"\nSTART {self.name}\n")
+            url = f"https://sqsprod.osmosis.zone/router/quote?tokenIn=1000000{self.src_token}&tokenOutDenom={self.dest_token}"
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+                'Accept-Language': 'en-US,en;q=0.5',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+            }
+            try:
+                response = await session.get(url, headers=headers)
+                logging.info(
+                    f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n")
+                if response.status == 200:
+                    osmosis_data = await response.json()
+                    logging.info(f"\n{self.name} - {osmosis_data}")
+                    data = {"aggregator": self.name,
+                            "network": self.network.name,
+                            "src_address": self.src_token,
+                            "dest_address": self.dest_token,
+                            "dex": self.name,
+                            "price": float(osmosis_data['in_base_out_quote_spot_price'])
+                            }
+                    logging.info(f"RETURN DATA - {self.name} - {data}")
+                    return data
+                else:
+                    logging.info(
+                        f"Response status code in OsmosisApi get_price not 200: {response.text}")
+            except Exception as e:
+                logging.error(
+                    f"Error in OsmosisApi - get_price, in request of data: {e}")
+        else:
+            logging.info(
+                f"Aggregator {self.name}: network {self.network.name} not supported.")
+
+
+class StonFiApi(DexPrice):
+    async def get_price(self, session):
+        supported_network = ['TON']
+        print(f"NETWORK - {self.network.name}")
+        if self.network.name in supported_network:
+            logging.info(f"\nSTART {self.name}\n")
+            url = f"https://api.ston.fi/v1/assets/{self.src_token}"
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+                'Accept-Language': 'en-US,en;q=0.5',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+            }
+            try:
+                response = await session.get(url, headers=headers)
+                logging.info(
+                    f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n")
+                if response.status == 200:
+                    stonfi_data = await response.json()
+                    logging.info(f"\n{self.name} - {stonfi_data}")
+                    data = {"aggregator": self.name,
+                            "network": self.network.name,
+                            "src_address": self.src_token,
+                            "dest_address": self.dest_token,
+                            "dex": self.name,
+                            "price": float(stonfi_data['asset']['dex_price_usd'])
+                            }
+                    logging.info(f"RETURN DATA - {self.name} - {data}")
+                    return data
+                else:
+                    logging.info(
+                        f"Response status code in StonFiApi get_price not 200: {response.text}")
+            except Exception as e:
+                logging.error(
+                    f"Error in StonFiApi - get_price, in request of data: {e}")
+        else:
+            logging.info(
+                f"Aggregator {self.name}: network {self.network.name} not supported.")
