@@ -402,11 +402,6 @@ def calculate_spread(exchanges, aggregators, part_of_files):
                 file.write(df_cex_min.to_string(index=False) + '\n\n')
             with open(f'results/async_signals_{part_of_files}.txt', 'a') as file:
                 file.write(df_cex_max.to_string(index=False) + '\n\n')
-            with open(f'results/async_signals_{part_of_files}.txt', 'a') as file:
-                file.write(df_dex_sell.to_string(index=False) + '\n\n')
-            with open(f'results/async_signals_{part_of_files}.txt', 'a') as file:
-                file.write(df_dex_buy.to_string(index=False) + '\n\n')
-
 
         with open(f'results/async_results_{part_of_files}.txt', 'a') as file:
             file.write(result_output)
