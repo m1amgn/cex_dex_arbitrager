@@ -3,6 +3,7 @@ import aiohttp
 import ujson as json
 import pandas as pd
 import logging
+import time
 
 from cexs.cex_exchanges import Bybit_exchange, Binance_exchange, Bingx_exchange, Bitfinex_exchange, Bitget_exchange, Bitmex_exchange, Bitstamp_exchange, Coinbase_exchange, Coinw_exchange, Cryptocom_exchange, Deribit_exchange, Dydx_exchange, Garantex_exchange, Gateio_exchange, Gemini_exchange, Huobi_exchange, Kraken_exchange, Kucoin_exchange, Mexc_exchange, Okx_exchange, Phemex_exchange, Poloniex_exchange, Youbit_exchange, Zigzag_exchange, Coinex_exchange, Backpack_exchange
 from cexs.async_get_cex_price import BybitPrice, BingxPrice, BitfinexGeminiPrice, BitgetCoinwKucoinPrice, BitmexPrice, CexPrice, CryptocomPrice, DeribitPrice, DydxPrice, GarantexPrice, HuobiPrice, KrakenPrice, OkxPrice, PhemexPrice, PoloniexPrice, YoubitPrice, CoinexPrice, BackpackPrice
@@ -10,6 +11,7 @@ from dexs.async_get_dex_price import DexscreenerAggregatorApi, ParaswapAggregato
 from dexs.networks import Ethereum, BinanceSmartChain, Arbitrum, Optimism, Polygon, Avalanche, Solana, Osmosis, Base, TON
 
 logging.basicConfig(level=logging.INFO)
+current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
 
 def calculate_spread(exchanges, aggregators, part_of_files):
@@ -20,7 +22,7 @@ def calculate_spread(exchanges, aggregators, part_of_files):
 
     min_asks_exist = 'min_asks_price' in exchanges[0]['data'] if exchanges else False
     max_bids_exist = 'max_bids_price' in exchanges[0]['data'] if exchanges else False
-    
+
     dex_price_sell_exist = False
     dex_price_buy_exist = False
 
@@ -125,6 +127,7 @@ def calculate_spread(exchanges, aggregators, part_of_files):
 
             result_dex_output = (
                 f"\n\n-------------------------------------------------\n\n"
+                f"Timestamp: {current_time}\n\n"
                 f"Aggregator with minimum price: {aggregator_buy}\n"
                 f"Aggregator min price: {price_buy}\n"
                 f"Network buy: {network_buy}, dex buy: {dex_buy}\n"
@@ -144,6 +147,7 @@ def calculate_spread(exchanges, aggregators, part_of_files):
                 if percents_spread >= 15:
                     signal_output = (
                         f"\n\n-------------------------------------------------\n\n"
+                        f"Timestamp: {current_time}\n\n"
                         f"Aggregator with minimum price: {aggregator_buy}\n"
                         f"Aggregator min price: {price_buy}\n"
                         f"Network buy: {network_buy}, dex buy: {dex_buy}\n"
@@ -175,7 +179,7 @@ def calculate_spread(exchanges, aggregators, part_of_files):
                 if percents_spread >= 3:
                     signal_output = (
                         f"\n\n-------------------------------------------------\n\n"
-                        f"Aggregator with minimum price: {aggregator_buy}\n"
+                        f"Timestamp: {current_time}\n\n"
                         f"Aggregator min price: {price_buy}\n"
                         f"Network buy: {network_buy}, dex buy: {dex_buy}\n"
                         f"Data buy: {data_buy}\n\n"
@@ -213,6 +217,7 @@ def calculate_spread(exchanges, aggregators, part_of_files):
 
             result_dex_output = (
                 f"\n\n-------------------------------------------------\n\n"
+                f"Timestamp: {current_time}\n\n"
                 f"Exchange with minimum price: {min_ask_exchange}, "
                 f"Price: {min_ask_value}, Pair: {min_ask_pair}\n\n"
                 f"Aggregator with maximum price: {aggregator_sell}\n"
@@ -230,6 +235,7 @@ def calculate_spread(exchanges, aggregators, part_of_files):
                 if percents_spread >= 10 and asks_amount >= 100:
                     signal_output = (
                         f"\n\n-------------------------------------------------\n\n"
+                        f"Timestamp: {current_time}\n\n"
                         f"Exchange with minimum price: {min_ask_exchange}, "
                         f"Price: {min_ask_value}, Pair: {min_ask_pair}\n\n"
                         f"Aggregator with maximum price: {aggregator_sell}\n"
@@ -260,6 +266,7 @@ def calculate_spread(exchanges, aggregators, part_of_files):
                 if percents_spread >= 3 and asks_amount >= 50:
                     signal_output = (
                         f"\n\n-------------------------------------------------\n\n"
+                        f"Timestamp: {current_time}\n\n"
                         f"Exchange with minimum price: {min_ask_exchange}, "
                         f"Price: {min_ask_value}, Pair: {min_ask_pair}\n\n"
                         f"Aggregator with maximum price: {aggregator_sell}\n"
@@ -297,6 +304,7 @@ def calculate_spread(exchanges, aggregators, part_of_files):
 
             result_dex_output = (
                 f"\n\n-------------------------------------------------\n\n"
+                f"Timestamp: {current_time}\n\n"
                 f"Aggregator with minimum price: {aggregator_buy}\n"
                 f"Aggregator price: {price_buy}\n"
                 f"Network: {network_buy}, dex: {dex_buy}\n"
@@ -313,6 +321,7 @@ def calculate_spread(exchanges, aggregators, part_of_files):
                 if percents_spread >= 10 and asks_amount >= 100:
                     signal_output = (
                         f"\n\n-------------------------------------------------\n\n"
+                        f"Timestamp: {current_time}\n\n"
                         f"Aggregator with minimum price: {aggregator_buy}\n"
                         f"Aggregator price: {price_buy}\n"
                         f"Network: {network_buy}, dex: {dex_buy}\n"
@@ -344,6 +353,7 @@ def calculate_spread(exchanges, aggregators, part_of_files):
                 if percents_spread >= 3 and asks_amount >= 50:
                     signal_output = (
                         f"\n\n-------------------------------------------------\n\n"
+                        f"Timestamp: {current_time}\n\n"
                         f"Aggregator with minimum price: {aggregator_buy}\n"
                         f"Aggregator price: {price_buy}\n"
                         f"Network: {network_buy}, dex: {dex_buy}\n"
@@ -382,6 +392,7 @@ def calculate_spread(exchanges, aggregators, part_of_files):
 
         result_output = (
             f"\n\n-------------------------------------------------\n\n"
+            f"Timestamp: {current_time}\n\n"
             f"Exchange with minimum 'min_asks_price': {min_ask_exchange}, "
             f"Price: {min_ask_value}, Pair: {min_ask_pair}\n"
             f"Asks amount: {asks_amount}\n\n"
@@ -471,9 +482,9 @@ async def dex_prices(src_token, dest_token):
                    'Dexscreener': DexscreenerAggregatorApi,
                    'Jupyter': JupyterApi,
                    'Osmosis': OsmosisApi,
-                   'Stonfi': StonFiApi 
-                }
-    
+                   'Stonfi': StonFiApi
+                   }
+
     networks = [Ethereum,
                 BinanceSmartChain,
                 Arbitrum,
@@ -484,7 +495,7 @@ async def dex_prices(src_token, dest_token):
                 Osmosis,
                 Base,
                 TON]
-    
+
     if dest_token == "USDT":
         dest_token = json.load(open("tokens_coins_info/usdt_adresses.json"))
     elif dest_token == "USDC":
@@ -500,7 +511,7 @@ async def dex_prices(src_token, dest_token):
             for network in networks:
                 if src_token not in ["USDT", "USDC"]:
                     if network.name in src_token["blockchains"]:
-                        if name not in ['Dexscreener', 'Stonfi']:
+                        if name not in ['Dexscreener', 'Stonfi', 'Osmosis']:
                             aggregator_object_sell = aggregator(
                                 src_token=src_token["blockchains"][network.name],
                                 dest_token=dest_token[network.name],
@@ -529,7 +540,7 @@ async def dex_prices(src_token, dest_token):
                                 aggregator_object_sell.get_price(session=session))
                             tasks_dex_buy.append(
                                 aggregator_object_sell.get_price(session=session))
-        
+
         results_dex_sell = await asyncio.gather(*tasks_dex_sell)
         results_dex_buy = await asyncio.gather(*tasks_dex_buy)
 
@@ -561,47 +572,48 @@ async def dex_prices(src_token, dest_token):
             print(f"\n*********RESULT DEX BUY: {result_dex_buy}\n\n")
             if result_dex_buy:
                 if result_dex_buy["price"] != 0 and result_dex_buy["price"] != None:
-                    if result_dex_buy["aggregator"] in ['Dexscreener', 'Stonfi']:
+                    if result_dex_buy["aggregator"] in ['Dexscreener', 'Stonfi', 'Osmosis']:
                         if "data" in result_dex_buy:
                             aggregator_price_info = {"aggregator_buy": result_dex_buy["aggregator"],
-                                                    "network_buy": result_dex_buy["network"],
-                                                    "src_buy_address": result_dex_buy["src_address"],
-                                                    "dest_buy_address": result_dex_buy["dest_address"],
-                                                    "price_buy": float(result_dex_buy["price"]),
-                                                    "dex_buy": result_dex_buy["dex"],
-                                                    "data_buy": result_dex_buy["data"]}
+                                                     "network_buy": result_dex_buy["network"],
+                                                     "src_buy_address": result_dex_buy["src_address"],
+                                                     "dest_buy_address": result_dex_buy["dest_address"],
+                                                     "price_buy": float(result_dex_buy["price"]),
+                                                     "dex_buy": result_dex_buy["dex"],
+                                                     "data_buy": result_dex_buy["data"]}
                         else:
                             aggregator_price_info = {"aggregator_buy": result_dex_buy["aggregator"],
-                                                    "network_buy": result_dex_buy["network"],
-                                                    "src_buy_address": result_dex_buy["src_address"],
-                                                    "dest_buy_address": result_dex_buy["dest_address"],
-                                                    "price_buy": float(result_dex_buy["price"]),
-                                                    "dex_buy": result_dex_buy["dex"],
-                                                    "data_buy": ""}
+                                                     "network_buy": result_dex_buy["network"],
+                                                     "src_buy_address": result_dex_buy["src_address"],
+                                                     "dest_buy_address": result_dex_buy["dest_address"],
+                                                     "price_buy": float(result_dex_buy["price"]),
+                                                     "dex_buy": result_dex_buy["dex"],
+                                                     "data_buy": ""}
                     else:
                         if "data" in result_dex_buy:
                             aggregator_price_info = {"aggregator_buy": result_dex_buy["aggregator"],
-                                                    "network_buy": result_dex_buy["network"],
-                                                    "src_buy_address": result_dex_buy["src_address"],
-                                                    "dest_buy_address": result_dex_buy["dest_address"],
-                                                    "price_buy": 1 / float(result_dex_buy["price"]),
-                                                    "dex_buy": result_dex_buy["dex"],
-                                                    "data_buy": result_dex_buy["data"]}
+                                                     "network_buy": result_dex_buy["network"],
+                                                     "src_buy_address": result_dex_buy["src_address"],
+                                                     "dest_buy_address": result_dex_buy["dest_address"],
+                                                     "price_buy": 1 / float(result_dex_buy["price"]),
+                                                     "dex_buy": result_dex_buy["dex"],
+                                                     "data_buy": result_dex_buy["data"]}
                         else:
                             aggregator_price_info = {"aggregator_buy": result_dex_buy["aggregator"],
-                                                    "network_buy": result_dex_buy["network"],
-                                                    "src_buy_address": result_dex_buy["src_address"],
-                                                    "dest_buy_address": result_dex_buy["dest_address"],
-                                                    "price_buy": 1 / float(result_dex_buy["price"]),
-                                                    "dex_buy": result_dex_buy["dex"],
-                                                    "data_buy": ""}
+                                                     "network_buy": result_dex_buy["network"],
+                                                     "src_buy_address": result_dex_buy["src_address"],
+                                                     "dest_buy_address": result_dex_buy["dest_address"],
+                                                     "price_buy": 1 / float(result_dex_buy["price"]),
+                                                     "dex_buy": result_dex_buy["dex"],
+                                                     "data_buy": ""}
             aggregator_price_list.append(aggregator_price_info)
         logging.info(f"EXIT PRICE LIST:\n{aggregator_price_list}\n")
         return aggregator_price_list
 
 
 async def find_spread(part_of_files: str) -> None:
-    coins_info = json.load(open(f"tokens_coins_info/coins_info_{part_of_files}.json"))
+    coins_info = json.load(
+        open(f"tokens_coins_info/coins_info_{part_of_files}.json"))
     for src_token in coins_info:
         print("***************************")
         print(f"USDT - {src_token}")

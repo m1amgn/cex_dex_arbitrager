@@ -38,8 +38,8 @@ class BitfinexKinePhemex(CexExchanges):
         return pairs
 
 
-class BitgetGateioYoubit(CexExchanges):
-    '''Bitget, Gateio, Youbit('''
+class BitgetYoubit(CexExchanges):
+    '''Bitget, Youbit'''
 
     def prepare_pair(self) -> str:
         pairs = (self.src_token+"_"+self.dest_token).lower()
@@ -66,8 +66,8 @@ class BitstampGarantexHuobi(CexExchanges):
         return pairs
 
 
-class CoinwCryptocomPoloniexBackpack(CexExchanges):
-    '''Coinw, Cryptocom, Poloniex, Backpack'''
+class CoinwCryptocomPoloniexBackpackGateio(CexExchanges):
+    '''Coinw, Cryptocom, Poloniex, Backpack, Gateio'''
 
     def prepare_pair(self) -> str:
         pairs = (self.src_token+"_"+self.dest_token).upper()
@@ -124,9 +124,9 @@ class Zigzag(CexExchanges):
 
 Bybit_exchange = CexExchanges(
     name="bybit",
-    url="https://api-testnet.bybit.com/v5/market/orderbook",
+    url="https://api.bybit.com/v5/market/orderbook",
     params={
-        "category": "linear",
+        "category": "spot",
         "symbol": "",
     },
     src_token="",
@@ -167,7 +167,7 @@ Bitfinex_exchange = BitfinexKinePhemex(
 )
 
 
-Bitget_exchange = BitgetGateioYoubit(
+Bitget_exchange = BitgetYoubit(
     name="bitget",
     url="https://api.bitget.com/data/v1/market/depth",
     params={
@@ -219,7 +219,7 @@ Coinbase_exchange = BingxBittrexCoinbaseKucoinOkx(
 )
 
 
-Coinw_exchange = CoinwCryptocomPoloniexBackpack(
+Coinw_exchange = CoinwCryptocomPoloniexBackpackGateio(
     name="coinw",
     url="https://api.coinw.com/api/v1/public",
     params={
@@ -232,7 +232,7 @@ Coinw_exchange = CoinwCryptocomPoloniexBackpack(
 )
 
 
-Cryptocom_exchange = CoinwCryptocomPoloniexBackpack(
+Cryptocom_exchange = CoinwCryptocomPoloniexBackpackGateio(
     name="cryptocom",
     url="https://api.crypto.com/v2/public/get-book",
     params={
@@ -276,10 +276,12 @@ Garantex_exchange = BitstampGarantexHuobi(
 )
 
 
-Gateio_exchange = BitgetGateioYoubit(
+Gateio_exchange = CoinwCryptocomPoloniexBackpackGateio(
     name="gateio",
-    url="https://api.gate.io/api2/1/orderBook/symbol",
-    params="",
+    url="https://api.gateio.ws/api/v4/spot/order_book",
+    params={
+        "currency_pair": ""
+        },
     src_token="",
     dest_token="",
 )
@@ -375,7 +377,7 @@ Phemex_exchange = BitfinexKinePhemex(
 )
 
 
-Poloniex_exchange = CoinwCryptocomPoloniexBackpack(
+Poloniex_exchange = CoinwCryptocomPoloniexBackpackGateio(
     name="poloniex",
     url="https://api.poloniex.com/markets/symbol/orderBook",
     params="",
@@ -384,7 +386,7 @@ Poloniex_exchange = CoinwCryptocomPoloniexBackpack(
 )
 
 
-Youbit_exchange = BitgetGateioYoubit(
+Youbit_exchange = BitgetYoubit(
     name="youbit",
     url="https://yobit.net/api/3/depth/symbol",
     params={
@@ -417,7 +419,7 @@ Coinex_exchange = CexExchanges(
 )
 
 
-Backpack_exchange = CoinwCryptocomPoloniexBackpack(
+Backpack_exchange = CoinwCryptocomPoloniexBackpackGateio(
     name="backpack",
     url="https://api.backpack.exchange/api/v1/depth",
     params={

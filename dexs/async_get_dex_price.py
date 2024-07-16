@@ -583,7 +583,6 @@ class OsmosisApi(DexPrice):
         supported_network = ['Osmosis']
         if self.network.name in supported_network:
             logging.info(f"\nSTART {self.name}\n")
-            url = f"https://sqsprod.osmosis.zone/router/quote?tokenIn=1000000{self.src_token}&tokenOutDenom={self.dest_token}"
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
                 'Accept-Language': 'en-US,en;q=0.5',
@@ -592,24 +591,33 @@ class OsmosisApi(DexPrice):
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
             }
             try:
-                response = await session.get(url, headers=headers)
-                logging.info(
-                    f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n")
-                if response.status == 200:
-                    osmosis_data = await response.json()
-                    logging.info(f"\n{self.name} - {osmosis_data}")
-                    data = {"aggregator": self.name,
-                            "network": self.network.name,
-                            "src_address": self.src_token,
-                            "dest_address": self.dest_token,
-                            "dex": self.name,
-                            "price": float(osmosis_data['in_base_out_quote_spot_price'])
-                            }
-                    logging.info(f"RETURN DATA - {self.name} - {data}")
-                    return data
+                url_symbol = f"https://api-osmosis.imperator.co/search/v1/symbol?denom={self.src_token}"
+                response_symbol = await session.get(url_symbol, headers=headers)
+                if response_symbol.status == 200:
+                        symbol = await response_symbol.json()
+                        symbol = symbol["symbol"]
+                        url = f"https://api-osmosis.imperator.co/tokens/v2/price/{symbol}"
+                        response = await session.get(url, headers=headers)
+                        logging.info(
+                            f"\nENTER Print from {self.name}\nreponse.status - {response.status}\n")
+                        if response.status == 200:
+                            osmosis_data = await response.json()
+                            logging.info(f"\n{self.name} - {osmosis_data}")
+                            data = {"aggregator": self.name,
+                                    "network": self.network.name,
+                                    "src_address": self.src_token,
+                                    "dest_address": self.dest_token,
+                                    "dex": self.name,
+                                    "price": float(osmosis_data['price'])
+                                    }
+                            logging.info(f"RETURN DATA - {self.name} - {data}")
+                            return data
+                        else:
+                            logging.info(
+                                f"Response status code in OsmosisApi get_price not 200: {response.text}")
                 else:
                     logging.info(
-                        f"Response status code in OsmosisApi get_price not 200: {response.text}")
+                            f"Response status code in OsmosisApi get symbol not 200: {response_symbol.text}")
             except Exception as e:
                 logging.error(
                     f"Error in OsmosisApi - get_price, in request of data: {e}")

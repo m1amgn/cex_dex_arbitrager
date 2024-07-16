@@ -2,7 +2,7 @@ import asyncio
 import ujson as json
 from find_spread import calculate_spread, cex_prices, dex_prices
 
-SRC_TOKEN = "TENET"
+SRC_TOKEN = "ETH"
 DEST_TOKEN = "USDT"
 PART_OF_FILES = "by_pairs"
 

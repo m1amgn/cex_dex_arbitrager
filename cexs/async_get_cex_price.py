@@ -32,7 +32,7 @@ class CexPrice:
             else:
                 params = self.exchange.params
                 for key, value in params.items():
-                    if key == "symbol" or key == "instrument_name" or key == "market" or key == "pair" or key == "instId":
+                    if key in ["symbol", "instrument_name", "market", "pair", "instId", "currency_pair"]:
                         value = self.pair
                         params.update({key: value})
                 response = await session.get(url, headers=self.headers, params=params)
