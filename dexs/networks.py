@@ -30,7 +30,7 @@ class Network:
 
 Ethereum = Network(
     name="Ethereum",
-    rpc="https://eth-pokt.nodies.app",
+    rpc="https://eth.drpc.org",
     chain_id=1,
     eip1559_tx=True,
     coin_symbol="ETH",
@@ -102,7 +102,7 @@ BinanceSmartChain = Network(
 
 Base = Network(
     name='Base',
-    rpc='https://base.llamarpc.com',
+    rpc='https://base.api.onfinality.io/public',
     chain_id=8453,
     eip1559_tx=True,
     coin_symbol='ETH',

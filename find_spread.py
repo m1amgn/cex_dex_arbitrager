@@ -11,10 +11,10 @@ from dexs.async_get_dex_price import DexscreenerAggregatorApi, ParaswapAggregato
 from dexs.networks import Ethereum, BinanceSmartChain, Arbitrum, Optimism, Polygon, Avalanche, Solana, Osmosis, Base, TON
 
 logging.basicConfig(level=logging.INFO)
-current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
 
 def calculate_spread(exchanges, aggregators, part_of_files):
+    current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     min_ask_exchange = min_ask_value = min_ask_pair = asks_volumes = None
     max_bid_exchange = max_bid_value = max_bid_pair = bids_volumes = None
     aggregator_sell = network_sell = price_sell = dex_sell = data_sell = None

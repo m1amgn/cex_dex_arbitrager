@@ -1,9 +1,11 @@
 -------------------------------------------
 
-Check osmosis and jupyter with decimals, check bybit, gateio with asks and bids
+- Check DexsScreener
 
 -------------------------------------------
 
-- https://github.com/ksh-b/raven ?
+- Think about time of response and read time out, maybe return or continue, maybe check the time or response. Base llama rpc is blocking when as decimals. Try mac and check speed.
 
 -------------------------------------------
+
+- Add new file, which find normall spreads 10 - 50%

@@ -37,16 +37,17 @@ class DexPrice:
         self.network = network
         self.slippage = slippage
         self.amount = amount
-
-        if network.name not in ['Solana', 'Osmosis', 'TON']:
+    
+        if self.network.name not in ['Solana', 'Osmosis', 'TON']:
             self.src_token = Web3.to_checksum_address(self.src_token)
             self.dest_token = Web3.to_checksum_address(self.dest_token)
+    
+    def _connect_web3(self):
             try:
-                self.w3 = Web3(Web3.HTTPProvider(self.network.rpc))
-                assert self.w3.is_connected(), "w3 is not connected"
+                w3 = Web3(Web3.HTTPProvider(self.network.rpc))
+                return w3
             except Exception as e:
-                logging.error(f"Error connecting to network: {e}")
-                return
+                logging.error(f"Error connecting to web3: {e}")
 
     def _get_contract_address_and_abi(self, contract_type: str):
         if contract_type in DexPrice._dex_contracts[self.network.name][self.name]:
@@ -87,6 +88,7 @@ class DexPrice:
             json.dump(DexPrice._dex_contracts, file, indent=4)
 
     def _get_pool_contract(self):
+        w3 = self._connect_web3()
         if not "pools" in DexPrice._dex_contracts[self.network.name][self.name]:
             pool_abi_path = DexPrice._DEFAULT_V3_POOL_PATH if self.name.split(
                 "_")[1] == "v3" else DexPrice._DEFAULT_V2_POOL_PATH
@@ -97,7 +99,7 @@ class DexPrice:
             pool_address = DexPrice._dex_contracts[self.network.name][self.name]["pools"][pool_key]["address"]
             pool_abi = DexPrice._dex_contracts[self.network.name][self.name]["pools"][pool_key]["abi"]
             try:
-                return self.w3.eth.contract(address=pool_address, abi=pool_abi)
+                return w3.eth.contract(address=pool_address, abi=pool_abi)
             except Exception as e:
                 logging.error(f"Error in _get_pool_contract: {e}")
         else:
@@ -110,7 +112,7 @@ class DexPrice:
                         {pool_key: {"address": pool_address, "abi": pool_abi}})
                     self._update_contracts_file()
                     try:
-                        return self.w3.eth.contract(address=pool_address, abi=pool_abi)
+                        return w3.eth.contract(address=pool_address, abi=pool_abi)
                     except Exception as e:
                         logging.error(f"Error in _get_pool_contract: {e}")
                 else:
@@ -135,6 +137,7 @@ class DexPrice:
             logging.error(f"Error in _get_pool_address: {e}")
 
     async def _get_decimals(self, token_address: str, session):
+        w3 = self._connect_web3()
         token_address = Web3.to_checksum_address(token_address)
         if self.network.name not in DexPrice._tokens_info:
             DexPrice._tokens_info.update({self.network.name: {}})
@@ -159,14 +162,14 @@ class DexPrice:
                 token_abi = DexPrice._tokens_info["default_token_abi"]
 
             try:
-                token_contract = self.w3.eth.contract(
+                token_contract = w3.eth.contract(
                     address=token_address,
                     abi=token_abi)
                 token_symbol = token_contract.functions.symbol().call()
                 token_decimals = token_contract.functions.decimals().call()
             except web3.exceptions.ABIFunctionNotFound:
                 token_abi = DexPrice._tokens_info["default_token_abi"]
-                token_contract = self.w3.eth.contract(
+                token_contract = w3.eth.contract(
                     address=token_address,
                     abi=token_abi)
                 token_symbol = token_contract.functions.symbol().call()
@@ -240,8 +243,9 @@ class DexPrice:
             logging.error(f"Error in _get_v3_price: {e}")
 
     def _get_aggregator_price(self) -> float:
+        w3 = self._connect_web3()
         try:
-            aggregator_contract = self.w3.eth.contract(
+            aggregator_contract = w3.eth.contract(
                 address=DexPrice._dex_contracts[self.network.name][self.name]["oracle"]["address"],
                 abi=DexPrice._dex_contracts[self.network.name][self.name]["oracle"]["abi"])
             if self.name == "woofi_aggregator":
