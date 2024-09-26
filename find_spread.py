@@ -9,6 +9,7 @@ from cexs.cex_exchanges import Bybit_exchange, Binance_exchange, Bingx_exchange,
 from cexs.async_get_cex_price import BybitPrice, BingxPrice, BitfinexGeminiPrice, BitgetCoinwKucoinPrice, BitmexPrice, CexPrice, CryptocomPrice, DeribitPrice, DydxPrice, GarantexPrice, HuobiPrice, KrakenPrice, OkxPrice, PhemexPrice, PoloniexPrice, YoubitPrice, CoinexPrice, BackpackPrice
 from dexs.async_get_dex_price import DexscreenerAggregatorApi, ParaswapAggregatorApi, KyberswapAggregatorApi, OpenoceanAggregatorApi, OneInchAggregatorApi, JupyterApi, OsmosisApi, StonFiApi
 from dexs.networks import Ethereum, BinanceSmartChain, Arbitrum, Optimism, Polygon, Avalanche, Solana, Osmosis, Base, TON
+from aiohttp import ClientTimeout
 
 logging.basicConfig(level=logging.INFO)
 
@@ -453,7 +454,7 @@ async def cex_prices(src_token, dest_token):
     cexs_price_list = []
     cex_price_info = {}
     if src_token not in ["USDT", "USDC"]:
-        async with aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession(timeout=ClientTimeout(total=10)) as session:
             tasks = []
             for cex, obj in cexs.items():
                 cex.src_token = src_token["name"]
@@ -504,7 +505,7 @@ async def dex_prices(src_token, dest_token):
         print(f"Not USDT or USDC")
     aggregator_price_info = {}
     aggregator_price_list = []
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(timeout=ClientTimeout(total=10)) as session:
         tasks_dex_sell = []
         tasks_dex_buy = []
         for name, aggregator in aggregators.items():

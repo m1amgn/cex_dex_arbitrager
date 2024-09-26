@@ -156,12 +156,25 @@ class DexPrice:
                     token_abi = DexPrice._tokens_info["default_token_abi"]
                 if token_abi == "Invalid Address format" or token_abi == "Contract source code not verified" or token_abi == "" or not token_abi:
                     token_abi = DexPrice._tokens_info["default_token_abi"]
+            except asyncio.TimeoutError:
+                logging.error(
+                    f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+                token_abi = DexPrice._tokens_info["default_token_abi"]
             except Exception as e:
                 logging.error(
                     f"Error in _get_decimals in request of token_abi: {e}")
                 token_abi = DexPrice._tokens_info["default_token_abi"]
 
             try:
+                token_contract = w3.eth.contract(
+                    address=token_address,
+                    abi=token_abi)
+                token_symbol = token_contract.functions.symbol().call()
+                token_decimals = token_contract.functions.decimals().call()
+            except asyncio.TimeoutError:
+                logging.error(
+                    f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+                token_abi = DexPrice._tokens_info["default_token_abi"]
                 token_contract = w3.eth.contract(
                     address=token_address,
                     abi=token_abi)
@@ -307,16 +320,16 @@ class DexscreenerAggregatorApi(DexPrice):
                         highest_price_pair = pair
                 money_volumes_1h = highest_price * \
                     float(highest_price_pair['volume']['h1'])
-                if highest_price_pair and money_volumes_1h > 100:
+                print(money_volumes_1h)
+                if highest_price_pair and money_volumes_1h > 500:
                     data = {"aggregator": self.name,
                             "network": self.network.name,
                             "src_address": self.src_token,
                             "dest_address": self.dest_token,
-                            "dex": highest_price_pair["dexId"]+highest_price_pair["labels"],
+                            "dex": highest_price_pair["dexId"],
                             "price": highest_price,
                             "data": {
-                                "deals": highest_price_pair["txns"],
-                                "volumes": highest_price_pair['volume']
+                                "volumes h1": highest_price_pair['volume']['h1']
                             }
                             }
                     logging.info(f"RETURN DATA - {self.name} - {data}")
@@ -324,6 +337,10 @@ class DexscreenerAggregatorApi(DexPrice):
             else:
                 logging.info(
                     f"Response status code in DexscreenerAggregatorApi not 200: {response.text}")
+        except asyncio.TimeoutError:
+            logging.error(
+                f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+            return None
         except Exception as e:
             logging.error(
                 f"Error in DexscreenerAggregatorApi - get_price, in request of data: {e}")
@@ -363,6 +380,10 @@ class ParaswapAggregatorApi(DexPrice):
             except Exception as e:
                 logging.error(
                     f"Error in ParaswapAggregatorApi - get_price, in request of data: {e}")
+            except asyncio.TimeoutError:
+                logging.error(
+                    f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+            return None
         else:
             logging.info(
                 f"Aggregator {self.name}: network {self.network.name} not supported.")
@@ -435,6 +456,10 @@ class KyberswapAggregatorApi(DexPrice):
             except Exception as e:
                 logging.error(
                     f"Error in KyberswapAggregatorApi - get_price, in request of data: {e}")
+            except asyncio.TimeoutError:
+                logging.error(
+                    f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+            return None
         else:
             logging.info(
                 f"Aggregator {self.name}: network {self.network.name} not supported.")
@@ -465,6 +490,10 @@ class OpenoceanAggregatorApi(DexPrice):
                 logging.info(
                     f"Response status code in OpenoceanAggregatorApi get_gas not 200: {response.text}")
                 gas = 35
+        except asyncio.TimeoutError:
+            logging.error(
+                f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+            return None
         except Exception as e:
             logging.error(
                 f"Error in OpenoceanAggregatorApi - get_price, in request of gas value: {e}")
@@ -499,6 +528,10 @@ class OpenoceanAggregatorApi(DexPrice):
             else:
                 logging.info(
                     f"Response status code in OpenoceanAggregatorApi get data not 200: {response.text}")
+        except asyncio.TimeoutError:
+            logging.error(
+                f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+            return None
         except Exception as e:
             logging.error(
                 f"Error in OpenoceanAggregatorApi - get_price, in request of data: {e}")
@@ -537,6 +570,10 @@ class OneInchAggregatorApi(DexPrice):
             else:
                 logging.info(
                     f"Response status code in OneInchAggregatorApi get_price not 200: {response.text}")
+        except asyncio.TimeoutError:
+            logging.error(
+                f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+            return None
         except Exception as e:
             logging.error(
                 f"Error in OneInchAggregatorApi - get_price, in request of data: {e}")
@@ -574,6 +611,10 @@ class JupyterApi(DexPrice):
                 else:
                     logging.info(
                         f"Response status code in JupyterApi get_price not 200: {response.text}")
+            except asyncio.TimeoutError:
+                logging.error(
+                    f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+                return None
             except Exception as e:
                 logging.error(
                     f"Error in JupyterApi - get_price, in request of data: {e}")
@@ -622,6 +663,10 @@ class OsmosisApi(DexPrice):
                 else:
                     logging.info(
                             f"Response status code in OsmosisApi get symbol not 200: {response_symbol.text}")
+            except asyncio.TimeoutError:
+                logging.error(
+                    f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+                return None
             except Exception as e:
                 logging.error(
                     f"Error in OsmosisApi - get_price, in request of data: {e}")
@@ -663,6 +708,10 @@ class StonFiApi(DexPrice):
                 else:
                     logging.info(
                         f"Response status code in StonFiApi get_price not 200: {response.text}")
+            except asyncio.TimeoutError:
+                logging.error(
+                    f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+                return None
             except Exception as e:
                 logging.error(
                     f"Error in StonFiApi - get_price, in request of data: {e}")

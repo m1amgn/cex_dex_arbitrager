@@ -1,10 +1,4 @@
--------------------------------------------
-
-- Check DexsScreener
-
--------------------------------------------
-
-- Think about time of response and read time out, maybe return or continue, maybe check the time or response. Base llama rpc is blocking when as decimals. Try mac and check speed.
+- Base llama rpc is blocking when as decimals.
 
 -------------------------------------------
 

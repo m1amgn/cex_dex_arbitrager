@@ -212,7 +212,7 @@ Bittrex_exchange = BingxBittrexCoinbaseKucoinOkx(
 
 Coinbase_exchange = BingxBittrexCoinbaseKucoinOkx(
     name="coinbase",
-    url="https://api.pro.coinbase.com/products/symbol/book?level=1",
+    url="https://api.exchange.coinbase.com/products/symbol/book",
     params="",
     src_token="",
     dest_token="",

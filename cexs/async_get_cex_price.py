@@ -49,6 +49,10 @@ class CexPrice:
                 logging.info(
                     f"\nSomething went wrong with response:\nresponse: {response}\ndata: {data}\nstatus: {response.status}\nWith exchange: {self.exchange.name}\n")
                 return None
+        except asyncio.TimeoutError:
+            logging.error(
+                f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+            return None
         except Exception as e:
             logging.error(f"Error fetching data from {self.exchange.name}: {e}")
             return None
