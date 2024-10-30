@@ -5,10 +5,18 @@ import pandas as pd
 import logging
 import time
 
-from cexs.cex_exchanges import Bybit_exchange, Binance_exchange, Bingx_exchange, Bitfinex_exchange, Bitget_exchange, Bitmex_exchange, Bitstamp_exchange, Coinbase_exchange, Coinw_exchange, Cryptocom_exchange, Deribit_exchange, Dydx_exchange, Garantex_exchange, Gateio_exchange, Gemini_exchange, Huobi_exchange, Kraken_exchange, Kucoin_exchange, Mexc_exchange, Okx_exchange, Phemex_exchange, Poloniex_exchange, Youbit_exchange, Zigzag_exchange, Coinex_exchange, Backpack_exchange
-from cexs.async_get_cex_price import BybitPrice, BingxPrice, BitfinexGeminiPrice, BitgetCoinwKucoinPrice, BitmexPrice, CexPrice, CryptocomPrice, DeribitPrice, DydxPrice, GarantexPrice, HuobiPrice, KrakenPrice, OkxPrice, PhemexPrice, PoloniexPrice, YoubitPrice, CoinexPrice, BackpackPrice
-from dexs.async_get_dex_price import DexscreenerAggregatorApi, ParaswapAggregatorApi, KyberswapAggregatorApi, OpenoceanAggregatorApi, OneInchAggregatorApi, JupyterApi, OsmosisApi, StonFiApi
-from dexs.networks import Ethereum, BinanceSmartChain, Arbitrum, Optimism, Polygon, Avalanche, Solana, Osmosis, Base, TON
+from cexs.cex_exchanges import Bybit_exchange, Binance_exchange, Bingx_exchange, Bitfinex_exchange, Bitget_exchange, \
+    Bitmex_exchange, Bitstamp_exchange, Coinbase_exchange, Coinw_exchange, Cryptocom_exchange, Deribit_exchange, \
+    Dydx_exchange, Garantex_exchange, Gateio_exchange, Gemini_exchange, Huobi_exchange, Kraken_exchange, \
+    Kucoin_exchange, Mexc_exchange, Okx_exchange, Phemex_exchange, Poloniex_exchange, Youbit_exchange, Zigzag_exchange, \
+    Coinex_exchange, Backpack_exchange, Cexio_exchange
+from cexs.async_get_cex_price import BybitPrice, BingxPrice, BitfinexGeminiPrice, BitgetCoinwKucoinCexioPrice, BitmexPrice, \
+    CexPrice, CryptocomPrice, DeribitPrice, DydxPrice, GarantexPrice, HuobiPrice, KrakenPrice, OkxPrice, PhemexPrice, \
+    PoloniexPrice, YoubitPrice, CoinexPrice, BackpackPrice
+from dexs.async_get_dex_price import DexscreenerAggregatorApi, ParaswapAggregatorApi, KyberswapAggregatorApi, \
+    OpenoceanAggregatorApi, OneInchAggregatorApi, JupyterApi, OsmosisApi, StonFiApi
+from dexs.networks import Ethereum, BinanceSmartChain, Arbitrum, Optimism, Polygon, Avalanche, Solana, Osmosis, Base, \
+    TON
 from aiohttp import ClientTimeout
 
 logging.basicConfig(level=logging.INFO)
@@ -208,6 +216,37 @@ def calculate_spread(exchanges, aggregators, part_of_files):
                     with open(f'results/async_signals_{part_of_files}.txt', 'a') as file:
                         file.write(df_dex_buy.to_string(index=False) + '\n\n')
 
+                if percents_spread >= 30:
+                    signal_output = (
+                        f"\n\n-------------------------------------------------\n\n"
+                        f"Timestamp: {current_time}\n\n"
+                        f"Aggregator min price: {price_buy}\n"
+                        f"Network buy: {network_buy}, dex buy: {dex_buy}\n"
+                        f"Data buy: {data_buy}\n\n"
+                        f"Aggregator with maximum price: {aggregator_sell}\n"
+                        f"Aggregator max price: {price_sell}\n"
+                        f"Network sell: {network_sell}, dex sell: {dex_sell}\n"
+                        f"Data sell: {data_sell}\n\n"
+                        f"Spread: {percents_spread}%\n"
+                        f"All data: {aggregators}\n\n"
+                        f"Buy token address {src_buy_address}, sell token address {src_sell_address}\n\n"
+                        f"Exchange with maximum 'max_bids_price': {max_bid_exchange}, "
+                        f"Price: {max_bid_value}, Pair: {max_bid_pair}\n"
+                        f"\n\n-------------------------------------------------\n\n"
+                    )
+                    print(f"**********SIGNAL**********")
+                    print(signal_output)
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(signal_output)
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(df_cex_min.to_string(index=False) + '\n\n')
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(df_cex_max.to_string(index=False) + '\n\n')
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(df_dex_sell.to_string(index=False) + '\n\n')
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(df_dex_buy.to_string(index=False) + '\n\n')
+
             with open(f'results/async_results_{part_of_files}.txt', 'a') as file:
                 file.write(result_dex_output)
 
@@ -293,6 +332,37 @@ def calculate_spread(exchanges, aggregators, part_of_files):
                     with open(f'results/async_signals_{part_of_files}.txt', 'a') as file:
                         file.write(df_dex_sell.to_string(index=False) + '\n\n')
                     with open(f'results/async_signals_{part_of_files}.txt', 'a') as file:
+                        file.write(df_dex_buy.to_string(index=False) + '\n\n')
+
+                if percents_spread >= 30 and asks_amount >= 200:
+                    signal_output = (
+                        f"\n\n-------------------------------------------------\n\n"
+                        f"Timestamp: {current_time}\n\n"
+                        f"Exchange with minimum price: {min_ask_exchange}, "
+                        f"Price: {min_ask_value}, Pair: {min_ask_pair}\n\n"
+                        f"Aggregator with maximum price: {aggregator_sell}\n"
+                        f"Aggregator price: {price_sell}\n"
+                        f"Ask amount: {asks_amount}\n"
+                        f"Network: {network_sell}, dex: {dex_sell}\n"
+                        f"Data: {data_sell}\n\n"
+                        f"Spread: {percents_spread}%\n\n"
+                        f"All data: {aggregators}%\n\n"
+                        f"Exchange with maximum 'max_bids_price': {max_bid_exchange}, "
+                        f"Price: {max_bid_value}, Pair: {max_bid_pair}\n\n"
+                        f"Buy token address {src_buy_address}, sell token address {src_sell_address}\n\n"
+                        f"\n\n-------------------------------------------------\n\n"
+                    )
+                    print(f"**********SIGNAL**********")
+                    print(signal_output)
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(signal_output)
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(df_cex_min.to_string(index=False) + '\n\n')
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(df_cex_max.to_string(index=False) + '\n\n')
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(df_dex_sell.to_string(index=False) + '\n\n')
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
                         file.write(df_dex_buy.to_string(index=False) + '\n\n')
 
             with open(f'results/async_results_{part_of_files}.txt', 'a') as file:
@@ -382,6 +452,37 @@ def calculate_spread(exchanges, aggregators, part_of_files):
                     with open(f'results/async_signals_{part_of_files}.txt', 'a') as file:
                         file.write(df_dex_buy.to_string(index=False) + '\n\n')
 
+                if percents_spread >= 30 and asks_amount >= 200:
+                    signal_output = (
+                        f"\n\n-------------------------------------------------\n\n"
+                        f"Timestamp: {current_time}\n\n"
+                        f"Aggregator with minimum price: {aggregator_buy}\n"
+                        f"Aggregator price: {price_buy}\n"
+                        f"Network: {network_buy}, dex: {dex_buy}\n"
+                        f"Data: {data_buy}\n\n"
+                        f"Exchange with maximum price: {max_bid_exchange}, "
+                        f"Price: {max_bid_value}, Pair: {max_bid_pair}\n"
+                        f"Ask amount: {asks_amount}\n\n"
+                        f"Spread: {percents_spread}%\n"
+                        f"All data: {aggregators}\n\n"
+                        f"Exchange with minimum price: {min_ask_exchange}, "
+                        f"Price: {min_ask_value}, Pair: {min_ask_pair}\n\n"
+                        f"Buy token address {src_buy_address}, sell token address {src_sell_address}\n\n"
+                        f"\n\n-------------------------------------------------\n\n"
+                    )
+                    print(f"**********SIGNAL**********")
+                    print(signal_output)
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(signal_output)
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(df_cex_min.to_string(index=False) + '\n\n')
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(df_cex_max.to_string(index=False) + '\n\n')
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(df_dex_sell.to_string(index=False) + '\n\n')
+                    with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                        file.write(df_dex_buy.to_string(index=False) + '\n\n')
+
             with open(f'results/async_results_{part_of_files}.txt', 'a') as file:
                 file.write(result_dex_output)
 
@@ -415,41 +516,53 @@ def calculate_spread(exchanges, aggregators, part_of_files):
             with open(f'results/async_signals_{part_of_files}.txt', 'a') as file:
                 file.write(df_cex_max.to_string(index=False) + '\n\n')
 
+        if percents_spread >= 30 and asks_amount >= 200 and bids_amount >= 200:
+            print(f"**********SIGNAL**********")
+            print(result_output)
+            with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                file.write(result_output)
+            with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                file.write(df_cex_min.to_string(index=False) + '\n\n')
+            with open(f'results/async_signals_{part_of_files}_30.txt', 'a') as file:
+                file.write(df_cex_max.to_string(index=False) + '\n\n')
+
         with open(f'results/async_results_{part_of_files}.txt', 'a') as file:
             file.write(result_output)
 
 
 async def cex_prices(src_token, dest_token):
-    cexs = {Bybit_exchange: BybitPrice,
-            Binance_exchange: CexPrice,
-            Bingx_exchange: BingxPrice,
-            Bitfinex_exchange: BitfinexGeminiPrice,
-            Bitget_exchange: BitgetCoinwKucoinPrice,
-            Bitmex_exchange: BitmexPrice,
-            Bitstamp_exchange: CexPrice,
-            # Bittrex_exchange,
-            Coinbase_exchange: CexPrice,
-            Coinw_exchange: BitgetCoinwKucoinPrice,
-            Cryptocom_exchange: CryptocomPrice,
-            Deribit_exchange: DeribitPrice,
-            Dydx_exchange: DydxPrice,
-            Garantex_exchange: GarantexPrice,
-            Gateio_exchange: CexPrice,
-            Gemini_exchange: BitfinexGeminiPrice,
-            Huobi_exchange: HuobiPrice,
-            # Kine_exchange,
-            # THERE IS NO MAX AND MIN PRICES
-            Kraken_exchange: KrakenPrice,
-            Kucoin_exchange: BitgetCoinwKucoinPrice,
-            Mexc_exchange: CexPrice,
-            Okx_exchange: OkxPrice,
-            Phemex_exchange: PhemexPrice,
-            Poloniex_exchange: PoloniexPrice,
-            Youbit_exchange: YoubitPrice,
-            # Zigzag_exchange: CexPrice,
-            Coinex_exchange: CoinexPrice,
-            Backpack_exchange: BackpackPrice
-            }
+    cexs = {
+        Bybit_exchange: BybitPrice,
+        Binance_exchange: CexPrice,
+        Bingx_exchange: BingxPrice,
+        Bitfinex_exchange: BitfinexGeminiPrice,
+        Bitget_exchange: BitgetCoinwKucoinCexioPrice,
+        Bitmex_exchange: BitmexPrice,
+        Bitstamp_exchange: CexPrice,
+        # Bittrex_exchange,
+        Coinbase_exchange: CexPrice,
+        Coinw_exchange: BitgetCoinwKucoinCexioPrice,
+        Cryptocom_exchange: CryptocomPrice,
+        Deribit_exchange: DeribitPrice,
+        Dydx_exchange: DydxPrice,
+        Garantex_exchange: GarantexPrice,
+        Gateio_exchange: CexPrice,
+        Gemini_exchange: BitfinexGeminiPrice,
+        Huobi_exchange: HuobiPrice,
+        # Kine_exchange,
+        # THERE IS NO MAX AND MIN PRICES
+        Kraken_exchange: KrakenPrice,
+        Kucoin_exchange: BitgetCoinwKucoinCexioPrice,
+        Mexc_exchange: CexPrice,
+        Okx_exchange: OkxPrice,
+        Phemex_exchange: PhemexPrice,
+        Poloniex_exchange: PoloniexPrice,
+        Youbit_exchange: YoubitPrice,
+        # Zigzag_exchange: CexPrice,
+        Coinex_exchange: CoinexPrice,
+        Backpack_exchange: BackpackPrice,
+        Cexio_exchange: BitgetCoinwKucoinCexioPrice
+    }
 
     cexs_price_list = []
     cex_price_info = {}
@@ -486,16 +599,18 @@ async def dex_prices(src_token, dest_token):
                    'Stonfi': StonFiApi
                    }
 
-    networks = [Ethereum,
-                BinanceSmartChain,
-                Arbitrum,
-                Optimism,
-                Polygon,
-                Avalanche,
-                Solana,
-                Osmosis,
-                Base,
-                TON]
+    networks = [
+        Ethereum,
+        BinanceSmartChain,
+        Arbitrum,
+        Optimism,
+        Polygon,
+        Avalanche,
+        Solana,
+        Osmosis,
+        Base,
+        TON
+    ]
 
     if dest_token == "USDT":
         dest_token = json.load(open("tokens_coins_info/usdt_adresses.json"))

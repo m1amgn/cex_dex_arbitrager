@@ -18,8 +18,8 @@ class CexExchanges:
         return pairs
 
 
-class BingxBittrexCoinbaseKucoinOkx(CexExchanges):
-    '''Bingx, Bittrex, Coinbase, Kucoin, Okx'''
+class BingxBittrexCoinbaseKucoinOkxCexio(CexExchanges):
+    '''Bingx, Bittrex, Coinbase, Kucoin, Okx, Cexio'''
 
     def prepare_pair(self) -> str:
         pairs = (self.src_token+"-"+self.dest_token).upper()
@@ -146,7 +146,7 @@ Binance_exchange = CexExchanges(
 )
 
 
-Bingx_exchange = BingxBittrexCoinbaseKucoinOkx(
+Bingx_exchange = BingxBittrexCoinbaseKucoinOkxCexio(
     name="bingx",
     url="https://open-api.bingx.com/openApi/spot/v1/market/depth",
     params={
@@ -199,7 +199,7 @@ Bitstamp_exchange = BitstampGarantexHuobi(
 )
 
 
-Bittrex_exchange = BingxBittrexCoinbaseKucoinOkx(
+Bittrex_exchange = BingxBittrexCoinbaseKucoinOkxCexio(
     name="bittrex",
     url="https://api.bittrex.com/v3/markets/symbol/orderbook",
     params={
@@ -210,7 +210,7 @@ Bittrex_exchange = BingxBittrexCoinbaseKucoinOkx(
 )
 
 
-Coinbase_exchange = BingxBittrexCoinbaseKucoinOkx(
+Coinbase_exchange = BingxBittrexCoinbaseKucoinOkxCexio(
     name="coinbase",
     url="https://api.exchange.coinbase.com/products/symbol/book",
     params="",
@@ -330,7 +330,7 @@ Kraken_exchange = BitmexKraken(
 )
 
 
-Kucoin_exchange = BingxBittrexCoinbaseKucoinOkx(
+Kucoin_exchange = BingxBittrexCoinbaseKucoinOkxCexio(
     name="kucoin",
     url="https://api.kucoin.com/api/v1/market/orderbook/level2_20",
     params={
@@ -354,7 +354,7 @@ Mexc_exchange = CexExchanges(
 )
 
 
-Okx_exchange = BingxBittrexCoinbaseKucoinOkx(
+Okx_exchange = BingxBittrexCoinbaseKucoinOkxCexio(
     name="okx",
     url="https://www.okx.com/api/v5/market/books",
     params={
@@ -425,6 +425,15 @@ Backpack_exchange = CoinwCryptocomPoloniexBackpackGateio(
     params={
         "symbol": ""
     },
+    src_token="",
+    dest_token="",
+)
+
+
+Cexio_exchange = BingxBittrexCoinbaseKucoinOkxCexio(
+    name="cexio",
+    url="https://trade.cex.io/api/spot/rest-public/get_order_book",
+    params="",
     src_token="",
     dest_token="",
 )

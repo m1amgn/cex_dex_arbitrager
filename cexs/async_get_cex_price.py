@@ -37,6 +37,7 @@ class CexPrice:
                         params.update({key: value})
                 response = await session.get(url, headers=self.headers, params=params)
             logging.info(f"\nresponse {self.exchange.name} - {response}\n")
+
             if response.status == 200:
                 if response.headers.get('Content-Type') == 'text/plain' or response.headers.get('Content-Type') == 'text/html; charset=UTF-8':
                     text = await response.text()
@@ -46,15 +47,19 @@ class CexPrice:
                 logging.info(f"\ndata {self.exchange.name} - {data}\n")
                 return data
             else:
-                logging.info(
-                    f"\nSomething went wrong with response:\nresponse: {response}\ndata: {data}\nstatus: {response.status}\nWith exchange: {self.exchange.name}\n")
+                logging.info(f"Something went wrong with response: status: {response.status} for {self.exchange.name}")
                 return None
         except asyncio.TimeoutError:
-            logging.error(
-                f"TimeoutError: API call in {self.name} took longer than 10 seconds.")
+            logging.error(f"Timeout in {self.exchange.name} - API call took longer than expected.")
+            return None
+        except aiohttp.ClientError as e:
+            logging.error(f"Client error for {self.exchange.name}: {e}")
+            return None
+        except json.JSONDecodeError as e:
+            logging.error(f"JSON decoding failed for {self.exchange.name}: {e}")
             return None
         except Exception as e:
-            logging.error(f"Error fetching data from {self.exchange.name}: {e}")
+            logging.error(f"Unexpected error fetching data from {self.exchange.name}: {e}")
             return None
 
     async def get_price(self, session) -> dict:
@@ -183,10 +188,10 @@ class BitfinexGeminiPrice(CexPrice):
             return None
 
 
-class BitgetCoinwKucoinPrice(CexPrice):
+class BitgetCoinwKucoinCexioPrice(CexPrice):
     async def get_price(self, session) -> dict:
         '''
-        Get price from Bitget, Coinw, Kucoin
+        Get price from Bitget, Coinw, Kucoin, Cexio
         '''
         try:
             data = await self.get_exchange_data(session)
