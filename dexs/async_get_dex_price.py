@@ -1,15 +1,14 @@
-import requests
-import ujson as json
+import asyncio
+import logging
 import os
 import sys
-import web3
-import asyncio
-import aiohttp
-import logging
-
 from pathlib import Path
-from web3 import Web3
+
+import requests
+import ujson as json
+import web3
 from dotenv import load_dotenv
+from web3 import Web3
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
@@ -22,11 +21,11 @@ class DexPrice:
         _ROOT_DIR = Path(__file__).parent.parent.absolute()
 
     _BOT_DIR = os.path.join(_ROOT_DIR, "dexs")
-    _DEX_CONTRACTS_PATH = os.path.join(_BOT_DIR, "dex_contracts.json")
-    _TOKEN_INFO_PATH = os.path.join(_BOT_DIR, "tokens_info.json")
-    _DEFAULT_FACTORY_PATH = os.path.join(_BOT_DIR, "default_factory_abi.json")
-    _DEFAULT_V2_POOL_PATH = os.path.join(_BOT_DIR, "default_v2_pool_abi.json")
-    _DEFAULT_V3_POOL_PATH = os.path.join(_BOT_DIR, "default_v3_pool_abi.json")
+    _DEX_CONTRACTS_PATH = os.path.join(_BOT_DIR, "abi/dex_contracts.json")
+    _TOKEN_INFO_PATH = os.path.join(_BOT_DIR, "abi/tokens_info.json")
+    _DEFAULT_FACTORY_PATH = os.path.join(_BOT_DIR, "abi/default_factory_abi.json")
+    _DEFAULT_V2_POOL_PATH = os.path.join(_BOT_DIR, "abi/default_v2_pool_abi.json")
+    _DEFAULT_V3_POOL_PATH = os.path.join(_BOT_DIR, "abi/default_v3_pool_abi.json")
     _dex_contracts = json.load(open(_DEX_CONTRACTS_PATH))
     _tokens_info = json.load(open(_TOKEN_INFO_PATH))
 

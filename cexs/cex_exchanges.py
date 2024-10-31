@@ -38,8 +38,8 @@ class BitfinexKinePhemex(CexExchanges):
         return pairs
 
 
-class BitgetYoubit(CexExchanges):
-    '''Bitget, Youbit'''
+class BitgetYoubitLbank(CexExchanges):
+    '''Bitget, Youbit, Lbank'''
 
     def prepare_pair(self) -> str:
         pairs = (self.src_token+"_"+self.dest_token).lower()
@@ -167,7 +167,7 @@ Bitfinex_exchange = BitfinexKinePhemex(
 )
 
 
-Bitget_exchange = BitgetYoubit(
+Bitget_exchange = BitgetYoubitLbank(
     name="bitget",
     url="https://api.bitget.com/data/v1/market/depth",
     params={
@@ -386,7 +386,7 @@ Poloniex_exchange = CoinwCryptocomPoloniexBackpackGateio(
 )
 
 
-Youbit_exchange = BitgetYoubit(
+Youbit_exchange = BitgetYoubitLbank(
     name="youbit",
     url="https://yobit.net/api/3/depth/symbol",
     params={
@@ -433,7 +433,20 @@ Backpack_exchange = CoinwCryptocomPoloniexBackpackGateio(
 Cexio_exchange = BingxBittrexCoinbaseKucoinOkxCexio(
     name="cexio",
     url="https://trade.cex.io/api/spot/rest-public/get_order_book",
-    params="",
+    params={
+        "pair": "",
+    },
+    src_token="",
+    dest_token="",
+)
+
+Lbank_exchange = BitgetYoubitLbank(
+    name="lbank",
+    url="https://api.lbank.info/v2/depth.do", #https://www.lbkex.net/v2/depth.do, https://api.lbkex.com/v2/depth.do
+    params={
+        "symbol": "",
+        "size": 50
+    },
     src_token="",
     dest_token="",
 )

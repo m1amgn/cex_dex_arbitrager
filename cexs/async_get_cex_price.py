@@ -188,10 +188,10 @@ class BitfinexGeminiPrice(CexPrice):
             return None
 
 
-class BitgetCoinwKucoinCexioPrice(CexPrice):
+class BitgetCoinwKucoinCexioLbankPrice(CexPrice):
     async def get_price(self, session) -> dict:
         '''
-        Get price from Bitget, Coinw, Kucoin, Cexio
+        Get price from Bitget, Coinw, Kucoin, Cexio, Lbank
         '''
         try:
             data = await self.get_exchange_data(session)

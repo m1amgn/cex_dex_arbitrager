@@ -1,5 +1,5 @@
 import asyncio
-from find_spread import find_spread
+from find_spread.find_spread import find_spread
 
 
 async def main():

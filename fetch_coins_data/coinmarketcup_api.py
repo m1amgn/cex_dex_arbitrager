@@ -4,6 +4,7 @@ import time
 import os
 
 from dotenv import load_dotenv
+from six import print_
 
 load_dotenv()
 
@@ -11,37 +12,39 @@ load_dotenv()
 def get_blockchain_info():
     api_key = os.getenv('COINMARKETCUP_API_KEY')
     coins_info = json.load(open("coins_info_coinmarketcup.json"))
+    try:
+        for coins in coins_info:
+            if not coins["blockchains"]:
+                print(coins)
+                url = f"https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?id={str(coins['coin_id'])}"
 
-    for coins in coins_info:
-        if not coins["blockchains"]:
-            print(coins)
-            url = f"https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?id={str(coins['coin_id'])}"
+                headers = {
+                    'Accepts': 'application/json',
+                    'X-CMC_PRO_API_KEY': api_key,
+                }
 
-            headers = {
-                'Accepts': 'application/json',
-                'X-CMC_PRO_API_KEY': api_key,
-            }
+                response = requests.get(url, headers=headers)
+                data = response.json()
 
-            response = requests.get(url, headers=headers)
-            data = response.json()
+                if response.status_code == 200:
+                    for blockchain in data['data'][str(coins['coin_id'])]['contract_address']:
+                        coins["blockchains"].update({blockchain["platform"]["name"]: blockchain["contract_address"]})
+                        coins_info.append(coins["blockchains"])
 
-            if response.status_code == 200:
-                for blockchain in data['data'][str(coins['coin_id'])]['contract_address']:
-                    coins["blockchains"].update({blockchain["platform"]["name"]: blockchain["contract_address"]})
-                    coins_info.append(coins["blockchains"])
-                    
-                with open("coins_info_coinmarketcup.json", "w") as file:
-                    json.dump(coins_info, file, indent=4)
-                    
-            elif response.status_code == 429:
-                time.sleep(60)
-                continue
-            
-            elif not coins:
-                return False
-            
-            else:
-                print(f"Error: {data['status']['error_message']}")
+                    with open("coins_info_coinmarketcup.json", "w") as file:
+                        json.dump(coins_info, file, indent=4)
+
+                elif response.status_code == 429:
+                    time.sleep(60)
+                    continue
+
+                elif not coins:
+                    return False
+
+                else:
+                    print(f"Error: {data['status']['error_message']}")
+    except Exception as e:
+        print(e)
 
 
 def fetch_all_coins():
