@@ -2,7 +2,7 @@ import asyncio
 import ujson as json
 from find_spread.find_spread import calculate_spread, cex_prices, dex_prices
 
-SRC_TOKEN = "ACHI"
+SRC_TOKEN = "OSMO"
 DEST_TOKEN = "USDC"
 PART_OF_FILES = "by_pairs"
 
@@ -24,5 +24,5 @@ async def main(src_token: str, dest_token: str, part_of_files) -> None:
     calculate_spread(exchanges, aggregators, part_of_files)
 
 
-# if __name__ == "__main__":
-#     asyncio.run(main(SRC_TOKEN, DEST_TOKEN, PART_OF_FILES))
+if __name__ == "__main__":
+    asyncio.run(main(SRC_TOKEN, DEST_TOKEN, PART_OF_FILES))

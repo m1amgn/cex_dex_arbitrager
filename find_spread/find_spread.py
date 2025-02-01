@@ -7,14 +7,21 @@ import time
 
 from cexs.cex_exchanges import Bybit_exchange, Binance_exchange, Bingx_exchange, Bitfinex_exchange, Bitget_exchange, \
     Bitmex_exchange, Bitstamp_exchange, Coinbase_exchange, Coinw_exchange, Cryptocom_exchange, Deribit_exchange, \
-    Dydx_exchange, Garantex_exchange, Gateio_exchange, Gemini_exchange, Huobi_exchange, Kraken_exchange, \
-    Kucoin_exchange, Mexc_exchange, Okx_exchange, Phemex_exchange, Poloniex_exchange, Youbit_exchange, Zigzag_exchange, \
-    Coinex_exchange, Backpack_exchange, Cexio_exchange, Lbank_exchange
-from cexs.async_get_cex_price import BybitPrice, BingxPrice, BitfinexGeminiPrice, BitgetCoinwKucoinCexioLbankPrice, BitmexPrice, \
-    CexPrice, CryptocomPrice, DeribitPrice, DydxPrice, GarantexPrice, HuobiPrice, KrakenPrice, OkxPrice, PhemexPrice, \
+    Garantex_exchange, Gateio_exchange, Gemini_exchange, Huobi_exchange, Kraken_exchange, \
+    Kucoin_exchange, Mexc_exchange, Okx_exchange, Phemex_exchange, Poloniex_exchange, Youbit_exchange, Coinex_exchange, \
+    Backpack_exchange, Cexio_exchange, Lbank_exchange
+from cexs.async_get_cex_price import BybitPrice, BingxPrice, BitfinexGeminiPrice, BitgetCoinwKucoinCexioLbankPrice, \
+    BitmexPrice, CexPrice, CryptocomPrice, DeribitPrice, GarantexPrice, HuobiPrice, KrakenPrice, OkxPrice, \
+    PhemexPrice, \
     PoloniexPrice, YoubitPrice, CoinexPrice, BackpackPrice
-from dexs.async_get_dex_price import DexscreenerAggregatorApi, ParaswapAggregatorApi, KyberswapAggregatorApi, \
-    OpenoceanAggregatorApi, OneInchAggregatorApi, JupyterApi, OsmosisApi, StonFiApi
+from dexs.aggregators.dexscreener import DexscreenerAggregatorApi
+from dexs.aggregators.paraswap import ParaswapAggregatorApi
+from dexs.aggregators.kyberswap import KyberswapAggregatorApi
+from dexs.aggregators.openocean import OpenoceanAggregatorApi
+from dexs.aggregators.oneinch import OneInchAggregatorApi
+from dexs.exchanges.jupyter import JupyterApi
+from dexs.exchanges.osmosis import OsmosisApi
+from dexs.exchanges.stonfi import StonFiApi
 from dexs.networks import Ethereum, BinanceSmartChain, Arbitrum, Optimism, Polygon, Avalanche, Solana, Osmosis, Base, \
     TON
 from aiohttp import ClientTimeout

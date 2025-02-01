@@ -1,7 +1,82 @@
+Check CoinW
+
 Twitter https://x.com/binance/status/1858117907596603490?s=46
-Check Osmosis https://data.osmosis.zone/tokens/v2/all (Fake user agent lib)
+
 New pairs on Raydium https://github.com/patrulek/rayscan
+
 Use bitquery api https://docs.bitquery.io/docs/usecases/discord-bot/
+
 Defillama и dexscreener - new pairs
+
 Raydium and pump.fun
+
 If there is no symbol by contract check information in coingecko
+
+------------------------------------------------------------------------------------------
+Calculate commission:
+import { ethers } from "ethers";
+
+async function transactionCost(priorityFeeInGwei: number): Promise<string> {
+  try {
+    const gasLimit = 21000;
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    const feeData = await provider.getFeeData();
+
+    if (!feeData.lastBaseFeePerGas) {
+      throw new Error("Base Fee is not available.");
+    }
+
+    const priorityFeeInWei = ethers.utils.parseUnits(priorityFeeInGwei.toString(), "gwei");
+
+    const totalGasPrice = feeData.lastBaseFeePerGas.add(priorityFeeInWei); // BigNumber
+    const transactionFeeInWei = totalGasPrice.mul(gasLimit); // BigNumber
+
+    return ethers.utils.formatEther(transactionFeeInWei);
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+------------------------------------------------------------------------------------------
+chainlink:
+from web3 import Web3
+
+CHAINLINK_ABI = [
+    {
+        "inputs": [],
+        "name": "latestRoundData",
+        "outputs": [
+            {"internalType": "uint80", "name": "roundId", "type": "uint80"},
+            {"internalType": "int256", "name": "answer", "type": "int256"},
+            {"internalType": "uint256", "name": "startedAt", "type": "uint256"},
+            {"internalType": "uint256", "name": "updatedAt", "type": "uint256"},
+            {"internalType": "uint80", "name": "answeredInRound", "type": "uint80"},
+        ],
+        "stateMutability": "view",
+        "type": "function",
+    }
+]
+
+def get_eth_price(rpc_url: str, contract_address: str) -> float:
+    try:
+        w3 = Web3(Web3.HTTPProvider(rpc_url))
+        if not w3.isConnected():
+            raise ConnectionError("")
+
+        contract = w3.eth.contract(address=Web3.toChecksumAddress(contract_address), abi=CHAINLINK_ABI)
+
+        latest_data = contract.functions.latestRoundData().call()
+        price = latest_data[1]
+
+        return float(price) / 10**8
+    except Exception as e:
+        print(e)
+        return None
+
+https://docs.chain.link/data-feeds/price-feeds/addresses?network=ethereum&page=1
+
+
+

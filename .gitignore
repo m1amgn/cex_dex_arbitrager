@@ -65,5 +65,6 @@ dmypy.json
 .pyre/
 .pytype/
 cython_debug/
-
 results/
+.idea
+.idea/
