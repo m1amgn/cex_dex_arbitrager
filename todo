@@ -1,6 +1,6 @@
-Check CoinW
+Bitstamp needs proxy
 
-Twitter https://x.com/binance/status/1858117907596603490?s=46
+Twitter parsing without API, because free plan doesn't work (https://github.com/3asyPe/twitter-automation, Snscrape) and parse new from exchanges
 
 New pairs on Raydium https://github.com/patrulek/rayscan
 

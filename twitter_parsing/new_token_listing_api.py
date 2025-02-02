@@ -1,24 +1,31 @@
+import os
 import tweepy
 import asyncio
 import re
 import json
 import logging
 import aiohttp
-from find_by_pairs import main
+from find_spread.find_spread import find_spread
 
-TRACK_KEYWORDS = ["new listing", "now listed", "token launch", "new token", "available now"]
+TRACK_KEYWORDS = ["new listing", "now listed", "token launch", "new token", "available now", "listing", "listed"]
 TOKEN_REGEX = r'\b[A-Z]{2,6}\b'
 
 logging.basicConfig(level=logging.INFO, filename='missing_tokens.log', filemode='a', format='%(asctime)s - %(message)s')
 
-with open('.tokens_coins_info/coins_info.json') as f:
+proxy_url = os.getenv("PROXY_URL")
+os.environ["HTTP_PROXY"] = os.getenv("PROXY_URL")
+os.environ["HTTPS_PROXY"] = os.getenv("PROXY_URL")
+
+os.environ["ALL_PROXY"] = os.getenv("SOCKS_PROXY_URL")
+
+with open('../tokens_coins_info/coins_info.json') as f:
     token_data = json.load(f)
 
 
 async def fetch_token_data(token):
     url = f"https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids={token.lower()}"
     async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
+        async with session.get(url, proxy=proxy_url) as response:
             if response.status == 200:
                 data = await response.json()
                 if data:
@@ -72,7 +79,7 @@ class MyStreamListener(tweepy.StreamingClient):
         await asyncio.gather(*tasks)
 
 
-client = MyStreamListener("YOUR_BEARER_TOKEN")
+client = MyStreamListener(os.getenv("X_BEARER_TOKEN"))
 
 
 async def main():

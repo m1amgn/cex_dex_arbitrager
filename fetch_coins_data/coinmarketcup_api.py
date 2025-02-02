@@ -4,7 +4,6 @@ import time
 import os
 
 from dotenv import load_dotenv
-from six import print_
 
 load_dotenv()
 
@@ -95,26 +94,20 @@ def test_get_blockchain_info(api_key):
 
 def get_all_chains():
     coins_info = json.load(open("coins_info.json"))
-    
+
     chains_list = []
-    
+
     for coins in coins_info:
         if coins["blockchains"]:
             for keys in coins["blockchains"].keys():
                 if keys not in chains_list:
                     chains_list.append(keys)
-    
+
     print(chains_list)
-
-
 
 
 while True:
     get_blockchain_info()
-
-
-
-# fetch_all_coins()
-# test_get_blockchain_info()
-
-# get_all_chains()
+    # fetch_all_coins()
+    # test_get_blockchain_info()
+    # get_all_chains()
